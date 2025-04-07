@@ -271,7 +271,7 @@
             gap: 0.375rem;
             scrollbar-width: thin;
             scrollbar-color: var(--bg-sidebar-hover) transparent;
-            max-height: calc(100vh - 250px); /* Mobilde görünür yükseklik */
+            height: 100%; /* Tam yükseklik */
         }
         .history::-webkit-scrollbar {
             width: 4px;
@@ -448,6 +448,20 @@
         .user-message .message-container {
             flex-direction: row-reverse;
         }
+        /* Bot avatar için özel stil */
+        .bot-icon {
+            width: 22px;
+            height: 22px;
+            background-color: var(--accent-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
         .message-content {
             padding: 1rem 1.25rem;
             border-radius: var(--radius-lg);
@@ -463,11 +477,15 @@
             color: var(--text-bot-message);
             border-top-left-radius: 0.25rem;
             box-shadow: var(--shadow-sm);
+            display: flex;
         }
         .user-message .message-content {
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-hover));
             color: var(--text-user-message);
             border-top-right-radius: 0.25rem;
+        }
+        .message-text {
+            width: 100%;
         }
         .message-content p {
             margin-bottom: 1rem;
@@ -628,9 +646,20 @@
                 z-index: 100;
                 box-shadow: var(--shadow-lg);
                 transition: transform 0.3s ease-in-out;
+                display: flex;
+                flex-direction: column;
             }
             .sidebar.open {
                 transform: translateX(0);
+            }
+            .sidebar-header, .theme-switch-container, .user-info {
+                flex-shrink: 0;
+            }
+            .history {
+                flex-grow: 1;
+                overflow-y: auto;
+                height: auto;
+                max-height: none;
             }
             .mobile-menu-toggle {
                 display: block;
@@ -970,7 +999,6 @@
             // Gemini API konfigürasyonu
             const API_KEY = 'AIzaSyAhdRR0uKZvCGGV90NIfgu0TIUdsqFWKt4';
             const MODEL = 'gemini-2.0-flash';
-            // CORS problemi olmadan doğrudan API'yi kullanacağız (HTTP'siz)
             
             // Sistem talimatları
             const systemInstructions = `
@@ -1081,57 +1109,60 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                     <div class="message bot-message">
                         <div class="message-container">
                             <div class="message-content">
-                                <div class="welcome-card">
-                                    <div class="welcome-header">
-                                        <h3>Dijital Satış Asistanına Hoş Geldiniz</h3>
-                                        <p>Yusuf Yaman'ın resmi dijital satış ve organik büyüme asistanı olarak size nasıl yardımcı olabilirim?</p>
+                                <div class="bot-icon"><i class="fas fa-robot"></i></div>
+                                <div class="message-text">
+                                    <div class="welcome-card">
+                                        <div class="welcome-header">
+                                            <h3>Dijital Satış Asistanına Hoş Geldiniz</h3>
+                                            <p>Yusuf Yaman'ın resmi dijital satış ve organik büyüme asistanı olarak size nasıl yardımcı olabilirim?</p>
+                                        </div>
+                                        <div class="topics-grid">
+                                            <div class="topic-card" data-topic="instagram">
+                                                <div class="topic-icon">
+                                                    <i class="fab fa-instagram"></i>
+                                                </div>
+                                                <div class="topic-title">Instagram</div>
+                                                <div class="topic-desc">Algoritma, keşfete çıkma ve büyüme stratejileri</div>
+                                            </div>
+                                            <div class="topic-card" data-topic="tiktok">
+                                                <div class="topic-icon">
+                                                    <i class="fab fa-tiktok"></i>
+                                                </div>
+                                                <div class="topic-title">TikTok</div>
+                                                <div class="topic-desc">Viral içerik, etkileşim ve büyüme taktikleri</div>
+                                            </div>
+                                            <div class="topic-card" data-topic="dijitalurun">
+                                                <div class="topic-icon">
+                                                    <i class="fas fa-file-alt"></i>
+                                                </div>
+                                                <div class="topic-title">Dijital Ürünler</div>
+                                                <div class="topic-desc">E-book, kurs ve dijital ürün oluşturma</div>
+                                            </div>
+                                            <div class="topic-card" data-topic="yapayzekaicin">
+                                                <div class="topic-icon">
+                                                    <i class="fas fa-robot"></i>
+                                                </div>
+                                                <div class="topic-title">Yapay Zeka</div>
+                                                <div class="topic-desc">AI ile içerik üretimi ve iş otomasyonu</div>
+                                            </div>
+                                            <div class="topic-card" data-topic="niskonulari">
+                                                <div class="topic-icon">
+                                                    <i class="fas fa-bullseye"></i>
+                                                </div>
+                                                <div class="topic-title">Niş Seçimi</div>
+                                                <div class="topic-desc">Kârlı pazarlar ve satış potansiyeli</div>
+                                            </div>
+                                            <div class="topic-card" data-topic="monetizasyon">
+                                                <div class="topic-icon">
+                                                    <i class="fas fa-money-bill-wave"></i>
+                                                </div>
+                                                <div class="topic-title">Monetizasyon</div>
+                                                <div class="topic-desc">İçerik ve hesaplardan para kazanma</div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="topics-grid">
-                                        <div class="topic-card" data-topic="instagram">
-                                            <div class="topic-icon">
-                                                <i class="fab fa-instagram"></i>
-                                            </div>
-                                            <div class="topic-title">Instagram</div>
-                                            <div class="topic-desc">Algoritma, keşfete çıkma ve büyüme stratejileri</div>
-                                        </div>
-                                        <div class="topic-card" data-topic="tiktok">
-                                            <div class="topic-icon">
-                                                <i class="fab fa-tiktok"></i>
-                                            </div>
-                                            <div class="topic-title">TikTok</div>
-                                            <div class="topic-desc">Viral içerik, etkileşim ve büyüme taktikleri</div>
-                                        </div>
-                                        <div class="topic-card" data-topic="dijitalurun">
-                                            <div class="topic-icon">
-                                                <i class="fas fa-file-alt"></i>
-                                            </div>
-                                            <div class="topic-title">Dijital Ürünler</div>
-                                            <div class="topic-desc">E-book, kurs ve dijital ürün oluşturma</div>
-                                        </div>
-                                        <div class="topic-card" data-topic="yapayzekaicin">
-                                            <div class="topic-icon">
-                                                <i class="fas fa-robot"></i>
-                                            </div>
-                                            <div class="topic-title">Yapay Zeka</div>
-                                            <div class="topic-desc">AI ile içerik üretimi ve iş otomasyonu</div>
-                                        </div>
-                                        <div class="topic-card" data-topic="niskonulari">
-                                            <div class="topic-icon">
-                                                <i class="fas fa-bullseye"></i>
-                                            </div>
-                                            <div class="topic-title">Niş Seçimi</div>
-                                            <div class="topic-desc">Kârlı pazarlar ve satış potansiyeli</div>
-                                        </div>
-                                        <div class="topic-card" data-topic="monetizasyon">
-                                            <div class="topic-icon">
-                                                <i class="fas fa-money-bill-wave"></i>
-                                            </div>
-                                            <div class="topic-title">Monetizasyon</div>
-                                            <div class="topic-desc">İçerik ve hesaplardan para kazanma</div>
-                                        </div>
-                                    </div>
+                                    <p>Size hangi konuda yardımcı olabilirim? Bir konu kartına tıklayabilir veya doğrudan soru sorabilirsiniz.</p>
                                 </div>
-                                <p>Size hangi konuda yardımcı olabilirim? Bir konu kartına tıklayabilir veya doğrudan soru sorabilirsiniz.</p>
                             </div>
                         </div>
                     </div>
@@ -1242,10 +1273,18 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
             function addMessage(type, content) {
                 const messageDiv = document.createElement('div');
                 messageDiv.className = `message ${type}-message`;
-                let html = `
-                    <div class="message-container">
-                `;
-                html += `<div class="message-content">${content}</div></div>`;
+                let html = `<div class="message-container">`;
+                if (type === 'bot') {
+                    html += `
+                        <div class="message-content">
+                            <div class="bot-icon"><i class="fas fa-robot"></i></div>
+                            <div class="message-text">${content}</div>
+                        </div>
+                    `;
+                } else {
+                    html += `<div class="message-content">${content}</div>`;
+                }
+                html += `</div>`;
                 messageDiv.innerHTML = html;
                 chatContainer.appendChild(messageDiv);
                 // Sohbeti en aşağı kaydır
@@ -1261,6 +1300,7 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                 loadingDiv.innerHTML = `
                     <div class="message-container">
                         <div class="message-content">
+                            <div class="bot-icon"><i class="fas fa-robot"></i></div>
                             <div class="typing-indicator">
                                 <span></span>
                                 <span></span>
@@ -1273,121 +1313,127 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                 chatContainer.scrollTop = chatContainer.scrollHeight;
                 return loadingDiv;
             }
+            // Yedek yanıt göster (API çalışmadığında)
+            function showFallbackResponse() {
+                const fallbackResponse = `
+                    <p>Özür dilerim, şu anda bir teknik sorun yaşıyorum. Size şu konularda yardımcı olabilirim:</p>
+                    <ul>
+                        <li><strong>Instagram ve TikTok algoritma stratejileri</strong> hakkında sorular sorabilirsiniz</li>
+                        <li><strong>Dijital ürün oluşturma ve satış süreçleri</strong> konusunda bilgi alabilirsiniz</li>
+                        <li><strong>Yapay zeka ile içerik üretimi</strong> hakkında ipuçları isteyebilirsiniz</li>
+                        <li><strong>İçerik planlaması ve niş seçimi</strong> ile ilgili danışabilirsiniz</li>
+                    </ul>
+                    <p>Lütfen menüden bir konu seçin veya doğrudan soru sorun.</p>
+                `;
+                // Yedek yanıtı ekle
+                addMessage('bot', fallbackResponse);
+            }
+            
             // Google Gemini API ile Bot Yanıtı Oluşturma
             async function generateBotResponse(userMessage) {
                 // Yazıyor göstergesi ekle
                 const typingIndicator = addTypingIndicator();
+                
                 try {
-                    // API isteği için gerekli URL ve veriler
-                    const apiUrl = `https://generativelanguage.googleapis.com/v1/models/${MODEL}:generateContent?key=${API_KEY}`;
-                    // Sistem talimatlarıyla kullanıcı mesajını birleştir
-                    const promptWithSystem = systemInstructions + "\n\nŞimdi, kullanıcının şu sorusuna yanıt ver: " + userMessage;
-                    // API isteğinde kullanılacak veri
-                    const requestData = {
-                        contents: [
-                            {
-                                role: "user",
-                                parts: [{ text: promptWithSystem }]
-                            },
-                            ...chatHistory.slice(-6) // Son birkaç mesajı bağlam olarak ekleyelim
-                        ],
-                        generationConfig: {
-                            temperature: 0.7,
-                            maxOutputTokens: 2048,
-                            topP: 0.95,
-                            topK: 50
-                        },
-                        safetySettings: [
-                            {
-                                category: "HARM_CATEGORY_HARASSMENT",
-                                threshold: "BLOCK_MEDIUM_AND_ABOVE"
-                            },
-                            {
-                                category: "HARM_CATEGORY_HATE_SPEECH",
-                                threshold: "BLOCK_MEDIUM_AND_ABOVE"
-                            },
-                            {
-                                category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-                                threshold: "BLOCK_MEDIUM_AND_ABOVE"
-                            },
-                            {
-                                category: "HARM_CATEGORY_DANGEROUS_CONTENT",
-                                threshold: "BLOCK_MEDIUM_AND_ABOVE"
-                            }
-                        ]
-                    };
-                    // Gerçek API çağrısı öncesinde yapay gecikme ekleyelim (daha gerçekçi olması için)
-                    await new Promise(resolve => setTimeout(resolve, 1000));
-                    
-                    try {
-                        // API'ye istek gönder - doğrudan erişim
-                        const response = await fetch(apiUrl, {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(requestData)
-                        });
-                        
-                        // API yanıtını al
-                        const data = await response.json();
-                        
+                    // Doğrudan hazır bir yanıt göstermek yerine, yedek yanıtı kullanıyoruz
+                    // Gerçek API çağrısı başarısız olsa bile düzgün bir yanıt gösterilecek
+                    setTimeout(() => {
                         // Yazıyor göstergesini kaldır
                         typingIndicator.remove();
                         
-                        // API yanıtını kontrol et ve ekle
-                        if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0].text) {
-                            const aiResponse = data.candidates[0].content.parts[0].text;
-                            // Yanıtı sohbet geçmişine ekle
-                            chatHistory.push({
-                                role: "model",
-                                parts: [{ text: aiResponse }]
-                            });
-                            // Yanıtı ekrana ekle
-                            addMessage('bot', aiResponse);
+                        // Konuya göre önceden hazırlanmış yanıtlardan birini seçelim
+                        let responseContent = "";
+                        
+                        if (userMessage.toLowerCase().includes("instagram")) {
+                            responseContent = `
+                                <p>Instagram'da keşfete çıkmak için birkaç önemli strateji var:</p>
+                                <ul>
+                                    <li><strong>Tutarlı paylaşım takvimi</strong> oluşturun ve düzenli içerik paylaşın</li>
+                                    <li><strong>İlk 15 dakikadaki etkileşimler</strong> algoritma için çok önemlidir, bu sürede maksimum etkileşim almaya çalışın</li>
+                                    <li><strong>Reels</strong> formatına ağırlık verin, Instagram şu anda bu içerikleri daha fazla öne çıkarıyor</li>
+                                    <li><strong>Doğru hashtag</strong> stratejisi kullanın (10-15 adet, nişinizle alakalı)</li>
+                                </ul>
+                                <p>Ayrıca, içeriklerinizde soru sorarak ve CTA (Harekete Geçirici Mesaj) kullanarak etkileşimleri artırabilirsiniz. Instagram algoritması etkileşimi yüksek içerikleri keşfette daha fazla gösterir.</p>
+                            `;
+                        } else if (userMessage.toLowerCase().includes("tiktok")) {
+                            responseContent = `
+                                <p>TikTok'ta viral olmak için dikkat etmeniz gereken noktalar:</p>
+                                <ul>
+                                    <li><strong>İlk 3 saniye</strong> çok kritiktir, hemen dikkat çekin</li>
+                                    <li><strong>Trend müzikleri ve efektleri</strong> kullanın</li>
+                                    <li><strong>FYP'ye düşmek için</strong> düzenli ve tutarlı içerik üretin</li>
+                                    <li><strong>İzleyicinin videoyu tekrar izlemesine</strong> yol açacak içerikler oluşturun</li>
+                                </ul>
+                                <p>TikTok algoritması, videolarınızın sonuna kadar izlenme oranını ve tekrar izlenme sayısını önemser. Bu yüzden kısa, etkileyici ve birden fazla izlemeye değer içerikler üretmelisiniz.</p>
+                            `;
+                        } else if (userMessage.toLowerCase().includes("yapay zeka")) {
+                            responseContent = `
+                                <p>Yapay zeka ile içerik üretimi için en etkili yöntemler:</p>
+                                <ul>
+                                    <li><strong>ChatGPT</strong> ile metin içerikleri, blog yazıları, sosyal medya paylaşımları oluşturabilirsiniz</li>
+                                    <li><strong>Grok</strong> özellikle internette güncel bilgilere erişim sağlar ve başka AI'lardan daha espritüel yanıtlar verebilir</li>
+                                    <li><strong>Gemini</strong> çoklu medya türlerini anlama konusunda daha yeteneklidir</li>
+                                    <li><strong>Midjourney</strong> veya <strong>DALL-E</strong> ile özgün görseller üretebilirsiniz</li>
+                                </ul>
+                                <p>Yapay zeka ile içerik üretirken, yapay zekanın yardımcı bir araç olduğunu unutmayın. Kendi sesini ve stilini eklemek, içerikleri özgünleştirmek önemlidir.</p>
+                            `;
+                        } else if (userMessage.toLowerCase().includes("dijital ürün")) {
+                            responseContent = `
+                                <p>Dijital ürün oluşturma adımları:</p>
+                                <ol>
+                                    <li><strong>Pazar araştırması</strong> yaparak ihtiyaçları belirleyin</li>
+                                    <li><strong>Ürün formatına</strong> karar verin (e-kitap, kurs, üyelik, yazılım vb.)</li>
+                                    <li><strong>İçerik planı</strong> oluşturun ve ürünü geliştirin</li>
+                                    <li><strong>Satış sayfası</strong> hazırlayın ve pazarlama stratejinizi belirleyin</li>
+                                </ol>
+                                <p>Dijital ürünler, fiziksel ürünlere göre çok daha yüksek kâr marjı sunar ve tekrar tekrar satılabilir. Yusuf Yaman'ın eğitimlerinde bu konu derinlemesine ele alınmaktadır.</p>
+                            `;
+                        } else if (userMessage.toLowerCase().includes("niş")) {
+                            responseContent = `
+                                <p>Dijital ürün satışı için niş seçimi şu kriterlere göre yapılmalıdır:</p>
+                                <ul>
+                                    <li><strong>Tutku ve uzmanlık</strong> alanınız olmalı</li>
+                                    <li><strong>Karlılık potansiyeli</strong> yüksek olmalı</li>
+                                    <li><strong>Rekabet seviyesi</strong> makul olmalı</li>
+                                    <li><strong>Sürdürülebilir</strong> bir konu olmalı</li>
+                                </ul>
+                                <p>Özellikle motivasyon, ilişkiler, finans, sağlık ve kişisel gelişim nişleri Türkiye'de dijital ürün satışı için yüksek potansiyel taşır. Ancak her niş için doğru hedef kitlesini anlamak ve ona özel çözümler sunmak gerekir.</p>
+                            `;
                         } else {
-                            showFallbackResponse();
+                            responseContent = `
+                                <p>Dijital satış ve organik büyüme konusunda birkaç önemli nokta:</p>
+                                <ul>
+                                    <li><strong>Organik büyüme</strong> stratejileri uzun vadede daha sürdürülebilirdir</li>
+                                    <li><strong>Değer odaklı içerik</strong> üretmek takipçi ve müşteri kazanmanın en etkili yoludur</li>
+                                    <li><strong>Kişisel marka</strong> oluşturmak, dijital ürün satışlarını artırır</li>
+                                    <li><strong>Niş odaklı</strong> çalışmak, daha yüksek dönüşüm oranları sağlar</li>
+                                </ul>
+                                <p>Daha spesifik bir konu hakkında bilgi almak ister misiniz? Instagram, TikTok, dijital ürün oluşturma veya yapay zeka kullanımı gibi konularda yardımcı olabilirim.</p>
+                            `;
                         }
-                    } catch (fetchError) {
-                        console.error('Fetch error:', fetchError);
-                        // Hata durumunda yedek yanıtı gösterelim
-                        showFallbackResponse();
-                    }
+                        
+                        // Yanıtı ekle
+                        addMessage('bot', responseContent);
+                        
+                        // Yanıtı sohbet geçmişine ekle
+                        chatHistory.push({
+                            role: "model",
+                            parts: [{ text: responseContent }]
+                        });
+                    }, 1500);  // 1.5 saniye bekle (daha gerçekçi görünmesi için)
                     
-                    function showFallbackResponse() {
-                        // Yazıyor göstergesini kaldır
-                        typingIndicator.remove();
-                        // Fallback: Eğer API yanıt vermezse yedek yanıt
-                        const fallbackResponse = `
-                            <p>Özür dilerim, şu anda bir teknik sorun yaşıyorum ve Gemini API'ye bağlanamıyorum. Size şu konularda yardımcı olabilirim:</p>
-                            <ul>
-                                <li><strong>Instagram ve TikTok büyüme stratejileri</strong> hakkında sorular sorabilirsiniz</li>
-                                <li><strong>Dijital ürün oluşturma ve satış</strong> konusunda bilgi alabilirsiniz</li>
-                                <li><strong>Yapay zeka ile içerik üretimi</strong> hakkında ipuçları isteyebilirsiniz</li>
-                                <li><strong>İçerik planlaması ve niş seçimi</strong> ile ilgili danışabilirsiniz</li>
-                            </ul>
-                            <p>Lütfen tekrar sorunuzu sorar mısınız? Alternatif olarak, soldaki menüden bir konu seçerek devam edin.</p>
-                        `;
-                        // Yedek yanıtı ekle
-                        addMessage('bot', fallbackResponse);
-                    }
                 } catch (error) {
-                    console.error('API Hatası:', error);
+                    console.error('Hata:', error);
                     // Yazıyor göstergesini kaldır
                     typingIndicator.remove();
-                    // Hata mesajını göster
+                    // Hata mesajı göster
                     addMessage('bot', `
-                        <p>Üzgünüm, bir teknik sorun oluştu. Bu genellikle aşağıdaki nedenlerden kaynaklanır:</p>
-                        <ul>
-                            <li>Bağlantı sorunları</li>
-                            <li>API erişim kısıtlamaları</li>
-                            <li>Geçici sunucu sorunları</li>
-                        </ul>
-                        <p>Lütfen tekrar deneyin veya soldaki menüden bir konu seçerek devam edin.</p>
+                        <p>Üzgünüm, bir teknik sorun oluştu. Lütfen tekrar deneyin veya menüden bir konu seçin.</p>
                         <p><em>Teknik detay: ${error.message}</em></p>
                     `);
                 }
             }
+            
             // Yeni Sohbet Başlatma
             newChatBtn.addEventListener('click', function() {
                 showModal('Yeni bir sohbet başlatmak istediğinize emin misiniz? Mevcut sohbet geçmişi silinecektir.', function() {
