@@ -333,11 +333,21 @@
         .message-content ul, .message-content ol {
             margin-left: 20px;
             margin-top: 5px;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
 
         .message-content li {
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+        }
+        
+        .message-content h3 {
+            margin-top: 15px;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+        
+        .message-content strong {
+            color: var(--accent-color);
         }
 
         .input-container {
@@ -414,6 +424,13 @@
             background: var(--accent-color);
         }
 
+        .topic-section {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border-color);
+        }
+
         @media (max-width: 768px) {
             .app-container {
                 flex-direction: column;
@@ -484,13 +501,25 @@
                     <span>Hoş Geldiniz</span>
                 </div>
                 <div class="history-item" data-topic="instagram">
-                    <span>Instagram Keşfet Rehberi</span>
+                    <span>Instagram Rehberi</span>
                 </div>
                 <div class="history-item" data-topic="tiktok">
-                    <span>TikTok İçerik Stratejisi</span>
+                    <span>TikTok Stratejileri</span>
                 </div>
                 <div class="history-item" data-topic="dijitalurun">
-                    <span>Dijital Ürün Fikirleri</span>
+                    <span>Dijital Ürün Oluşturma</span>
+                </div>
+                <div class="history-item" data-topic="yapayzekaicin">
+                    <span>Yapay Zeka Araçları</span>
+                </div>
+                <div class="history-item" data-topic="niskonulari">
+                    <span>Niş Seçimi</span>
+                </div>
+                <div class="history-item" data-topic="monetizasyon">
+                    <span>Monetizasyon Yöntemleri</span>
+                </div>
+                <div class="history-item" data-topic="contentplan">
+                    <span>İçerik Planı Oluşturma</span>
                 </div>
             </div>
             
@@ -590,14 +619,16 @@
                         </div>
                         <div class="message-content">
                             <p>Merhaba, ben Yusuf Yaman'ın Dijital Satış Asistanıyım! Size nasıl yardımcı olabilirim?</p>
-                            <p>Aşağıdaki konularda sorularınızı yanıtlayabilirim:</p>
+                            <p>Aşağıdaki konularda uzmanlaşmış durumdayım:</p>
                             <ul>
-                                <li>Instagram ve TikTok'ta organik büyüme</li>
-                                <li>Algoritma optimizasyonu ve keşfete çıkma</li>
-                                <li>Dijital ürün oluşturma ve satış teknikleri</li>
-                                <li>İçerik üretimi ve niş seçimi</li>
-                                <li>Yapay zeka araçlarıyla içerik oluşturma</li>
+                                <li><strong>Instagram ve TikTok Stratejileri:</strong> Algoritma, keşfete çıkma, içerik planlaması</li>
+                                <li><strong>Dijital Ürün Oluşturma:</strong> E-book, çevrimiçi kurslar, dijital şablonlar</li>
+                                <li><strong>Yapay Zeka ile İçerik Üretimi:</strong> ChatGPT, Midjourney, ElevenLabs kullanım rehberleri</li>
+                                <li><strong>Niş Seçimi ve Pazar Araştırması:</strong> Kârlı dijital ürün nişleri bulma</li>
+                                <li><strong>Monetizasyon Stratejileri:</strong> Dijital ürünlerden para kazanma yöntemleri</li>
+                                <li><strong>İçerik Planı Oluşturma:</strong> 30-90 günlük içerik takvimi hazırlama</li>
                             </ul>
+                            <p>Sorularınızı sormaya başlayabilir veya soldaki menüden bir konu seçebilirsiniz!</p>
                         </div>
                     </div>
                 `;
@@ -650,7 +681,7 @@
                 return messageDiv;
             }
             
-            // Bot Yanıtı Oluşturma (Tamamen yerel, API kullanmadan)
+            // Bot Yanıtı Oluşturma (Genişletilmiş yanıtlar)
             function generateBotResponse(userMessage) {
                 // Yükleniyor mesajı ekle
                 const loadingMessage = addMessage('bot', '<p><em>Yanıt yazılıyor...</em></p>');
@@ -661,111 +692,2194 @@
                 // Yanıt oluştur
                 let response = '';
                 
-                // Eşleşme kuralları
-                if (lowerCaseMessage.includes('instagram') && (lowerCaseMessage.includes('keşfet') || lowerCaseMessage.includes('kesfet'))) {
+                // İNSTAGRAM İLE İLGİLİ SORULAR
+                if ((lowerCaseMessage.includes('instagram') && lowerCaseMessage.includes('keşfet')) || 
+                    (lowerCaseMessage.includes('instagram') && lowerCaseMessage.includes('explore'))) {
                     response = `
-                        <p>Instagram'da keşfete çıkmak için şu stratejileri uygulamalısınız:</p>
+                        <h3>Instagram'da Keşfete Çıkma Stratejileri</h3>
+                        <p>Instagram'da keşfete çıkmak için uygulayabileceğiniz kapsamlı stratejiler:</p>
                         <ol>
-                            <li><strong>İlk 3 saniye kuralı:</strong> Videonuzun ilk 3 saniyesi çok dikkat çekici olmalı. Bu sürede izleyiciyi yakalayamazsanız, algoritma videonuzu daha az kişiye gösterir.</li>
-                            <li><strong>Etkileşim sinyalleri:</strong> Instagram, videoların "Kaydedilme" ve "Paylaşılma" oranlarına çok değer verir. İzleyicileri videonuzu kaydetmeye ve paylaşmaya teşvik eden içerikler oluşturun.</li>
-                            <li><strong>Tutarlı içerik:</strong> Algoritma, düzenli ve tutarlı içerik üreten hesapları ödüllendirir. Her gün belirli saatlerde içerik paylaşmaya çalışın.</li>
-                            <li><strong>Doğru etiketler:</strong> Niş etiketleri kullanın ve en fazla 5-7 etiket ekleyin. Çok genel etiketler rekabeti artırırken, çok spesifik etiketler erişimi sınırlayabilir.</li>
-                            <li><strong>CTA kullanın:</strong> "Profilimdeki linke tıklayın", "Bu videoyu kaydedin" gibi çağrılar ekleyin. Bu, izleyici etkileşimini artırır.</li>
+                            <li><strong>İlk 3 Saniye Kuralı:</strong> Videonuzun ilk 3 saniyesi çok dikkat çekici olmalı. Bu sürede izleyiciyi yakalayamazsanız, algoritma videonuzu daha az kişiye gösterir. Şok edici bir bilgi, çarpıcı bir görsel veya merak uyandıran bir soru ile başlayın.</li>
+                            
+                            <li><strong>Etkileşim Sinyalleri Optimizasyonu:</strong> Instagram algoritması şu etkileşim sinyallerine öncelik verir (önem sırasına göre):
+                                <ul>
+                                    <li>Kaydedilme oranı (en önemli sinyal)</li>
+                                    <li>Paylaşılma oranı</li>
+                                    <li>Profil ziyareti oranı</li>
+                                    <li>Yorum oranı</li>
+                                    <li>Beğeni oranı (en az önemli sinyal)</li>
+                                </ul>
+                                İçeriğinizi insanların kaydetmek ve paylaşmak isteyeceği şekilde tasarlayın.
+                            </li>
+                            
+                            <li><strong>Tutarlı İçerik Planı:</strong> Algoritma, düzenli ve tutarlı içerik üreten hesapları ödüllendirir. İdeal olarak:
+                                <ul>
+                                    <li>Günde en az 1 Reels</li>
+                                    <li>Haftada 3-5 hikaye</li>
+                                    <li>Haftada 1-2 normal gönderi (carousel tercih edilir)</li>
+                                </ul>
+                                Bu plan, algoritmanın hesabınızı "aktif" olarak görmesini sağlar.
+                            </li>
+                            
+                            <li><strong>Etiket (Hashtag) Stratejisi:</strong> Etiketleri şu şekilde kullanın:
+                                <ul>
+                                    <li>Popüler (1M+ gönderi) etiketlerden 1-2 tane</li>
+                                    <li>Orta seviye (100K-1M gönderi) etiketlerden 2-3 tane</li>
+                                    <li>Niş (10K-100K gönderi) etiketlerden 2-3 tane</li>
+                                    <li>Toplam 5-7 etiket kullanın (daha fazlası spam olarak algılanabilir)</li>
+                                </ul>
+                            </li>
+                            
+                            <li><strong>Video Süre Optimizasyonu:</strong> Instagram algoritması tamamı izlenen videoları tercih eder. İdeal video süresi 7-15 saniye arasındadır. Uzun videolarda tamamlanma oranı düşer, bu da keşfete çıkma ihtimalinizi azaltır.</li>
+                            
+                            <li><strong>Çağrı-Harekete (CTA) Kullanımı:</strong> İzleyicileri harekete geçiren net yönergeler kullanın:
+                                <ul>
+                                    <li>"Daha fazlası için profilimdeki linke tıklayın"</li>
+                                    <li>"Bu bilgiyi kaçırmamak için videoyu kaydedin"</li>
+                                    <li>"Yorumlarda düşüncelerinizi paylaşın"</li>
+                                </ul>
+                                CTAs etkileşimi artırır ve daha fazla keşfet görünürlüğü sağlar.
+                            </li>
+                            
+                            <li><strong>Trend Müzik ve Sesler:</strong> Instagram, trend olan müzikleri kullanan içerikleri daha çok öne çıkarır. Instagram Reels'in "Trend" bölümünden popüler müzikleri takip edin.</li>
+                            
+                            <li><strong>Optimum Paylaşım Zamanları:</strong> İçeriğinizi izleyicilerinizin en aktif olduğu zamanlarda paylaşın. Instagram İçgörüler veya Creator Studio'dan takipçilerinizin en aktif olduğu saatleri öğrenebilirsiniz.</li>
                         </ol>
-                        <p>Yusuf Yaman'ın eğitimlerinde bu stratejileri daha detaylı öğrenebilirsiniz!</p>
-                    `;
-                } else if (lowerCaseMessage.includes('tiktok')) {
-                    response = `
-                        <p>TikTok'ta başarılı olmak için şu stratejileri deneyebilirsiniz:</p>
+                        
+                        <h3>Bonus İpuçları</h3>
                         <ul>
-                            <li><strong>Trend müzikleri kullanın:</strong> TikTok algoritması trend müzikleri kullanan videoları öne çıkarır. Keşfet sayfasında popüler müzikleri takip edin.</li>
-                            <li><strong>Kısa ve öz videolar:</strong> 15 saniyeden kısa videolar daha fazla izlenir ve algoritma tarafından daha çok kişiye gösterilir.</li>
-                            <li><strong>Hook cümlesi:</strong> İlk saniyede izleyiciyi yakalayan bir "hook" cümlesi söyleyin. Örneğin: "Bu ipucu hayatınızı değiştirecek!" veya "Bunu denemeden TikTok'ta büyüyemezsiniz!"</li>
-                            <li><strong>Işık kalitesi:</strong> Doğal ışık kullanan videolar daha profesyonel görünür ve daha fazla etkileşim alır. Pencere kenarında çekim yapmayı deneyin.</li>
-                            <li><strong>Tutarlı niş:</strong> Belirli bir konuda uzmanlaşın ve hep o konuda içerik üretin. TikTok algoritması tematik içerikleri daha kolay öne çıkarır.</li>
+                            <li><strong>Carousel (Kaydırmalı) Gönderiler:</strong> Carousel gönderiler genellikle daha çok etkileşim alır ve algoritma tarafından tekrar gösterilme şansları daha yüksektir.</li>
+                            <li><strong>Yorumlara Hızlı Yanıt:</strong> Gönderinize gelen yorumlara ilk 30-60 dakika içinde yanıt verin. Bu, algoritmanın gönderinizi "aktif bir tartışma" olarak değerlendirmesini sağlar.</li>
+                            <li><strong>Video Altyazıları:</strong> Videolarınıza altyazı ekleyin. Bu hem erişilebilirliği artırır hem de sesi kapalı izleyenler için içeriğinizi anlaşılır kılar.</li>
                         </ul>
-                        <p>Bu stratejileri uyguladığınızda organik büyüme hızlanacaktır!</p>
+                        
+                        <p>Yusuf Yaman'ın eğitiminde bu stratejiler daha ayrıntılı olarak ele alınıyor ve gerçek vaka örnekleriyle destekleniyor.</p>
                     `;
-                } else if (lowerCaseMessage.includes('dijital ürün') || lowerCaseMessage.includes('ebook') || lowerCaseMessage.includes('e-book')) {
+                } 
+                else if (lowerCaseMessage.includes('instagram') && lowerCaseMessage.includes('reels')) {
                     response = `
-                        <p>Dijital ürün oluşturmak için adımlar:</p>
+                        <h3>Instagram Reels Optimizasyonu</h3>
+                        <p>Instagram Reels'te viral olmak ve daha fazla keşfet görünürlüğü elde etmek için şu stratejileri kullanın:</p>
+                        
+                        <h3>1. Teknik Optimizasyon</h3>
+                        <ul>
+                            <li><strong>Video Çözünürlüğü:</strong> En az 1080x1920 piksel çözünürlükte, dikey formatta video çekin</li>
+                            <li><strong>Video Kalitesi:</strong> İyi aydınlatma koşullarında, net ve titreşimsiz videolar çekin</li>
+                            <li><strong>Ses Kalitesi:</strong> Arka planda gürültü olmadan, net ses kalitesi sağlayın (gerekirse harici mikrofon kullanın)</li>
+                            <li><strong>Format:</strong> InShot veya CapCut gibi uygulamalarla 9:16 dikey formata düzenleyin</li>
+                        </ul>
+                        
+                        <h3>2. İçerik Yapısı</h3>
+                        <ul>
+                            <li><strong>Hook (İlk 3 Saniye):</strong> "Bu yöntemle Instagram'da 10 kat daha hızlı büyüyebilirsiniz" gibi dikkat çekici bir giriş yapın</li>
+                            <li><strong>Bilgi Bloğu:</strong> Verdiğiniz sözü tutarak değerli içeriği hızlıca aktarın</li>
+                            <li><strong>CTA (Çağrı):</strong> "Daha fazla içerik için takip edin", "Kaydet ve daha sonra uygula" gibi harekete geçirici çağrılar ekleyin</li>
+                        </ul>
+                        
+                        <h3>3. İçerik Türleri</h3>
+                        <p>En çok keşfete çıkan Reels formatları:</p>
                         <ol>
-                            <li><strong>Bir niş belirleyin:</strong> Motivasyon, ilişki, finans veya sağlık gibi niş bir alan seçin. Kendi deneyimlerinizden veya öğrendiğiniz bilgilerden yola çıkabilirsiniz.</li>
-                            <li><strong>Hedef kitlenin sorunlarını araştırın:</strong> Seçtiğiniz nişteki insanların en çok zorlandığı konuları belirleyin. Reddit, Quora veya sosyal medya gruplarında araştırma yapabilirsiniz.</li>
-                            <li><strong>5-7 bölümden oluşan bir e-book taslağı hazırlayın:</strong> Her bölüm bir sorunu ele almalı ve çözüm sunmalı.</li>
-                            <li><strong>Her bölümde pratik, uygulanabilir bilgiler sunun:</strong> Teorik bilgilerden ziyade, "bunu yapın, şunu yapın" şeklinde adım adım talimatlar verin.</li>
-                            <li><strong>ChatGPT veya diğer yapay zeka araçlarıyla içeriği zenginleştirin:</strong> "Motivasyon e-book'u için 10 pratik egzersiz öner" gibi promptlar kullanabilirsiniz.</li>
-                            <li><strong>Canva ile profesyonel bir kapak tasarımı yapın:</strong> Dikkat çekici ve profesyonel bir kapak, satışlarınızı artıracaktır.</li>
-                            <li><strong>Gumroad veya Shopier üzerinden satışa sunun:</strong> Bu platformlar komisyon alır ancak ödeme sistemini sizin için halleder.</li>
+                            <li><strong>Adım Adım Rehberler:</strong> "Instagram'da keşfete çıkmak için 5 adım"</li>
+                            <li><strong>İpucu & Hack Videoları:</strong> "Bilmediğiniz Instagram özelliği"</li>
+                            <li><strong>Önce/Sonra Dönüşümleri:</strong> "Bu stratejileri uygulamadan önce vs. sonra"</li>
+                            <li><strong>Sık Yapılan Hatalar:</strong> "Instagram'da büyürken kaçınmanız gereken 3 hata"</li>
+                            <li><strong>Trend Challenge'lara Katılım:</strong> Popüler Reels trendlerini kendi nişinize uyarlayın</li>
                         </ol>
-                        <p>Yusuf Yaman'ın eğitimindeki dijital ürün modülü bu konuda daha detaylı bilgiler içeriyor. İlk e-book'unuzla bile iyi bir gelir elde edebilirsiniz!</p>
+                        
+                        <h3>4. Algoritma İpuçları</h3>
+                        <ul>
+                            <li><strong>Watermark'sız İçerik:</strong> TikTok veya başka platformların filigranını taşıyan videoları paylaşmaktan kaçının, Instagram bunları cezalandırır</li>
+                            <li><strong>Tekrar Kullanım:</strong> Her platforma özgü içerik oluşturun, aynı videoyu her yere yüklemekten kaçının</li>
+                            <li><strong>Günlük Limit:</strong> Günde maksimum 3-4 Reels paylaşın, daha fazlası spam olarak algılanabilir</li>
+                            <li><strong>Tutarlılık:</strong> İçerik üretiminde minimum 30 gün tutarlı kalın, algoritmayı "eğitmek" için bu süre gereklidir</li>
+                        </ul>
+                        
+                        <p>Bu stratejiler Yusuf Yaman'ın eğitiminde bulunan ve birçok öğrencisinin 0'dan büyük hesaplara dönüştürmesini sağlayan temel prensiplerdir.</p>
                     `;
-                } else if (lowerCaseMessage.includes('chat') && lowerCaseMessage.includes('gpt')) {
+                }
+                else if (lowerCaseMessage.includes('instagram') && (lowerCaseMessage.includes('algoritma') || lowerCaseMessage.includes('algorithm'))) {
                     response = `
-                        <p>ChatGPT'yi dijital içerik üretimi için şu şekilde kullanabilirsiniz:</p>
+                        <h3>Instagram Algoritmasının Çalışma Prensipleri</h3>
+                        <p>Instagram algoritmasının 2023-2024 güncel sürümü 6 temel faktöre dayalı olarak içerikleri gösterir:</p>
+                        
+                        <h3>1. İçerik İlgi Sinyalleri</h3>
+                        <p>Algoritma şu sinyallere göre içeriğinizi değerlendirir (önem sırasına göre):</p>
                         <ol>
-                            <li><strong>E-book içeriği oluşturma:</strong> "Finansal özgürlük konusunda 7 bölümlük bir e-book taslağı oluştur" gibi promptlar kullanabilirsiniz.</li>
-                            <li><strong>Video script yazma:</strong> "Instagram için 60 saniyelik bir motivasyon video senaryosu yaz" diyerek video içeriklerinizi planlayabilirsiniz.</li>
-                            <li><strong>Hedef kitle analizi:</strong> "İlişki tavsiyesi nişindeki potansiyel müşterilerin ağrı noktaları nelerdir?" sorarak hedef kitlenizi daha iyi anlayabilirsiniz.</li>
-                            <li><strong>Caption yazımı:</strong> "Bu video için 3 farklı Instagram caption'ı yaz ve hashtag önerileri ekle" diyerek sosyal medya içeriklerinizi zenginleştirebilirsiniz.</li>
-                            <li><strong>İçerik takvimi oluşturma:</strong> "Fitness nişi için 30 günlük TikTok içerik planı oluştur" diyerek içerik stratejinizi planlayabilirsiniz.</li>
+                            <li><strong>Kaydedilme oranı:</strong> Toplam görüntülenmeye göre kaç kişi kaydetti (en değerli sinyal)</li>
+                            <li><strong>Paylaşım oranı:</strong> DM'den veya hikaye olarak paylaşılma sayısı</li>
+                            <li><strong>Profil ziyareti oranı:</strong> İçeriğinizden profilinize geçiş oranı</li>
+                            <li><strong>Yorum oranı:</strong> Görüntülenme başına yorum sayısı</li>
+                            <li><strong>Beğeni oranı:</strong> Görüntülenme başına beğeni sayısı (en az değerli sinyal)</li>
                         </ol>
-                        <p>Önemli not: ChatGPT'nin çıktılarını doğrudan kullanmak yerine, kendi bakış açınızı ve deneyimlerinizi katarak içerikleri kişiselleştirin!</p>
-                    `;
-                } else if (lowerCaseMessage.includes('algoritma')) {
-                    response = `
-                        <p>Sosyal medya algoritmalarının temel çalışma prensipleri:</p>
+                        
+                        <h3>2. Kullanıcı Geçmişi ve Davranışı</h3>
                         <ul>
-                            <li><strong>Etkileşim oranı:</strong> Algoritma, içeriğinizin aldığı beğeni, yorum, kaydetme ve paylaşım sayılarına göre daha fazla kişiye gösterilmesine karar verir.</li>
-                            <li><strong>İzlenme süresi:</strong> İçeriğinizin baştan sona izlenme oranı yüksekse, algoritma bunu kaliteli içerik olarak değerlendirir ve daha fazla kişiye gösterir.</li>
-                            <li><strong>Tutarlılık:</strong> Düzenli içerik paylaşan hesaplar algoritma tarafından ödüllendirilir. İdeal olarak günde en az bir içerik paylaşmaya çalışın.</li>
-                            <li><strong>Trend konulara uyum:</strong> Güncel trend'lere ve hashtag'lere uygun içerikler üreten hesaplar daha hızlı büyür.</li>
-                            <li><strong>Niş tutarlılığı:</strong> Algoritma, belirli bir konuda uzmanlaşmış ve o konuda sürekli içerik üreten hesapları daha hızlı büyütür.</li>
+                            <li><strong>Etkileşim Geçmişi:</strong> Kullanıcı daha önce benzer içeriklerle etkileşime girdiyse, içeriğinizi görme olasılığı artar</li>
+                            <li><strong>Hesap İlişkisi:</strong> Kullanıcı daha önce hesabınızla etkileşime girdiyse, içeriğinizi görme olasılığı artar</li>
+                            <li><strong>İlgi Alanları:</strong> Instagram, kullanıcıların ilgi alanlarını takip eder ve benzer içerikleri önerir</li>
                         </ul>
-                        <p>Algoritmaların değiştiğini unutmayın! Düzenli olarak analitik verilerinizi inceleyerek stratejinizi güncelleyin.</p>
-                    `;
-                } else if (lowerCaseMessage.includes('midjourney') || lowerCaseMessage.includes('yapay zeka') || lowerCaseMessage.includes('ai')) {
-                    response = `
-                        <p>Dijital satış için kullanabileceğiniz temel yapay zeka araçları:</p>
+                        
+                        <h3>3. İçeriğin İlk Performansı</h3>
+                        <p>İçeriğiniz ilk yayınlandığında algoritma şunları değerlendirir:</p>
                         <ul>
-                            <li><strong>ChatGPT:</strong> İçerik yazımı, fikir üretimi, e-book taslakları oluşturma</li>
-                            <li><strong>Midjourney:</strong> E-book kapakları, sosyal medya görselleri, infografikler oluşturma</li>
-                            <li><strong>ElevenLabs:</strong> E-booklar ve videolar için profesyonel seslendirme</li>
-                            <li><strong>Canva + Magic Write/Design:</strong> Görsel içerikler ve sunumlar için yapay zeka destekli tasarım</li>
-                            <li><strong>Descript:</strong> Video düzenleme ve otomatik alt yazı oluşturma</li>
+                            <li><strong>İlk 30-60 Dakika:</strong> Bu sürede aldığınız etkileşim, içeriğinizin daha geniş kitlelere ulaşıp ulaşmayacağını belirler</li>
+                            <li><strong>Kalite Skoru:</strong> Algoritma, etkileşim oranlarına göre içeriğinize bir "kalite skoru" atar</li>
+                            <li><strong>Yayılma Dalgaları:</strong> İçerik önce takipçilerinizin küçük bir kısmına gösterilir, performans iyiyse daha fazla kişiye, sonra keşfete yayılır</li>
                         </ul>
-                        <p>Bu araçları kombinleyerek, geleneksel olarak günler alacak işleri dakikalar içinde tamamlayabilirsiniz. Böylece daha fazla içerik üretip, daha geniş bir kitleye ulaşabilirsiniz.</p>
+                        
+                        <h3>4. Hesap Sağlığı Faktörleri</h3>
+                        <ul>
+                            <li><strong>Tutarlı Paylaşım:</strong> Düzenli içerik paylaşımı (günlük veya gün aşırı)</li>
+                            <li><strong>Topluluk Katılımı:</strong> Diğer hesapların içeriklerine yorum yapma, etkileşimde bulunma</li>
+                            <li><strong>Hesap Yaşı ve Geçmişi:</strong> Yeni hesaplar genellikle daha küçük bir kitleye gösterilir</li>
+                            <li><strong>Yönergeler İhlali:</strong> Önceki içerik ihlalleri hesabınızın görünürlüğünü kısıtlayabilir (shadow ban)</li>
+                        </ul>
+                        
+                        <h3>5. Teknik Faktörler</h3>
+                        <ul>
+                            <li><strong>Video Tamamlanma Oranı:</strong> Videolarınızın ne kadarının izlendiği</li>
+                            <li><strong>Tekrar İzlenme Oranı:</strong> İnsanların videonuzu birden fazla kez izlemesi</li>
+                            <li><strong>Zaman Geçirme:</strong> İnsanların içeriğinizde ne kadar zaman geçirdiği</li>
+                            <li><strong>HD Kalite:</strong> Yüksek çözünürlüklü, net ve kaliteli içerikler tercih edilir</li>
+                        </ul>
+                        
+                        <h3>6. Trend Faktörleri</h3>
+                        <ul>
+                            <li><strong>Güncel Konular:</strong> Gündem olan konularla ilgili içerikler daha fazla gösterilir</li>
+                            <li><strong>Trend Müzikler:</strong> Instagram'ın önerdiği müzikleri kullanmak görünürlüğü artırır</li>
+                            <li><strong>Yeni Özellikler:</strong> Instagram'ın yeni çıkardığı özellikleri (Notes, Candid Challenges gibi) kullanan hesaplar ödüllendirilir</li>
+                        </ul>
+                        
+                        <p>Yusuf Yaman'ın eğitiminde bu algoritma faktörlerini nasıl avantajınıza kullanacağınıza dair detaylı stratejiler bulabilirsiniz.</p>
                     `;
-                } else if (lowerCaseMessage.includes('niş') || lowerCaseMessage.includes('nis')) {
+                }
+                else if (lowerCaseMessage.includes('instagram') && (lowerCaseMessage.includes('profil') || lowerCaseMessage.includes('bio'))) {
                     response = `
-                        <p>Dijital satış için kârlı niş seçimi stratejileri:</p>
+                        <h3>Satışa Yönelik Instagram Profil Optimizasyonu</h3>
+                        <p>Dijital ürün satışlarınızı artıracak bir Instagram profili oluşturmak için bu adımları takip edin:</p>
+                        
+                        <h3>1. Kullanıcı Adı Optimizasyonu</h3>
+                        <ul>
+                            <li><strong>Anahtar Kelime Ekleyin:</strong> Kullanıcı adınıza nişinizi yansıtan bir kelime ekleyin (örn: yusuf_dijitalsatis)</li>
+                            <li><strong>Akılda Kalıcı Olsun:</strong> Karmaşık sayılar ve semboller kullanmaktan kaçının</li>
+                            <li><strong>Markanıza Uygun Olsun:</strong> İleride değiştirmek zor olacağından, uzun vadeli düşünün</li>
+                        </ul>
+                        
+                        <h3>2. Profil Fotoğrafı</h3>
+                        <ul>
+                            <li><strong>Yüzünüzü Gösteren Fotoğraf:</strong> Yüzünüzü net gösteren, profesyonel bir fotoğraf kullanın (yüzlü profiller %38 daha fazla etkileşim alır)</li>
+                            <li><strong>Yakın Çekim:</strong> Yüzünüz küçük profil dairesinde rahatça görünebilmeli</li>
+                            <li><strong>Tutarlı Marka Kimliği:</strong> Diğer sosyal medya hesaplarınızla aynı profil fotoğrafını kullanın</li>
+                        </ul>
+                        
+                        <h3>3. İsim Alanı</h3>
+                        <ul>
+                            <li><strong>Anahtar Kelimeler:</strong> Gerçek adınızın yanına uzmanlık alanınızı ekleyin (örn: Yusuf Yaman | Dijital Satış Uzmanı)</li>
+                            <li><strong>Emoji Kullanımı:</strong> Dikkat çekmek için ilgili emojiler ekleyin (📱💰)</li>
+                            <li><strong>Arama Dostu:</strong> İnsanların sizi arayabileceği terimleri dahil edin</li>
+                        </ul>
+                        
+                        <h3>4. Bio Bölümü (En Önemli Kısım)</h3>
+                        <p>Etkili bir bio şu yapıyı izlemelidir:</p>
                         <ol>
-                            <li><strong>Evrensel problemlere odaklanın:</strong> İlişkiler, finans, sağlık, kendini geliştirme gibi herkesin ilgilendiği konular seçin.</li>
-                            <li><strong>Rekabet-talep dengesini analiz edin:</strong> Çok rekabetçi nişlerden kaçının, ancak yeterli talep olduğundan emin olun.</li>
-                            <li><strong>Kârlı alt-nişler bulun:</strong> Örneğin, genel "sağlık" yerine "30 yaş üstü kadınlar için evde fitness" gibi daha spesifik bir alan seçin.</li>
-                            <li><strong>Trend nişleri araştırın:</strong> Google Trends, AnswerThePublic gibi araçlarla yükselen nişleri belirleyin.</li>
-                            <li><strong>Tutkulu olduğunuz konuları seçin:</strong> Hakkında sürekli içerik üretebileceğiniz ve öğrenmeye istekli olduğunuz konular, uzun vadede en başarılı olacağınız alanlardır.</li>
+                            <li><strong>Kim olduğunuz ve kime yardım ettiğiniz:</strong> "25.000+ kişiye dijital satış yoluyla gelir elde etmeyi öğrettim"</li>
+                            <li><strong>Sosyal kanıt:</strong> "1000+ başarılı öğrenci" veya "3+ yıllık deneyim"</li>
+                            <li><strong>Değer teklifiniz:</strong> "Instagram'da organik büyüme stratejileri"</li>
+                            <li><strong>Net bir CTA (Çağrı):</strong> "Aşağıdaki linke tıklayarak ücretsiz rehberi indirebilirsin 👇"</li>
                         </ol>
-                        <p>Kârlı nişler 2023-2024 için: Yapay zeka kullanımı, pasif gelir, dijital minimalizm, sürdürülebilir yaşam, finansal okuryazarlık, uzaktan çalışma becerileri.</p>
-                    `;
-                } else {
-                    response = `
-                        <p>Teşekkürler! Size dijital satış ve organik büyüme konularında yardımcı olabilirim.</p>
-                        <p>Şu konularda sorular sorabilirsiniz:</p>
+                        
+                        <h3>5. Link Optimizasyonu</h3>
                         <ul>
-                            <li>Instagram ve TikTok büyüme stratejileri</li>
-                            <li>Algoritma ve keşfete çıkma taktikleri</li>
-                            <li>Dijital ürün oluşturma ve satış</li>
-                            <li>İçerik üretimi ve niş seçimi</li>
-                            <li>ChatGPT, Midjourney gibi yapay zeka araçları ile içerik oluşturma</li>
+                            <li><strong>Tek Sayfa Link:</strong> Linktree veya Beacons gibi araçları kullanarak birden fazla linki tek sayfada toplayın</li>
+                            <li><strong>Kısa URL:</strong> Uzun ve karmaşık URL'ler yerine kısa ve akılda kalıcı bağlantılar kullanın</li>
+                            <li><strong>Takip Edilebilir Link:</strong> Tıklama sayısını takip edebileceğiniz bir link kısaltma servisi kullanın</li>
+                            <li><strong>Satış Hunisi:</strong> Direkt satış sayfası yerine, e-posta listesine kayıt veya ücretsiz değer sunan bir sayfaya yönlendirin</li>
                         </ul>
-                        <p>Lütfen dijital satış ve organik büyüme ile ilgili spesifik sorularınızı sorun!</p>
+                        
+                        <h3>6. Öne Çıkan Hikayeler</h3>
+                        <p>Satışı destekleyecek hikayeler oluşturun:</p>
+                        <ul>
+                            <li><strong>Başarı Hikayeleri:</strong> Öğrenci sonuçları ve testimonial'lar</li>
+                            <li><strong>SSS:</strong> Sık sorulan sorular ve cevapları</li>
+                            <li><strong>Hakkımda:</strong> Kişisel hikayeniz ve neden size güvenmeleri gerektiği</li>
+                            <li><strong>Ürünler/Hizmetler:</strong> Sunduğunuz dijital ürünlerin detayları</li>
+                            <li><strong>Nasıl Çalışır:</strong> Satın alma ve kullanım süreci</li>
+                        </ul>
+                        
+                        <h3>7. İçerik Düzeni</h3>
+                        <ul>
+                            <li><strong>Görsel Tutarlılık:</strong> Benzer renk şemaları ve düzen kullanan içerikler oluşturun</li>
+                            <li><strong>İçerik Karışımı:</strong> Değer veren içerikler, sosyal kanıtlar ve satış içeriklerinin dengeli bir karışımını sunun</li>
+                            <li><strong>İlk 9 Gönderi:</strong> Profilinize gelen kişilerin ilk göreceği 9 gönderi, değer teklifinizi ve uzmanlığınızı net bir şekilde göstermeli</li>
+                        </ul>
+                        
+                        <p>Bu optimizasyonları yaptıktan sonra, Yusuf Yaman'ın eğitiminde yer alan "24 Saatte Profil Dönüşüm Oranını Artırma" stratejilerini de uygulayarak, bio'dan satış sayfanıza gelen tıklamaları %27 ile %63 arasında artırabilirsiniz.</p>
+                    `;
+                }
+                
+                // TIKTOK İLE İLGİLİ SORULAR
+                else if (lowerCaseMessage.includes('tiktok') && (lowerCaseMessage.includes('viral') || lowerCaseMessage.includes('keşfet'))) {
+                    response = `
+                        <h3>TikTok'ta Viral Olma Stratejileri</h3>
+                        <p>TikTok'ta viral olarak organik erişiminizi artırmak için kapsamlı bir strateji:</p>
+                        
+                        <h3>1. İçerik Yapısı ve Hook Stratejileri</h3>
+                        <ul>
+                            <li><strong>Patlayıcı Açılış (İlk 1-2 Saniye):</strong> 
+                                <ul>
+                                    <li>"Bunu denemeden TikTok'ta büyüyemezsiniz"</li>
+                                    <li>"TikTok'un gizli özelliğini keşfettim"</li>
+                                    <li>"Bu yöntemle takipçilerim 10 kat arttı"</li>
+                                </ul>
+                            </li>
+                            <li><strong>Merak Uyandırma:</strong> İzleyiciyi videoda tutmak için içeriğin en değerli kısmını sona saklayın</li>
+                            <li><strong>İddia-Kanıt Modeli:</strong> Önce büyük bir iddia yapın, sonra bunu kanıtlayın</li>
+                            <li><strong>Hızlı Tempo:</strong> TikTok'ta ideal konuşma hızı dakikada 150-180 kelimedir (normal konuşmadan %20 daha hızlı)</li>
+                        </ul>
+                        
+                        <h3>2. TikTok Algoritma Optimizasyonu</h3>
+                        <p>TikTok For You Page (FYP) algoritması şu faktörlere öncelik verir:</p>
+                        <ol>
+                            <li><strong>İzlenme Tamamlanma Oranı:</strong> Videolarınızın baştan sona izlenme oranı (en önemli faktör)</li>
+                            <li><strong>İzleyici Tutma:</strong> İnsanların videonuzda ne kadar süre kaldığı</li>
+                            <li><strong>Tekrar İzlenme:</strong> İnsanların videonuzu birden fazla kez izlemesi</li>
+                            <li><strong>Etkileşim Oranı:</strong> Beğeni, yorum, paylaşım ve kaydetme sayıları</li>
+                            <li><strong>İzleme Sonrası Davranış:</strong> İzleyicilerin videonuzdan sonra ne yaptığı (profilinize gitmek, takip etmek, vb.)</li>
+                        </ol>
+                        
+                        <h3>3. Optimal Video Parametreleri</h3>
+                        <ul>
+                            <li><strong>Süre:</strong> 7-15 saniye arası videolar en yüksek tamamlanma oranına sahiptir</li>
+                            <li><strong>Çözünürlük:</strong> 1080x1920 piksel (9:16 oranı)</li>
+                            <li><strong>Yükleme Zamanı:</strong> Yerel saatinize göre 19:00-23:00 arası en yüksek etkileşimi getirir</li>
+                            <li><strong>Yayın Sıklığı:</strong> Günde 3-5 video ideal (minimum günde 1)</li>
+                            <li><strong>Dosya Boyutu:</strong> Daha yüksek kaliteli videolar (15MB+) algoritma tarafından tercih edilir</li>
+                        </ul>
+                        
+                        <h3>4. En Viral TikTok İçerik Formatları</h3>
+                        <ol>
+                            <li><strong>Nasıl Yapılır Videoları:</strong> "TikTok'ta viral olmak için 3 adım"</li>
+                            <li><strong>Önce/Sonra Dönüşüm:</strong> "Bu stratejileri uygulamadan önce vs. sonra"</li>
+                            <li><strong>Şok Edici Gerçekler:</strong> "TikTok hakkında kimsenin bilmediği gerçek"</li>
+                            <li><strong>Trend Challenge'lar:</strong> Mevcut trendlere katılarak kendi nişinize uyarlayın</li>
+                            <li><strong>Plot Twist Videolar:</strong> Beklenmedik bir sonla biten hikayeler</li>
+                            <li><strong>Day In The Life:</strong> Günlük rutininizi gösterirken değerli bilgiler paylaşın</li>
+                            <li><strong>POV (Bakış Açısı):</strong> "POV: İlk dijital ürününü satmış birisin"</li>
+                        </ol>
+                        
+                        <h3>5. Ses Stratejisi</h3>
+                        <ul>
+                            <li><strong>Trend Müzikler:</strong> TikTok'un "Trend Müzikler" bölümünden seçim yapın</li>
+                            <li><strong>Özgün Ses:</strong> Kendi sesinizi kullanmak, kişisel marka oluşturmanızı sağlar</li>
+                            <li><strong>Ses Voiceover + Müzik:</strong> Kendi sesiniz üzerine hafif bir arka plan müziği ekleyin</li>
+                            <li><strong>Ses Optimizasyonu:</strong> Net, temiz ses kalitesi sağlayın (gerekirse harici mikrofon kullanın)</li>
+                        </ul>
+                        
+                        <h3>6. Hashtag Stratejisi</h3>
+                        <ul>
+                            <li><strong>Az ve Öz:</strong> 3-5 hashtag kullanın (daha fazlası algoritma tarafından spam olarak algılanabilir)</li>
+                            <li><strong>Niş Etiketler:</strong> #digitalmarketing yerine #digitalproductsales gibi daha spesifik etiketler kullanın</li>
+                            <li><strong>Trend + Niş Karışımı:</strong> 1-2 trend hashtag + 2-3 niş hashtag</li>
+                            <li><strong>Lokasyon Etiketleri:</strong> Yerel erişim için ülke/şehir etiketleri ekleyin (#TurkeyTikTok)</li>
+                        </ul>
+                        
+                        <h3>7. Hesap Büyüme Temel Prensibi: Niş Odaklı Tutarlılık</h3>
+                        <ul>
+                            <li><strong>30 Gün Kuralı:</strong> 30 gün boyunca aynı temada, günde en az 1 video paylaşın</li>
+                            <li><strong>İçerik Tutarlılığı:</strong> İlk 100 videonuzda sadece 2-3 ana konuya odaklanın</li>
+                            <li><strong>İçerik Oranları:</strong> %70 değer veren içerik, %20 eğlenceli içerik, %10 satış içeriği</li>
+                            <li><strong>Etkileşimde Bulunma:</strong> Günde 30 dakikanızı nişinizdeki diğer içerik üreticileriyle etkileşime ayırın</li>
+                        </ul>
+                        
+                        <p>Yusuf Yaman'ın eğitiminde bu stratejilerin nasıl uygulanacağına dair detaylı adımlar ve örnekler bulunmaktadır. Ayrıca, içerik planlaması ve büyüme takibi için kullanabileceğiniz şablonlar da eğitim paketi içerisinde yer almaktadır.</p>
+                    `;
+                } 
+                else if (lowerCaseMessage.includes('tiktok') && lowerCaseMessage.includes('algoritma')) {
+                    response = `
+                        <h3>TikTok Algoritmasının Derinlemesine Analizi</h3>
+                        <p>TikTok'un For You Page (FYP) algoritması, kullanıcı deneyimini kişiselleştirmek ve içerik üreticilerini değerlendirmek için çeşitli faktörleri analiz eder. İşte en güncel algoritma faktörleri:</p>
+                        
+                        <h3>1. Birincil Sıralama Faktörleri</h3>
+                        <p>TikTok algoritması içerikleri öncelikle şu kriterlere göre değerlendirir:</p>
+                        <ol>
+                            <li><strong>Video Tamamlanma Oranı:</strong> Videonuzun baştan sona kaç kez izlendiği (en önemli faktör)</li>
+                            <li><strong>İzleme Süresi:</strong> Ortalama bir izleyicinin videonuzda geçirdiği süre</li>
+                            <li><strong>Tekrar İzleme Oranı:</strong> Videonuzun aynı kullanıcı tarafından birden fazla kez izlenme sıklığı</li>
+                            <li><strong>Tıklama Sonrası Etkileşim:</strong> İzleyicilerin video sonrası davranışları (profil ziyareti, takip, diğer videolarınızı izleme)</li>
+                        </ol>
+                        
+                        <h3>2. İkincil Sıralama Faktörleri</h3>
+                        <ul>
+                            <li><strong>Etkileşim Çeşitliliği:</strong> Farklı türde etkileşimler (beğeni, yorum, paylaşım, kaydetme)</li>
+                            <li><strong>İçerik Çeşitliliği:</strong> Algoritma, kullanıcılara aynı içerik üreticisinden sürekli içerik göstermek yerine çeşitlilik sağlar</li>
+                            <li><strong>Yeni İçerik Bonusu:</strong> Yeni yüklenen içerikler, ilk birkaç saat içinde daha fazla gösterilme şansına sahiptir</li>
+                            <li><strong>Hızlı Yükseliş Faktörü:</strong> Hızla etkileşim toplayan içerikler, algoritma tarafından öne çıkarılır</li>
+                        </ul>
+                        
+                        <h3>3. İçerik Filtreleme Mekanizmaları</h3>
+                        <p>TikTok, içerikleri çeşitli filtrelerden geçirir:</p>
+                        <ul>
+                            <li><strong>İçerik Güvenliği Filtresi:</strong> Topluluk kurallarına uymayan içerikleri filtreler</li>
+                            <li><strong>Yaş Uygunluğu Filtresi:</strong> İçeriğin hangi yaş gruplarına gösterileceğini belirler</li>
+                            <li><strong>Kalite Değerlendirmesi:</strong> Düşük çözünürlüklü, bulanık veya aşırı gürültülü videolar daha az gösterilir</li>
+                            <li><strong>Tekrar İçerik Filtresi:</strong> Watermark taşıyan (TikTok, Instagram, YouTube, vb.) içerikler cezalandırılır</li>
+                        </ul>
+                        
+                        <h3>4. Kullanıcı Odaklı Faktörler</h3>
+                        <p>Algoritma, her kullanıcı için kişiselleştirilmiş bir deneyim sunar:</p>
+                        <ul>
+                            <li><strong>Etkileşim Geçmişi:</strong> Kullanıcının daha önce etkileşimde bulunduğu içerik türleri</li>
+                            <li><strong>İzleme Alışkanlıkları:</strong> Kullanıcının TikTok'ta geçirdiği süre ve tercih ettiği içerik uzunluğu</li>
+                            <li><strong>Konum Verisi:</strong> Kullanıcının bulunduğu ülke/bölge</li>
+                            <li><strong>Cihaz ve Hesap Ayarları:</strong> Kullanıcının cihaz türü, dil ayarları, vb.</li>
+                        </ul>
+                        
+                        <h3>5. Hesap Sağlığı Faktörleri</h3>
+                        <ul>
+                            <li><strong>Paylaşım Tutarlılığı:</strong> Düzenli içerik paylaşan hesaplar ödüllendirilir</li>
+                            <li><strong>Toplu Yükleme Cezası:</strong> Bir kerede çok sayıda video yüklemek yerine, gün içine yayılmış yüklemeler tercih edilir</li>
+                            <li><strong>Etkileşim Oranı Tutarlılığı:</strong> Tüm videolarınızın benzer etkileşim oranları olması idealdir</li>
+                            <li><strong>Topluluk Yönergeleri İhlalleri:</strong> Geçmiş ihlaller hesabınızın görünürlüğünü sınırlandırabilir</li>
+                        </ul>
+                        
+                        <h3>6. Algoritma İpuçları</h3>
+                        <p>TikTok algoritmasında başarılı olmak için önemli ipuçları:</p>
+                        <ul>
+                            <li><strong>7-15 Saniye Kuralı:</strong> TikTok, izleyicilerin videoyu tamamlamasına öncelik verir, bu nedenle kısa videolar avantajlıdır</li>
+                            <li><strong>İlk 48 Saat Kritik:</strong> Bir videonun performansı ilk 48 saatte ölçülür ve viral potansiyeli belirlenir</li>
+                            <li><strong>Düşük Performans Penceresi:</strong> Son 5-10 videonuzun performansı düşükse, yeni içerikleriniz daha az gösterilir</li>
+                            <li><strong>Satır Arası İçerik:</strong> Videonuzun 3-4 saniyeye kadar olan kısmı, algoritma tarafından önizleme olarak kullanılır</li>
+                            <li><strong>Dikey Format Avantajı:</strong> Tam ekran dikey videolar (9:16 oranı) daha fazla ekran alanı kapladığı için tercih edilir</li>
+                        </ul>
+                        
+                        <h3>7. 2023-2024 Algoritma Güncellemeleri</h3>
+                        <ul>
+                            <li><strong>Uzun Format Teşviki:</strong> TikTok artık 10 dakikaya kadar videolara izin veriyor ve daha uzun içerikleri teşvik ediyor</li>
+                            <li><strong>Dijital İçerik Yaratıcıları Fonu:</strong> Özgün içerik üreten hesaplar için maddi destek sağlanıyor</li>
+                            <li><strong>Yorum Etkileşimi Ağırlığı:</strong> Yorumlara yanıt veren içerik üreticileri algoritma tarafından ödüllendiriliyor</li>
+                            <li><strong>LIVE Entegrasyonu:</strong> Düzenli LIVE yayınları yapan hesaplar daha fazla öneriliyor</li>
+                            <li><strong>Eğitici İçerikler Odağı:</strong> Öğretici, bilgilendirici içerikler, eğlence içeriklerine göre daha fazla destek görüyor</li>
+                        </ul>
+                        
+                        <p>Yusuf Yaman'ın eğitiminde, bu algoritma faktörlerini kullanarak organik büyüme sağlayan özel stratejiler ve haftalık içerik planları bulunmaktadır.</p>
+                    `;
+                }
+                else if ((lowerCaseMessage.includes('tiktok') && lowerCaseMessage.includes('monetize')) || 
+                        (lowerCaseMessage.includes('tiktok') && lowerCaseMessage.includes('para kazanma'))) {
+                    response = `
+                        <h3>TikTok'tan Para Kazanma Stratejileri</h3>
+                        <p>TikTok hesabınızı monetize etmek için 8 etkili strateji:</p>
+                        
+                        <h3>1. TikTok Creator Fund / Creators Next</h3>
+                        <ul>
+                            <li><strong>Gereksinimler:</strong> 
+                                <ul>
+                                    <li>18+ yaş</li>
+                                    <li>En az 10,000 takipçi</li>
+                                    <li>Son 30 günde en az 100,000 görüntülenme</li>
+                                    <li>Topluluk Kurallarına uyum</li>
+                                </ul>
+                            </li>
+                            <li><strong>Kazanç Potansiyeli:</strong> 1,000 görüntülenme başına 0.02$-0.04$ (değişken)</li>
+                            <li><strong>Strateji:</strong> Günde en az 2-3 video paylaşarak ve izlenme süresini artırarak kazancınızı maksimize edin</li>
+                        </ul>
+                        
+                        <h3>2. Dijital Ürün Satışı (En Kârlı Yöntem)</h3>
+                        <ul>
+                            <li><strong>Ürün Fikirleri:</strong>
+                                <ul>
+                                    <li>E-book'lar ve PDF rehberler</li>
+                                    <li>Çevrimiçi kurslar</li>
+                                    <li>Şablonlar ve hazır dokümanlar</li>
+                                    <li>Presetler (fotoğraf, video düzenleme)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Satış Süreci:</strong> TikTok bio'nuzdaki linke yönlendirme → satış sayfası → dijital ürün teslimi</li>
+                            <li><strong>Kazanç Potansiyeli:</strong> Aylık $1,000-$10,000+ (takipçi sayısı ve dönüşüm oranına bağlı)</li>
+                            <li><strong>Tavsiye Edilen Platformlar:</strong> Gumroad, Shopier, SendOwl, ThriveCart</li>
+                        </ul>
+                        
+                        <h3>3. Marka İş Birlikleri ve Sponsorluklar</h3>
+                        <ul>
+                            <li><strong>Gereksinimler:</strong> Genellikle en az 5,000-10,000 takipçi ve tutarlı etkileşim oranları</li>
+                            <li><strong>Kazanç Potansiyeli:</strong> 
+                                <ul>
+                                    <li>Nano influencer (5K-10K takipçi): Video başına $50-$200</li>
+                                    <li>Mikro influencer (10K-50K takipçi): Video başına $200-$500</li>
+                                    <li>Orta seviye (50K-500K takipçi): Video başına $500-$2,000</li>
+                                    <li>Makro influencer (500K+): Video başına $2,000-$10,000+</li>
+                                </ul>
+                            </li>
+                            <li><strong>Marka Bulma Stratejisi:</strong> 
+                                <ul>
+                                    <li>#branded veya #ad etiketli içeriklere bakarak nişinizdeki markaları belirleyin</li>
+                                    <li>Influencer pazaryerlerine kaydolun (Upfluence, CreatorIQ, vb.)</li>
+                                    <li>Markalara doğrudan DM veya e-posta ile ulaşın</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <h3>4. TikTok LIVE Hediyeler</h3>
+                        <ul>
+                            <li><strong>Gereksinimler:</strong> En az 1,000 takipçi (bazı ülkelerde farklı olabilir)</li>
+                            <li><strong>Nasıl Çalışır:</strong> İzleyiciler sanal hediyeler gönderir, bunlar elmas puanlara dönüştürülür, siz de bunları nakit olarak çekebilirsiniz</li>
+                            <li><strong>Kazanç Potansiyeli:</strong> Saatlik $5-$500+ (takipçi sayısı ve etkileşime bağlı)</li>
+                            <li><strong>Strateji:</strong> 
+                                <ul>
+                                    <li>Düzenli yayın programı oluşturun (haftada en az 2-3 kez)</li>
+                                    <li>İzleyici katılımını teşvik eden etkinlikler düzenleyin (soru-cevap, canlı danışmanlık)</li>
+                                    <li>Hediyeleri sözlü olarak teşekkürle onaylayın</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <h3>5. Affiliate Pazarlama</h3>
+                        <ul>
+                            <li><strong>Nasıl Çalışır:</strong> Başkalarının ürünlerini/hizmetlerini özel bir link aracılığıyla tanıtır ve satış başına komisyon alırsınız</li>
+                            <li><strong>Kazanç Potansiyeli:</strong> Aylık $100-$5,000+ (trafik ve seçilen programlara bağlı)</li>
+                            <li><strong>Popüler Programlar:</strong> 
+                                <ul>
+                                    <li>Amazon Associates</li>
+                                    <li>ShareASale</li>
+                                    <li>Awin</li>
+                                    <li>Nişinize özel programlar (örn: dijital pazarlama araçları)</li>
+                                </ul>
+                            </li>
+                            <li><strong>İpucu:</strong> Bio'nuzdaki linkle landing page'e yönlendirin ve oradan affiliate linklerinizi paylaşın</li>
+                        </ul>
+                        
+                        <h3>6. Abonelik/Üyelik Modeli</h3>
+                        <ul>
+                            <li><strong>Nasıl Çalışır:</strong> TikTok'ta ilgi çekici içerikler oluşturup, daha derinlemesine içerikler için ücretli platformlara yönlendirme yaparsınız</li>
+                            <li><strong>Platformlar:</strong> Patreon, Buy Me a Coffee, Substack, Memberful</li>
+                            <li><strong>İçerik Fikirleri:</strong> 
+                                <ul>
+                                    <li>Uzman ipuçları ve danışmanlık</li>
+                                    <li>Özel şablonlar ve kaynaklar</li>
+                                    <li>Derinlemesine dersler ve eğitimler</li>
+                                </ul>
+                            </li>
+                            <li><strong>Kazanç Potansiyeli:</strong> Aylık $500-$5,000+ (takipçi sadakati ve değer teklifinize bağlı)</li>
+                        </ul>
+                        
+                        <h3>7. TikTok Shop (Eğer Ülkenizde Mevcutsa)</h3>
+                        <ul>
+                            <li><strong>Nasıl Çalışır:</strong> TikTok videolarınıza doğrudan alışveriş özelliği ekleyerek fiziksel ürün satışı yapabilirsiniz</li>
+                            <li><strong>Gereksinimler:</strong> 
+                                <ul>
+                                    <li>TikTok Shop'ın ülkenizde mevcut olması</li>
+                                    <li>İşletme hesabı oluşturma</li>
+                                    <li>Gerekli vergi ve ticari belgelere sahip olmak</li>
+                                </ul>
+                            </li>
+                            <li><strong>Kazanç Potansiyeli:</strong> Aylık $500-$10,000+ (ürün türü ve takipçi sayısına bağlı)</li>
+                        </ul>
+                        
+                        <h3>8. Trafik Yönlendirme ve Platform Geçişi</h3>
+                        <ul>
+                            <li><strong>Strateji:</strong> TikTok'tan diğer platformlarınıza trafik yönlendirerek monetizasyon yapın</li>
+                            <li><strong>Hedef Platformlar:</strong> 
+                                <ul>
+                                    <li>YouTube (AdSense geliri)</li>
+                                    <li>Blog (reklam ve affiliate marketing)</li>
+                                    <li>Instagram (sponsorluklar)</li>
+                                    <li>E-posta listesi (dijital ürün satışı)</li>
+                                </ul>
+                            </li>
+                            <li><strong>İpucu:</strong> "Daha fazla bilgi için bio'daki linke tıkla" şeklinde çağrılar kullanın</li>
+                        </ul>
+                        
+                        <h3>BONUS: İçerik Monetizasyon Stratejisi</h3>
+                        <p>Etkili bir monetizasyon planı şöyle yapılandırılmalıdır:</p>
+                        <ul>
+                            <li><strong>%70 Değer İçeriği:</strong> Bedava bilgi, ipuçları, eğitim içerikleri</li>
+                            <li><strong>%20 İlişki İçeriği:</strong> Kişisel hikayeler, başarılar, zorluklar</li>
+                            <li><strong>%10 Satış İçeriği:</strong> Ürün tanıtımları, promosyonlar, CTA'lar</li>
+                        </ul>
+                        
+                        <p>Bu stratejiler, Yusuf Yaman'ın eğitiminde yer alan ve öğrencilerinin TikTok üzerinden düzenli gelir elde etmelerini sağlayan yöntemlerdir. Eğitimde bu stratejilerin uygulanması için detaylı adım adım rehberler bulabilirsiniz.</p>
+                    `;
+                }
+                
+                // DİJİTAL ÜRÜN İLE İLGİLİ SORULAR
+                else if ((lowerCaseMessage.includes('dijital ürün') || lowerCaseMessage.includes('ebook') || lowerCaseMessage.includes('e-book')) && 
+                        (lowerCaseMessage.includes('oluştur') || lowerCaseMessage.includes('nasıl') || lowerCaseMessage.includes('yaratma'))) {
+                    response = `
+                        <h3>Satışa Hazır Dijital Ürün Oluşturma: Kapsamlı Rehber</h3>
+                        <p>Dijital ürün oluşturma ve satışını adım adım ele alan detaylı bir kılavuz:</p>
+                        
+                        <h3>1. Dijital Ürün Türleri ve Başlangıç İçin En İyileri</h3>
+                        <p>Kolay oluşturulabilecek ve satışı yapılabilecek dijital ürünler:</p>
+                        <ul>
+                            <li><strong>E-book / PDF Rehber:</strong> 
+                                <ul>
+                                    <li>Başlangıç zorluk seviyesi: ⭐⭐ (kolay)</li>
+                                    <li>Üretim süresi: 1-2 hafta</li>
+                                    <li>Gerekli araçlar: Google Docs/Microsoft Word, Canva</li>
+                                    <li>Fiyatlandırma: $7-$47</li>
+                                </ul>
+                            </li>
+                            <li><strong>Şablonlar ve Hazır Dokümanlar:</strong> 
+                                <ul>
+                                    <li>İçerik planları, Excel şablonları, sosyal medya takvimi</li>
+                                    <li>Başlangıç zorluk seviyesi: ⭐⭐ (kolay)</li>
+                                    <li>Üretim süresi: 3-5 gün</li>
+                                    <li>Fiyatlandırma: $7-$27</li>
+                                </ul>
+                            </li>
+                            <li><strong>Checklist ve Workbook'lar:</strong>
+                                <ul>
+                                    <li>Başlangıç zorluk seviyesi: ⭐ (çok kolay)</li>
+                                    <li>Üretim süresi: 1-3 gün</li>
+                                    <li>Fiyatlandırma: $5-$17</li>
+                                </ul>
+                            </li>
+                            <li><strong>Mini Kurslar:</strong>
+                                <ul>
+                                    <li>3-7 videoluk kısa kurslar</li>
+                                    <li>Başlangıç zorluk seviyesi: ⭐⭐⭐ (orta)</li>
+                                    <li>Üretim süresi: 2-3 hafta</li>
+                                    <li>Fiyatlandırma: $27-$97</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <h3>2. E-book Oluşturma Adımları</h3>
+                        <ol>
+                            <li><strong>Niş ve Konu Seçimi:</strong>
+                                <ul>
+                                    <li>Hedef kitleyi belirleyin: Kim için yazıyorsunuz?</li>
+                                    <li>Çözülen problem nedir? Spesifik bir soruna odaklanın</li>
+                                    <li>Önerilen nişler: Kişisel gelişim, para kazanma, ilişkiler, sağlık ve fitness</li>
+                                </ul>
+                            </li>
+                            <li><strong>Pazar Araştırması:</strong>
+                                <ul>
+                                    <li>Amazon Kindle'da benzer kitapları inceleyerek ne satıldığını görün</li>
+                                    <li>Gumroad ve Payhip'te popüler dijital ürünlere bakın</li>
+                                    <li>Reddit, Quora ve Facebook gruplarında hedef kitlenizin sorularını analiz edin</li>
+                                </ul>
+                            </li>
+                            <li><strong>Çekici Başlık Oluşturma:</strong>
+                                <ul>
+                                    <li>Formül: [Sonuç] + [Zaman Çerçevesi] + [Karşı Argüman]</li>
+                                    <li>Örnek: "30 Günde Pasif Gelir: Teknik Bilgi Gerektirmeyen Dijital Ürün Stratejileri"</li>
+                                </ul>
+                            </li>
+                            <li><strong>İçerik Taslağı Hazırlama:</strong>
+                                <ul>
+                                    <li>5-7 bölüm planlayın</li>
+                                    <li>Her bölüm bir ana sorunu ele almalı</li>
+                                    <li>Adım adım, uygulanabilir çözümler sunun</li>
+                                </ul>
+                            </li>
+                            <li><strong>İçerik Üretimi:</strong>
+                                <ul>
+                                    <li>ChatGPT veya Claude gibi AI araçlarıyla taslak oluşturun</li>
+                                    <li>Kendi deneyimlerinizi ve vaka çalışmalarınızı ekleyin</li>
+                                    <li>Görsellerle zenginleştirin (Canva veya Midjourney kullanabilirsiniz)</li>
+                                    <li>İdeal uzunluk: 10,000-15,000 kelime (40-60 sayfa)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Tasarım ve Formatlandırma:</strong>
+                                <ul>
+                                    <li>Canva'da profesyonel bir tasarım oluşturun (hazır şablonları kullanabilirsiniz)</li>
+                                    <li>Dikkat çekici bir kapak tasarımı yapın</li>
+                                    <li>Okunabilir fontlar ve vurgular ekleyin</li>
+                                    <li>PDF formatında dışa aktarın</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        
+                        <h3>3. Dijital Ürününüzü Satışa Hazırlama</h3>
+                        <ol>
+                            <li><strong>Satış Platformu Seçimi:</strong>
+                                <ul>
+                                    <li>Gumroad: Başlangıç için en kolay, %3.5 + $0.30/satış komisyon</li>
+                                    <li>Shopier: Türkiye'de popüler, Türk Lirası ile satış için ideal</li>
+                                    <li>Payhip: %5 komisyon, Avrupa pazarı için KDV compliance</li>
+                                    <li>SendOwl: Daha gelişmiş özellikler, aylık abonelik gerektirir</li>
+                                </ul>
+                            </li>
+                            <li><strong>Satış Sayfası Oluşturma:</strong>
+                                <ul>
+                                    <li>İlgi çekici başlık ve alt başlık</li>
+                                    <li>Ürünün çözdüğü sorunları belirtin</li>
+                                    <li>Madde işaretleriyle faydaları listeleyin</li>
+                                    <li>İçerik bölümlerini gösterin</li>
+                                    <li>Ürün mock-up görselleri ekleyin (ürünün nasıl göründüğünü gösterin)</li>
+                                    <li>Sosyal kanıt (testimonial) ekleyin (varsa)</li>
+                                    <li>Net bir eylem çağrısı (CTA) butonuyla bitirin</li>
+                                </ul>
+                            </li>
+                            <li><strong>Fiyatlandırma Stratejisi:</strong>
+                                <ul>
+                                    <li>Başlangıç ürünü: $7-$17 arası</li>
+                                    <li>Kapsamlı rehber: $17-$47 arası</li>
+                                    <li>Mini kurs: $27-$97 arası</li>
+                                    <li>İndirim stratejisi: Normal fiyat $47, lansman fiyatı $27 gibi sınırlı süre indirimleri</li>
+                                </ul>
+                            </li>
+                            <li><strong>Ödeme Seçenekleri:</strong>
+                                <ul>
+                                    <li>Kredi kartı, PayPal ve mümkünse yerel ödeme yöntemleri sunun</li>
+                                    <li>Taksit seçeneği sunmak dönüşüm oranlarını artırır</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        
+                        <h3>4. Trafiği Dijital Ürününüze Yönlendirme</h3>
+                        <ol>
+                            <li><strong>Sosyal Medya Stratejisi:</strong>
+                                <ul>
+                                    <li>TikTok: Ürününüzün çözdüğü problemle ilgili değerli içerikler paylaşın</li>
+                                    <li>Instagram: Carousel gönderilerle ürününüzden küçük parçalar gösterin</li>
+                                    <li>İçerik oranları: %80 değer, %20 satış</li>
+                                </ul>
+                            </li>
+                            <li><strong>İndirim ve Lansman Stratejisi:</strong>
+                                <ul>
+                                    <li>Sınırlı süre indirimleri (48 saat)</li>
+                                    <li>Erken alanlara bonus ürünler sunma</li>
+                                    <li>Geri ödeme garantisi (risksiz deneme fırsatı)</li>
+                                </ul>
+                            </li>
+                            <li><strong>E-posta Listesi Oluşturma:</strong>
+                                <ul>
+                                    <li>Ürününüzden küçük bir parçayı ücretsiz sunarak e-posta listesi oluşturun</li>
+                                    <li>5-7 e-postalık bir satış dizisi hazırlayın</li>
+                                    <li>Tavsiye edilen e-posta servisleri: MailerLite, ConvertKit</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        
+                        <h3>5. Dijital Ürününüzü Geliştirme ve Ölçeklendirme</h3>
+                        <ul>
+                            <li><strong>Müşteri Geri Bildirimleri:</strong> İlk müşterilerinizden geri bildirim toplayın ve ürünü sürekli geliştirin</li>
+                            <li><strong>Ürün Ekosistemi Oluşturma:</strong> Düşük fiyatlı giriş ürünü → orta seviye ürün → premium ürün/hizmet</li>
+                            <li><strong>Ek Gelir Fırsatları:</strong> Ürününüze tamamlayıcı ürünler ekleyerek upsell yapın</li>
+                            <li><strong>Affiliate Program:</strong> Başkalarının sizin ürününüzü satarak komisyon kazanmasını sağlayın</li>
+                        </ul>
+                        
+                        <h3>Bonus: Hızlı Başlangıç İçin 5 Dijital Ürün Fikri</h3>
+                        <ol>
+                            <li><strong>Sosyal Medya İçerik Takvimi:</strong> 30 günlük içerik planı + caption şablonları</li>
+                            <li><strong>Niş Araştırma Rehberi:</strong> Kârlı Instagram/TikTok nişleri bulma kılavuzu</li>
+                            <li><strong>ChatGPT Prompt Kütüphanesi:</strong> Dijital içerik üretimini hızlandıran 100+ hazır prompt</li>
+                            <li><strong>60-90 Günlük Satış Hunisi Şablonu:</strong> Dijital ürün satışı için adım adım pazarlama planı</li>
+                            <li><strong>Video Script Şablonları:</strong> Viral TikTok ve Instagram Reels videoları için 30+ hazır senaryo</li>
+                        </ol>
+                        
+                        <p>Yusuf Yaman'ın eğitiminde, bu sürecin her adımı için detaylı şablonlar, örnekler ve gerçek vaka çalışmaları bulunmaktadır. Ayrıca, kullanabileceğiniz 50+ dijital ürün fikri ve başarılı satış sayfası örnekleri de yer almaktadır.</p>
+                    `;
+                }
+                else if ((lowerCaseMessage.includes('dijital ürün') || lowerCaseMessage.includes('dijital urun')) && lowerCaseMessage.includes('satış')) {
+                    response = `
+                        <h3>Dijital Ürün Satış Stratejileri: Sıfırdan Başlayanlara Rehber</h3>
+                        <p>Dijital ürününüzü oluşturduktan sonra, başarılı bir şekilde satmak için kapsamlı bir strateji:</p>
+                        
+                        <h3>1. Dijital Ürün Satış Hunisi</h3>
+                        <p>Etkili bir satış hunisi şu adımlardan oluşur:</p>
+                        <ol>
+                            <li><strong>Farkındalık Aşaması:</strong> 
+                                <ul>
+                                    <li>Sosyal medyada değer içerikleri paylaşarak hedef kitlenizi cezbetme</li>
+                                    <li>İdeal içerik: Dijital ürünün çözdüğü sorunla ilgili ücretsiz ipuçları</li>
+                                    <li>Örnek: "Instagram'da büyümenizi engelleyen 3 hata" videosu</li>
+                                </ul>
+                            </li>
+                            <li><strong>İlgi Aşaması:</strong> 
+                                <ul>
+                                    <li>Ücretsiz bir "lead magnet" sunarak e-posta listesi oluşturma</li>
+                                    <li>Örnek: "5 Günde TikTok Satış Stratejisi" mini e-book</li>
+                                    <li>Opt-in sayfası: Ücretsiz içerik karşılığında e-posta toplama</li>
+                                </ul>
+                            </li>
+                            <li><strong>Değerlendirme Aşaması:</strong> 
+                                <ul>
+                                    <li>E-posta dizisi ile değer sunma ve güven oluşturma (3-5 e-posta)</li>
+                                    <li>Sorunu derinlemesine anlatma ve ürününüzün nasıl çözdüğünü gösterme</li>
+                                    <li>Başarı hikayeleri ve sonuçlar paylaşma</li>
+                                </ul>
+                            </li>
+                            <li><strong>Karar Aşaması:</strong> 
+                                <ul>
+                                    <li>Satış sayfası ve ikna edici sunum</li>
+                                    <li>Sınırlı süre teklifi ve bonuslar</li>
+                                    <li>Risk azaltma: Para iade garantisi</li>
+                                </ul>
+                            </li>
+                            <li><strong>Sadakat Aşaması:</strong> 
+                                <ul>
+                                    <li>Dijital ürün teslimi ve onboarding</li>
+                                    <li>Değer ekleme: Bonus içerikler ve güncellemeler</li>
+                                    <li>Müşteri desteği ve başarı takibi</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        
+                        <h3>2. İkna Edici Satış Sayfası Oluşturma</h3>
+                        <p>Yüksek dönüşüm sağlayan bir satış sayfası şu yapıyı izlemelidir:</p>
+                        <ol>
+                            <li><strong>Dikkat Çeken Başlık:</strong> 
+                                <ul>
+                                    <li>Formül: [İstenen Sonuç] + [Zaman Çerçevesi] + [İtiraz Giderme]</li>
+                                    <li>Örnek: "Instagram'da 30 Günde 10K Takipçiye Ulaşın - Reklam Harcaması Olmadan"</li>
+                                </ul>
+                            </li>
+                            <li><strong>Problem Tanımlama:</strong> 
+                                <ul>
+                                    <li>Hedef kitlenizin karşılaştığı zorlukları detaylandırın</li>
+                                    <li>Empati kurun: "Saatlerce video çekip, yine de keşfete çıkamamak hayal kırıklığı yaratıyor, değil mi?"</li>
+                                </ul>
+                            </li>
+                            <li><strong>Çözüm Sunma:</strong> 
+                                <ul>
+                                    <li>Ürününüzün nasıl bir çözüm sunduğunu açıklayın</li>
+                                    <li>"Bu rehber, Instagram algoritmasını anlayarak keşfete çıkmanızı sağlayacak 5 stratejiyi detaylandırıyor"</li>
+                                </ul>
+                            </li>
+                            <li><strong>Kendinizi Tanıtma:</strong> 
+                                <ul>
+                                    <li>Neden size güvenmeliler? Uzmanlığınızı gösterin</li>
+                                    <li>Kendi sonuçlarınızdan veya müşteri başarılarından bahsedin</li>
+                                </ul>
+                            </li>
+                            <li><strong>Ürün İçeriği ve Faydalar:</strong> 
+                                <ul>
+                                    <li>İçeriği modüller/bölümler halinde açıklayın</li>
+                                    <li>Her bölümün nasıl fayda sağladığını belirtin</li>
+                                    <li>Maddeler halinde somut faydaları listeleyin</li>
+                                </ul>
+                            </li>
+                            <li><strong>Bonuslar:</strong> 
+                                <ul>
+                                    <li>Ek değer katacak 2-3 bonus ekleyin</li>
+                                    <li>Her bonusun değerini gösterin (örn: "$97 değerinde")</li>
+                                </ul>
+                            </li>
+                            <li><strong>Sosyal Kanıt:</strong> 
+                                <ul>
+                                    <li>Müşteri yorumları ve başarı hikayeleri</li>
+                                    <li>Sonuç görselleri (ekran görüntüleri, metrikler)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Fiyatlandırma ve Değer Karşılaştırması:</strong> 
+                                <ul>
+                                    <li>Toplam değeri gösterin (ana ürün + bonuslar)</li>
+                                    <li>Fiyat karşılaştırması yapın: "1:1 danışmanlık olarak bunu almak $500+ değerinde olurdu"</li>
+                                    <li>İndirimli fiyat ve ödeme seçenekleri</li>
+                                </ul>
+                            </li>
+                            <li><strong>Risk Azaltma:</strong> 
+                                <ul>
+                                    <li>30 gün para iade garantisi</li>
+                                    <li>Sık sorulan sorular (SSS) bölümü</li>
+                                </ul>
+                            </li>
+                            <li><strong>Aciliyet/Kıtlık Unsuru:</strong> 
+                                <ul>
+                                    <li>Sınırlı süre indirim (geri sayım sayacı)</li>
+                                    <li>Sınırlı sayıda bonus veya yer</li>
+                                </ul>
+                            </li>
+                            <li><strong>Güçlü CTA (Harekete Geçirici Çağrı):</strong> 
+                                <ul>
+                                    <li>Belirgin, büyük "Şimdi Satın Al" butonu</li>
+                                    <li>Alternatif metin: "Hemen Erişim Kazan", "Rehberime Katıl"</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        
+                        <h3>3. Sosyal Medya ile Dijital Ürün Satış Stratejisi</h3>
+                        <p>TikTok ve Instagram'ı satış kanalı olarak kullanma:</p>
+                        <ul>
+                            <li><strong>İçerik Stratejisi:</strong> 
+                                <ul>
+                                    <li>%70 Değer İçeriği (ücretsiz ipuçları ve bilgiler)</li>
+                                    <li>%20 İlişki İçeriği (kişisel hikayeler, behind-the-scenes)</li>
+                                    <li>%10 Satış İçeriği (ürün tanıtımı, sınırlı teklifler)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Değer Temelli Satış İçerik Türleri:</strong> 
+                                <ul>
+                                    <li>"Nasıl Yapılır" serileri ardından "daha fazlası için link bio'da"</li>
+                                    <li>İzleyicilerin soru-cevap'ları, "tam rehber için..."</li>
+                                    <li>Müşteri başarı hikayeleri ve sonuçları</li>
+                                    <li>Ürün içeriğinden küçük parçalar gösterme (sneak peek)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Call-to-Action (CTA) Stratejileri:</strong> 
+                                <ul>
+                                    <li>"Profilimdeki linke tıklayarak ücretsiz rehbere ulaşabilirsin"</li>
+                                    <li>"Kaydet ve daha sonra satın al, 48 saat içinde fiyat artacak"</li>
+                                    <li>"Bu videoyu kaydet, bio'daki linke tıkla, 30 günde sonuç al"</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <h3>4. E-posta Pazarlama ile Dijital Ürün Satışı</h3>
+                        <p>E-posta listenize etkili bir satış dizisi oluşturma:</p>
+                        <ol>
+                            <li><strong>E-posta #1: Değer ve Tanışma</strong> 
+                                <ul>
+                                    <li>Ücretsiz içeriği gönder</li>
+                                    <li>Kendinizi tanıtın ve yolculuğunuzu paylaşın</li>
+                                    <li>Yaklaşan e-postaların ne içereceğini belirtin</li>
+                                </ul>
+                            </li>
+                            <li><strong>E-posta #2: Problem ve Çözüm</strong> 
+                                <ul>
+                                    <li>Hedef kitlenin yaşadığı sorunu derinlemesine inceleyin</li>
+                                    <li>Bu sorunun maliyetlerini açıklayın</li>
+                                    <li>Çözümün ana hatlarını belirtin (ürün henüz tanıtılmadan)</li>
+                                </ul>
+                            </li>
+                            <li><strong>E-posta #3: Sosyal Kanıt</strong> 
+                                <ul>
+                                    <li>Başarı hikayeleri ve müşteri sonuçları</li>
+                                    <li>Kendi deneyimlerinizi paylaşın</li>
+                                    <li>Çözümünüzün etkisini gösteren istatistikler</li>
+                                </ul>
+                            </li>
+                            <li><strong>E-posta #4: Ürün Lansman</strong> 
+                                <ul>
+                                    <li>Ürününüzü resmi olarak tanıtın</li>
+                                    <li>Özellikler ve faydalar listesi</li>
+                                    <li>Erken kayıt veya özel teklif</li>
+                                    <li>Net satın alma linki</li>
+                                </ul>
+                            </li>
+                            <li><strong>E-posta #5: SSS ve İtirazları Giderme</strong> 
+                                <ul>
+                                    <li>En yaygın itirazları ele alın</li>
+                                    <li>Sık sorulan soruları cevaplayın</li>
+                                    <li>Risk unsurlarını azaltın (garanti, destek, vb.)</li>
+                                </ul>
+                            </li>
+                            <li><strong>E-posta #6: Son Fırsat</strong> 
+                                <ul>
+                                    <li>Teklifin yakında sona ereceğini hatırlatın</li>
+                                    <li>Kararsızlık sonuçlarını vurgulayın (kaçıracakları fırsatlar)</li>
+                                    <li>Son CTA ve satın alma linki</li>
+                                </ul>
+                            </li>
+                            <li><strong>E-posta #7: Kapanış veya Yeni Yönlendirme</strong> 
+                                <ul>
+                                    <li>Satın alanlara teşekkür ve sonraki adımlar</li>
+                                    <li>Satın almayanlara alternatif değer veya gelecek fırsatlar</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        
+                        <h3>5. Lansman ve Satış Optimizasyonu</h3>
+                        <ul>
+                            <li><strong>Pre-lansman Stratejisi:</strong> 
+                                <ul>
+                                    <li>İlgi oluşturmak için 1-2 hafta önceden "yakında geliyor" duyuruları</li>
+                                    <li>Beklenti listesi oluşturma (erken kayıt)</li>
+                                    <li>İçerikten küçük parçalar paylaşma</li>
+                                </ul>
+                            </li>
+                            <li><strong>Lansman Zaman Çizelgesi:</strong> 
+                                <ul>
+                                    <li>48-72 saatlik sınırlı süre teklifleri en etkili olanlardır</li>
+                                    <li>Hafta içi lansman (Salı-Perşembe arası) en iyi dönüşümü sağlar</li>
+                                </ul>
+                            </li>
+                            <li><strong>Satış Sayfası Optimizasyonu:</strong> 
+                                <ul>
+                                    <li>A/B testleri (başlık, fiyatlandırma, CTA)</li>
+                                    <li>Sayfa yükleme hızını optimize etme</li>
+                                    <li>Mobil uyumluluk (müşterilerin çoğu mobilden gelir)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Dönüşüm Artırma Teknikleri:</strong> 
+                                <ul>
+                                    <li>Tek tıkla ödeme seçenekleri</li>
+                                    <li>Taksit imkanları</li>
+                                    <li>Terkedilen sepet e-postaları (%15-30 kurtarma oranı sağlar)</li>
+                                    <li>Exit-intent pop-up (sayfadan ayrılırken son teklif)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <h3>6. Satış Sonrası Stratejiler</h3>
+                        <ul>
+                            <li><strong>Müşteri Onboarding:</strong> Ürünü nasıl kullanacaklarını açıklayan e-posta dizisi</li>
+                            <li><strong>Upsell Fırsatları:</strong> Ana ürünü tamamlayıcı ek ürünler sunma</li>
+                            <li><strong>Referans Programı:</strong> Müşterilerinize arkadaşlarını getirdiklerinde indirim/komisyon sunma</li>
+                            <li><strong>Sosyal Kanıt Toplama:</strong> Geri bildirim isteyerek yeni testimonialler oluşturma</li>
+                        </ul>
+                        
+                        <p>Yusuf Yaman'ın eğitiminde, bu satış stratejilerinin her biri için hazır şablonlar, örnek e-posta dizileri ve satış sayfaları bulunmaktadır. Ayrıca, satış hunisini otomatize etme ve ölçeklendirme teknikleri de detaylı olarak anlatılmaktadır.</p>
+                    `;
+                }
+                else if (lowerCaseMessage.includes('dijital ürün') && (lowerCaseMessage.includes('fikir') || lowerCaseMessage.includes('öneri') || lowerCaseMessage.includes('ne satabilirim'))) {
+                    response = `
+                        <h3>40+ Kârlı Dijital Ürün Fikri</h3>
+                        <p>Farklı niş ve pazarlarda satışa hazır dijital ürün fikirleri:</p>
+                        
+                        <h3>E-Kitaplar ve PDF Rehberler</h3>
+                        <ol>
+                            <li><strong>Instagram Algoritma Rehberi:</strong> Organik erişimi artırmak için stratejiler</li>
+                            <li><strong>TikTok Growth Playbook:</strong> 0'dan 10K takipçiye ulaşma planı</li>
+                            <li><strong>ChatGPT Prompt Kütüphanesi:</strong> Dijital içerik üretimini hızlandıracak 100+ prompt</li>
+                            <li><strong>Bütçe Planlama Rehberi:</strong> Aylık gelirin %20'sini otomatik olarak biriktirme yöntemleri</li>
+                            <li><strong>İlişki İyileştirme Rehberi:</strong> Çiftler için 30 günlük iletişim programı</li>
+                            <li><strong>Ev Ofis Kurulum Kılavuzu:</strong> Üretkenliği artıran çalışma alanı tasarımı</li>
+                            <li><strong>Minimalist Yaşam Rehberi:</strong> 21 günde dijital ve fiziksel düzenleme</li>
+                            <li><strong>Depresyonla Mücadele Rehberi:</strong> Günlük ritüeller ve alışkanlıklar</li>
+                        </ol>
+                        
+                        <h3>Şablonlar ve Planlar</h3>
+                        <ol>
+                            <li><strong>90 Günlük Sosyal Medya İçerik Planı:</strong> 3 aylık günlük içerik fikirleri ve takvim</li>
+                            <li><strong>TikTok Video Script Şablonları:</strong> 50+ video senaryosu</li>
+                            <li><strong>Instagram Caption Kütüphanesi:</strong> 100+ caption formülü ve hashtag setleri</li>
+                            <li><strong>Canva Sosyal Medya Şablonları:</strong> Platform bazlı tasarım paketi</li>
+                            <li><strong>E-posta Otomasyonu Şablonları:</strong> Satış ve welcome dizileri</li>
+                            <li><strong>Hedef Takip Planı:</strong> Aylık, çeyreklik ve yıllık planlama şablonları</li>
+                            <li><strong>Dijital Bütçe Şablonu:</strong> Otomatik hesaplama ve görselleştirme</li>
+                            <li><strong>Alışkanlık Takipçisi:</strong> 7 alışkanlığı 30 gün boyunca takip etme planı</li>
+                        </ol>
+                        
+                        <h3>Mini Kurslar</h3>
+                        <ol>
+                            <li><strong>Canva Mastery:</strong> 7 günde profesyonel tasarım becerisi</li>
+                            <li><strong>Video Düzenleme Boot Camp:</strong> CapCut ile mobil video editörlük</li>
+                            <li><strong>Midjourney İle Görsel Oluşturma:</strong> Pazarlama ve sosyal medya için</li>
+                            <li><strong>ChatGPT İçerik Üretim Sistemi:</strong> 1 saatte 1 haftalık içerik üretimi</li>
+                            <li><strong>LinkedIn Profil Optimizasyonu:</strong> İş teklifleri için profil düzenleme</li>
+                            <li><strong>Freelance Fiyatlandırma Stratejisi:</strong> Değerinizi 3 kat artırma formülü</li>
+                        </ol>
+                        
+                        <h3>Araçlar ve Dijital Uygulamalar</h3>
+                        <ol>
+                            <li><strong>Excel/Google Sheets Hesap Takip Sistemi:</strong> Gelir-gider otomatik analizi</li>
+                            <li><strong>Notion Business Hub:</strong> İş yönetimi için entegre sistem</li>
+                            <li><strong>Sosyal Medya Analitik Gösterge Paneli:</strong> Büyüme metriklerini izleme</li>
+                            <li><strong>AI Prompt Generator:</strong> Nişinize özel prompt oluşturucu araç</li>
+                        </ol>
+                        
+                        <h3>Üyelik & Abonelik</h3>
+                        <ol>
+                            <li><strong>Aylık İçerik Paketi:</strong> Nişinize özel sosyal medya içerikleri</li>
+                            <li><strong>Haftalık AI Fırsat Bülteni:</strong> Yapay zeka alanındaki yenilikler</li>
+                            <li><strong>Özel Telegram/Discord Topluluğu:</strong> Premium içerik ve networking</li>
+                        </ol>
+                        
+                                               <h3>Niş Bazlı Özel Dijital Ürün Fikirleri</h3>
+                        
+                        <h3>Finans ve Para Kazanma</h3>
+                        <ol>
+                            <li><strong>Pasif Gelir Blueprint:</strong> 5 farklı dijital ürünle gelir piramidi oluşturma</li>
+                            <li><strong>Borç Özgürleşme Planı:</strong> 18 ay içinde borçlardan kurtulma stratejisi</li>
+                            <li><strong>Freelance Pricing Calculator:</strong> Projelerinizin değerini hesaplama aracı</li>
+                            <li><strong>Side Hustle Starter Kit:</strong> Tam zamanlı işiniz varken ek gelir oluşturma</li>
+                            <li><strong>Kripto Para Başlangıç Rehberi:</strong> Güvenli yatırım için adım adım kılavuz</li>
+                        </ol>
+                        
+                        <h3>Kişisel Gelişim</h3>
+                        <ol>
+                            <li><strong>Zamanlama Mastery:</strong> 2 kat daha üretken olma sistemi</li>
+                            <li><strong>Deep Work Formula:</strong> Derin odaklanma için 4 haftalık program</li>
+                            <li><strong>Kaygı Yönetim Araç Seti:</strong> Günlük stres ve kaygıyla başa çıkma teknikleri</li>
+                            <li><strong>Sabah Rutini Oluşturucu:</strong> Kişiselleştirilmiş sabah planı</li>
+                            <li><strong>Dijital Detoks Planı:</strong> Teknoloji bağımlılığını azaltma programı</li>
+                        </ol>
+                        
+                        <h3>İlişkiler ve Sosyal Beceriler</h3>
+                        <ol>
+                            <li><strong>Flört Başlangıç Mesajları:</strong> Dating uygulamaları için 100+ açılış mesajı</li>
+                            <li><strong>İlişki Kurtarma Rehberi:</strong> Zorlu dönemleri atlatma stratejileri</li>
+                            <li><strong>Etkili İletişim Formülleri:</strong> Zor konuşmalar için konuşma şablonları</li>
+                            <li><strong>Networking Konuşma Başlatıcıları:</strong> Profesyonel bağlantılar kurma</li>
+                        </ol>
+                        
+                        <h3>Sağlık ve Fitness</h3>
+                        <ol>
+                            <li><strong>Ev Egzersiz Programı:</strong> Ekipman gerektirmeyen 30 günlük plan</li>
+                            <li><strong>Haftalık Yemek Planlayıcı:</strong> Otomatik alışveriş listesi oluşturan araç</li>
+                            <li><strong>Uyku Optimizasyon Rehberi:</strong> Daha kaliteli uyku için 21 günlük protokol</li>
+                            <li><strong>Stres Yönetim Teknikleri Koleksiyonu:</strong> 5-10 dakikalık günlük pratikler</li>
+                        </ol>
+                        
+                        <h3>Yaratıcı ve Hobi</h3>
+                        <ol>
+                            <li><strong>Telefon Fotoğrafçılık Kursu:</strong> Profesyonel görünümlü fotoğraflar çekme</li>
+                            <li><strong>Günlük Tutma Şablonları:</strong> Kişisel gelişim odaklı günlük formatları</li>
+                            <li><strong>Ev Dekorasyon Planlayıcı:</strong> Düşük bütçeli tasarım fikirleri</li>
+                            <li><strong>DIY Gift Ideas Koleksiyonu:</strong> El yapımı hediye şablonları</li>
+                        </ol>
+                        
+                        <h3>Hangi Dijital Ürünle Başlamalı?</h3>
+                        <p>İlk ürününüz için şu kriterleri karşılayan bir fikir seçin:</p>
+                        <ol>
+                            <li><strong>Hızlı Oluşturulabilir:</strong> 1-2 hafta içinde tamamlayabileceğiniz bir ürün</li>
+                            <li><strong>Uzmanlık Alanınız:</strong> Halihazırda bilgi sahibi olduğunuz bir konu</li>
+                            <li><strong>Doğrulanmış Talep:</strong> İnsanların aradığı ve para ödemeye hazır olduğu bir problem çözümü</li>
+                            <li><strong>Düşük Başlangıç Fiyatı:</strong> İlk ürününüz için $7-$27 arası bir fiyat noktası</li>
+                            <li><strong>Ölçeklenebilirlik:</strong> Daha büyük bir kursa veya ürün ekosistemine dönüştürülebilir</li>
+                        </ol>
+                        
+                        <h3>Talep Doğrulama Yöntemleri</h3>
+                        <p>Bir dijital ürün oluşturmadan önce talebi doğrulamak için:</p>
+                        <ol>
+                            <li><strong>Anahtar Kelime Araştırması:</strong> Google Trends ve Ubersuggest ile arama hacimlerini inceleyin</li>
+                            <li><strong>Rakip Analizi:</strong> Gumroad, Etsy ve diğer platformlarda benzer ürünleri araştırın</li>
+                            <li><strong>Pre-sale Test:</strong> Ürünü oluşturmadan önce ön satış yaparak ilgiyi ölçün</li>
+                            <li><strong>Anket ve Sorular:</strong> Hedef kitlenize hangi sorunları çözmek istediklerini sorun</li>
+                            <li><strong>Ücretsiz Mini Versiyon:</strong> Ürünün küçük bir versiyonunu ücretsiz dağıtarak geri bildirim toplayın</li>
+                        </ol>
+                        
+                        <h3>Dijital Ürün Oluşturma Araçları</h3>
+                        <ul>
+                            <li><strong>İçerik Oluşturma:</strong> Google Docs, Microsoft Word, ChatGPT, Claude</li>
+                            <li><strong>Tasarım:</strong> Canva, Figma, Adobe Express</li>
+                            <li><strong>PDF Dönüştürme ve Düzenleme:</strong> Smallpdf, Adobe Acrobat</li>
+                            <li><strong>Video Kayıt ve Düzenleme:</strong> Loom, OBS, CapCut, DaVinci Resolve</li>
+                            <li><strong>Şablon Oluşturma:</strong> Google Sheets, Notion, Airtable</li>
+                            <li><strong>Satış Platformları:</strong> Gumroad, Shopier, Payhip, SendOwl, Lemonsqueezy</li>
+                        </ul>
+                        
+                        <p>Yusuf Yaman'ın eğitiminde, bu fikirlerden hangisinin sizin için en uygun olduğunu belirlemenize yardımcı olacak nişinize ve hedefinize özel bir dijital ürün seçim rehberi bulunmaktadır. Ayrıca, her bir ürün türü için şablonlar ve hızlı oluşturma sistemleri de yer almaktadır.</p>
+                    `;
+                }
+                
+                // YAPAY ZEKA VE AI ARAÇLARI İLE İLGİLİ SORULAR
+                else if ((lowerCaseMessage.includes('yapay zeka') || lowerCaseMessage.includes('ai') || lowerCaseMessage.includes('artificial intelligence')) && 
+                         (lowerCaseMessage.includes('içerik') || lowerCaseMessage.includes('üretim') || lowerCaseMessage.includes('content'))) {
+                    response = `
+                        <h3>Yapay Zeka ile İçerik Üretme Stratejileri</h3>
+                        <p>Dijital içerik üretimini hızlandırmak ve ölçeklendirmek için yapay zeka (AI) kullanım rehberi:</p>
+                        
+                        <h3>1. İçerik Üretimi için En İyi AI Araçları</h3>
+                        <p>Farklı içerik türleri için önerilen yapay zeka araçları:</p>
+                        
+                        <h3>Metin İçeriği</h3>
+                        <ul>
+                            <li><strong>ChatGPT (OpenAI):</strong> 
+                                <ul>
+                                    <li>En İyi Kullanım: Sosyal medya gönderileri, e-mailler, blog yazıları, e-book taslakları</li>
+                                    <li>Ücretsiz Sürüm: Evet (GPT-3.5)</li>
+                                    <li>Ücretli Sürüm: GPT-4 ($20/ay)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Claude (Anthropic):</strong> 
+                                <ul>
+                                    <li>En İyi Kullanım: Daha uzun içerikler, detaylı analizler, ton tutarlılığı</li>
+                                    <li>Ücretsiz Sürüm: Evet (sınırlı)</li>
+                                    <li>Ücretli Sürüm: Claude Pro ($20/ay)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Gemini (Google):</strong> 
+                                <ul>
+                                    <li>En İyi Kullanım: Araştırma, veri analizi, eğitim içeriği</li>
+                                    <li>Ücretsiz Sürüm: Evet</li>
+                                    <li>Ücretli Sürüm: Gemini Advanced ($20/ay)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Canva Magic Write:</strong> 
+                                <ul>
+                                    <li>En İyi Kullanım: Doğrudan Canva içerisinde yazı oluşturma</li>
+                                    <li>Ücretsiz Sürüm: Evet (sınırlı)</li>
+                                    <li>Ücretli Sürüm: Canva Pro içinde ($12.99/ay)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <h3>Görsel İçerik</h3>
+                        <ul>
+                            <li><strong>Midjourney:</strong> 
+                                <ul>
+                                    <li>En İyi Kullanım: Gerçekçi görseller, sosyal medya için çarpıcı içerikler</li>
+                                    <li>Ücretli Sürüm: $10-30/ay (Basic, Standard, Pro planları)</li>
+                                </ul>
+                            </li>
+                            <li><strong>DALL-E (OpenAI):</strong> 
+                                <ul>
+                                    <li>En İyi Kullanım: Yaratıcı konsept görselleri, ürün mockup'ları</li>
+                                    <li>Erişim: ChatGPT Plus ($20/ay) veya kredi satın alma</li>
+                                </ul>
+                            </li>
+                            <li><strong>Leonardo.AI:</strong> 
+                                <ul>
+                                    <li>En İyi Kullanım: Özelleştirilmiş stil ve temalar, karakter tasarımları</li>
+                                    <li>Ücretsiz Sürüm: Evet (günlük sınırlı üretim)</li>
+                                    <li>Ücretli Sürüm: $10-30/ay arası planlar</li>
+                                </ul>
+                            </li>
+                            <li><strong>Canva Magic Media:</strong> 
+                                <ul>
+                                    <li>En İyi Kullanım: Sosyal medya görselleri, sunum tasarımları</li>
+                                    <li>Erişim: Canva Pro ile ($12.99/ay)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <h3>Ses ve Video İçeriği</h3>
+                        <ul>
+                            <li><strong>ElevenLabs:</strong> 
+                                <ul>
+                                    <li>En İyi Kullanım: Gerçekçi seslendirme, podcast, video narasyonu</li>
+                                    <li>Ücretsiz Sürüm: Evet (aylık sınırlı karakter)</li>
+                                    <li>Ücretli Sürüm: $5/ay'dan başlayan planlar</li>
+                                </ul>
+                            </li>
+                            <li><strong>Descript:</strong> 
+                                <ul>
+                                    <li>En İyi Kullanım: Video düzenleme, altyazı ekleme, ses iyileştirme</li>
+                                    <li>Ücretsiz Sürüm: Evet (sınırlı)</li>
+                                    <li>Ücretli Sürüm: $12/ay'dan başlayan planlar</li>
+                                </ul>
+                            </li>
+                            <li><strong>HeyGen:</strong> 
+                                <ul>
+                                    <li>En İyi Kullanım: AI video sunucuları, eğitim videoları</li>
+                                    <li>Ücretsiz Sürüm: Sınırlı deneme</li>
+                                    <li>Ücretli Sürüm: $29/ay'dan başlayan planlar</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <h3>2. ChatGPT ile İçerik Oluşturma: Prompt Mühendisliği</h3>
+                        <p>Daha iyi sonuçlar almak için prompt oluşturma çerçevesi:</p>
+                        
+                        <h3>CRISPE Prompt Çerçevesi</h3>
+                        <ul>
+                            <li><strong>C - Capacity (Kapasite):</strong> AI'ya rolünü belirtin</li>
+                            <li><strong>R - Role (Rol):</strong> AI'nın hangi uzmanlık rolünü üstleneceğini belirtin</li>
+                            <li><strong>I - Instruction (Talimat):</strong> Tam olarak ne yapmak istediğinizi açıklayın</li>
+                            <li><strong>S - Specifics (Belirtilenler):</strong> Format, uzunluk, ton, hedef kitle gibi detayları belirtin</li>
+                            <li><strong>P - Purpose (Amaç):</strong> İçeriğin nihai amacı nedir?</li>
+                            <li><strong>E - Example (Örnek):</strong> İstediğiniz çıktıya bir örnek verin</li>
+                        </ul>
+                        
+                        <h3>Örnek Prompt Şablonları</h3>
+                        
+                        <h3>1. Sosyal Medya Gönderisi Prompt'u</h3>
+                        <p><strong>Prompt:</strong></p>
+                        <blockquote>
+                            Capacity: Sen bir yapay zeka asistanısın ve şu anda 250+ dijital ürün satışı yapan bir içerik üreticisinin yardımcısı olarak çalışıyorsun.
+                            <br><br>
+                            Role: Sosyal medya içerik uzmanı olarak görev yapacaksın.
+                            <br><br>
+                            Instruction: [KONU] hakkında Instagram için 5 carousel gönderi fikri oluştur. Her gönderinin ilk slaytı için dikkat çekici bir hook ve sonraki her slayt için 1-2 cümlelik içerik yaz.
+                            <br><br>
+                            Specifics: 
+                            - Her fikir 5-7 slayt içermeli
+                            - İlk slayt için güçlü bir hook cümlesi
+                            - Emoji kullan ama abartma (1-2 emoji/slayt)
+                            - Ton: Profesyonel ama samimi, bilgilendirici
+                            - Uygun Call-to-Action (CTA) ekle
+                            <br><br>
+                            Purpose: Bu gönderiler, hedef kitleyi eğitecek ve bio'daki dijital ürünümü satın almalarını teşvik edecek.
+                            <br><br>
+                            Example:
+                            Carousel 1 - Hook: "Instagram algoritması değişti. Bu 5 değişikliği bilmiyorsanız içerikleriniz keşfete düşmeyecek 👇"
+                        </blockquote>
+                        
+                        <h3>2. E-book Bölümü Yazma Prompt'u</h3>
+                        <p><strong>Prompt:</strong></p>
+                        <blockquote>
+                            Capacity: Sen bir dijital ürün uzmanı ve içerik geliştiricisisin.
+                            <br><br>
+                            Role: Dijital ürün satışı hakkında e-book yazan bir yazar.
+                            <br><br>
+                            Instruction: "İlk Dijital Ürününü Oluştur ve Sat" e-book'umun [BÖLÜM ADI] bölümünü yaz. Bu bölüm [BÖLÜM KONUSU] hakkında detaylı ve uygulanabilir bilgiler içermeli.
+                            <br><br>
+                            Specifics:
+                            - 1000-1500 kelime uzunluğunda
+                            - En az 3 alt başlık içermeli
+                            - Adım adım talimatlar içermeli
+                            - Gerçek dünya örnekleri ve senaryoları dahil et
+                            - Pratik, uygulanabilir öneriler sun
+                            - Ton: Bilgilendirici, motive edici ama abartılı değil
+                            <br><br>
+                            Purpose: Okuyucunun bu bölümü okuduktan sonra hemen harekete geçebilmesi ve somut adımlar atabilmesi.
+                            <br><br>
+                            Example: Bölüm başlangıcını şöyle yapabilirsin: "Dijital ürününüzü oluşturdunuz, şimdi sıra onu dünyaya tanıtmakta. Satış sayfanız, müşterilerinizle ilk temas noktanız ve dönüşüm oranınızı belirleyen en kritik unsurdur. Bu bölümde, yüksek dönüşüm sağlayan bir satış sayfasının temel öğelerini ve nasıl oluşturacağınızı adım adım öğreneceksiniz."
+                        </blockquote>
+                        
+                        <h3>3. İçerik Planı ve Fikir Üretme Prompt'u</h3>
+                        <p><strong>Prompt:</strong></p>
+                        <blockquote>
+                            Capacity: Sen bir içerik stratejisti ve yaratıcı fikir üreticisisin.
+                            <br><br>
+                            Role: Instagram ve TikTok için aylık içerik planı hazırlayan uzman.
+                            <br><br>
+                            Instruction: [NİŞ] alanında içerik üreten bir hesap için 30 günlük içerik planı oluştur.
+                            <br><br>
+                            Specifics:
+                            - 30 özgün içerik fikri (günde 1)
+                            - Her fikir için bir hook cümlesi
+                            - Her fikir için içerik türü (eğitici, eğlenceli, ilham verici, vs.)
+                            - Her içerik için CTA önerisi
+                            - İçerik planını 3 kategoriye böl: Değer içerikleri (%70), İlişki kurma içerikleri (%20), Satış içerikleri (%10)
+                            <br><br>
+                            Purpose: Bu içerik planı hesabın organik büyümesini hızlandıracak ve dijital ürün satışlarını artıracak.
+                            <br><br>
+                            Example:
+                            Gün 1 (Değer) - "Bu 3 Instagram özelliğini kullanmıyorsanız, etkileşim kaybediyorsunuz. #3 sizi şaşırtacak! 👀" - Eğitici İçerik - CTA: "Daha fazla ipucu için kaydederek kaybolmasını önleyin"
+                        </blockquote>
+                        
+                        <h3>3. Midjourney ile Profesyonel Görseller Oluşturma</h3>
+                        <p>E-book kapakları, sosyal medya görselleri ve ürün prototipleri için Midjourney prompt yapısı:</p>
+                        
+                        <h3>Midjourney Temel Prompt Yapısı</h3>
+                        <p><strong>Formül:</strong> /imagine [konu], [stil], [kompozisyon], [teknik detaylar], [renk paleti], [ışık], [odak noktası], [AR:X:Y]</p>
+                        
+                        <h3>Dijital Ürün Görselleri İçin Prompt Örnekleri</h3>
+                        <ol>
+                            <li><strong>E-book Kapak Tasarımı:</strong> 
+                                <blockquote>/imagine a professional e-book cover for "Instagram Growth Blueprint", minimalist design, dark blue and teal color palette, subtle grid pattern in background, professional typography, centered composition, soft gradient lighting, 3D mockup on iPad screen, ultra HD quality, trending on Behance --ar 3:4</blockquote>
+                            </li>
+                            <li><strong>Sosyal Medya Banner:</strong>
+                                <blockquote>/imagine a social media banner showing a person achieving financial freedom through digital products, abstract representation, person sitting with laptop against background showing money symbols, clean modern design, teal and white color palette, inspirational mood, depth of field, perfect for Facebook cover --ar 16:9</blockquote>
+                            </li>
+                            <li><strong>Ürün Mockup:</strong>
+                                <blockquote>/imagine a realistic mockup of a digital planner displayed on multiple devices (laptop, tablet, smartphone), clean workspace environment, soft natural lighting, coffee cup nearby, minimalist aesthetic, teal and white color theme, depth of field focusing on screens, professional marketing image --ar 1:1</blockquote>
+                            </li>
+                        </ol>
+                        
+                        <h3>4. ElevenLabs ile Profesyonel Sesli İçerik</h3>
+                        <p>Podcast, video narasyonu ve sesli kitaplar için ElevenLabs kullanım rehberi:</p>
+                        
+                        <h3>ElevenLabs Kullanım Adımları</h3>
+                        <ol>
+                            <li><strong>Ses Seçimi:</strong> Nişinize ve markanıza uygun bir ses tonu seçin (Rachel, Adam veya Josh genellikle profesyonel projeler için tercih edilir)</li>
+                            <li><strong>Metin Hazırlığı:</strong> ChatGPT ile hazırladığınız metni doğal konuşma diline çevirin (virgül ve nokta kullanımı, duraksamalar eklemek için)</li>
+                            <li><strong>Ses Ayarları:</strong> Stabilite: %75, Netlik ve Benzerlik: %70 idealdir (daha doğal bir ses için)</li>
+                            <li><strong>Ses Düzenleme:</strong> Oluşturulan sesi Descript veya Audacity ile düzenleyerek arka plan müziği ekleyebilirsiniz</li>
+                        </ol>
+                        
+                        <h3>5. AI İle İçerik Üretiminde Etik ve En İyi Uygulamalar</h3>
+                        <ul>
+                            <li><strong>Orijinallik:</strong> AI çıktılarını olduğu gibi kullanmak yerine kendi deneyimleriniz ve bakış açınızla zenginleştirin</li>
+                            <li><strong>Doğrulama:</strong> AI'nın ürettiği bilgileri ve istatistikleri her zaman doğrulayın</li>
+                            <li><strong>İnsan Dokunuşu:</strong> Kişisel hikayeler ve deneyimlerinizi ekleyerek içeriği benzersiz kılın</li>
+                            <li><strong>Tutarlı Marka Sesi:</strong> Tüm AI içeriklerinizin marka sesinizle uyumlu olmasını sağlayın</li>
+                            <li><strong>İterasyon:</strong> Mükemmel sonuç için ilk çıktıyı kabul etmek yerine AI'ya geri bildirim vererek içeriği iyileştirin</li>
+                        </ul>
+                        
+                        <h3>6. AI İçerik Üretim İş Akışı</h3>
+                        <p>Etkili bir uçtan uca AI içerik üretim süreci:</p>
+                        <ol>
+                            <li><strong>İçerik Planı:</strong> ChatGPT ile aylık içerik planı oluşturun</li>
+                            <li><strong>Taslak Oluşturma:</strong> ChatGPT/Claude ile içerik taslağı hazırlayın</li>
+                            <li><strong>Kişiselleştirme:</strong> Kendi deneyim ve bilgilerinizi ekleyin</li>
+                            <li><strong>Görsel Üretimi:</strong> Midjourney/DALL-E ile destekleyici görseller üretin</li>
+                            <li><strong>Düzenleme:</strong> Canva ile görsel tasarım ve düzenleme yapın</li>
+                            <li><strong>Ses Ekleme (Video için):</strong> ElevenLabs ile profesyonel seslendirme ekleyin</li>
+                            <li><strong>Montaj:</strong> Descript ile video/ses düzenleme ve altyazı ekleme</li>
+                            <li><strong>Optimizasyon:</strong> ChatGPT ile caption, etiket ve SEO önerileri alın</li>
+                            <li><strong>Yayınlama ve Analiz:</strong> Performans ölçümü ve raporlama</li>
+                        </ol>
+                        
+                        <p>Yusuf Yaman'ın eğitiminde, bu yapay zeka araçlarının her biri için detaylı videolu eğitimler ve örnek iş akışları bulunmaktadır. Ayrıca 200+ hazır prompt şablonu da eğitim içeriğinde mevcuttur.</p>
+                    `;
+                }
+                else if (lowerCaseMessage.includes('chatgpt') || (lowerCaseMessage.includes('chat') && lowerCaseMessage.includes('gpt'))) {
+                    response = `
+                        <h3>ChatGPT ile Dijital İçerik ve Ürün Geliştirme Rehberi</h3>
+                        <p>ChatGPT'yi dijital içerik oluşturma ve dijital ürün geliştirme süreçleriniz için etkili kullanma stratejileri:</p>
+                        
+                        <h3>1. ChatGPT ile E-book ve Dijital Ürün Oluşturma</h3>
+                        <p>Adım adım e-book oluşturma süreci:</p>
+                        <ol>
+                            <li><strong>Konu Araştırması ve Taslak Oluşturma:</strong>
+                                <blockquote>
+                                    "Aşağıdaki konu için kapsamlı bir e-book taslağı oluştur: '[E-BOOK KONUSU]'. Bu e-book [HEDEF KİTLE] için yazılacak ve [TEMEL PROBLEM]'i çözmeye odaklanacak. 5-7 ana bölüm ve her bölüm için 3-5 alt bölüm şeklinde yapılandır. Her bölümün neyi kapsayacağını 1-2 cümleyle açıkla."
+                                </blockquote>
+                            </li>
+                            <li><strong>Bölüm İçeriği Geliştirme:</strong>
+                                <blockquote>
+                                    "Aşağıdaki e-book bölümünü geliştir: '[BÖLÜM BAŞLIĞI]'. Bu bölüm şunları içermeli: temel kavramlar, adım adım talimatlar, gerçek örnekler, yaygın hatalar ve ipuçları. Yaklaşık 1500 kelime olsun ve pratik, uygulanabilir içerik sunmaya odaklan. Profesyonel ama samimi bir ton kullan ve okuyucuya doğrudan hitap et."
+                                </blockquote>
+                            </li>
+                            <li><strong>Görseller için Alt Yazı ve Açıklamalar:</strong>
+                                <blockquote>
+                                    "E-book'umun '[BÖLÜM ADI]' bölümü için 5 görsel fikri ve her biri için açıklayıcı alt yazılar oluştur. Bu görseller kavramları basitleştirmeli ve metni tamamlamalı. Her görsel fikrini detaylı açıkla, böylece bir tasarımcı veya yapay zeka görsel üretim aracı kullanarak oluşturabilirim."
+                                </blockquote>
+                            </li>
+                            <li><strong>Ürün Satış Sayfası İçeriği:</strong>
+                                <blockquote>
+                                    "Oluşturduğum '[ÜRÜN ADI]' e-book'u için ikna edici bir satış sayfası metni yaz. Ürün [HEDEF KİTLE] için tasarlandı ve [TEMEL FAYDA] sağlıyor. Metin şunları içermeli: dikkat çekici başlık, problem tanımı, çözüm sunumu, ürün detayları, müşteri faydaları (madde işaretli liste), bonuslar, fiyatlandırma ve güçlü bir çağrı-harekete çağrısı (CTA). Toplam 500-700 kelime olsun."
+                                </blockquote>
+                            </li>
+                        </ol>
+                        
+                        <h3>2. ChatGPT ile Sosyal Medya İçerik Üretimi</h3>
+                        <p>Farklı platformlar için içerik oluşturma prompt'ları:</p>
+                        
+                        <h3>Instagram Carousel İçerikleri</h3>
+                        <blockquote>
+                            "Dijital pazarlama konusunda bir Instagram carousel gönderisi için 7 slayt hazırla. Konu: '[KONU]'. İlk slayt için dikkat çekici bir hook cümlesi yaz. Diğer slaytlar için her biri 1-2 cümle olacak şekilde bilgilendirici içerik oluştur. Son slayta güçlü bir CTA ekle. Her slayt için 1-2 uygun emoji kullan. Ton bilgilendirici ve etkileşim uyandırıcı olsun."
+                        </blockquote>
+                        
+                        <h3>Viral TikTok Video Senaryoları</h3>
+                        <blockquote>
+                            "Dijital ürün satışı hakkında viral potansiyeli olan 15-20 saniyelik bir TikTok video senaryosu yaz. Video '[KONU]' hakkında olmalı. Şunları içermeli: 1) ilk 3 saniyede dikkat çekici bir hook, 2) 3 önemli nokta veya ipucu, 3) güçlü bir kapanış CTA. Senaryo konuşma metni şeklinde olmalı ve ekranda gösterilecek görsel/metin notları içermeli."
+                        </blockquote>
+                        
+                        <h3>LinkedIn Düşünce Liderliği Gönderileri</h3>
+                        <blockquote>
+                            "Dijital pazarlama konusunda düşünce liderliği gösteren bir LinkedIn gönderisi oluştur. Konu: '[KONU]'. Gönderi şu yapıyı izlemeli: 1) Dikkat çekici bir açılış cümlesi, 2) Kişisel bir deneyim veya gözlem, 3) Sektördeki bir trendi veya sorunu analiz etme, 4) Pratik çözüm veya yaklaşım önerisi, 5) Okuyucuları düşünmeye veya harekete geçmeye davet eden bir soru veya öneri. Profesyonel ama samimi bir ton kullan, paragraflar arası uygun boşluklar bırak."
+                        </blockquote>
+                        
+                        <h3>3. ChatGPT ile İçerik İyileştirme ve Optimizasyon</h3>
+                        
+                        <h3>İçerik Düzenleme ve Geliştirme</h3>
+                        <blockquote>
+                            "Aşağıdaki metni düzenle ve geliştir. Şu alanlarda iyileştirmeler yap: 1) Dil akıcılığı ve cümle yapısı, 2) Bilgi yoğunluğu ve değeri, 3) Paragraf yapılandırması, 4) İkna edicilik ve etki. Metnin orijinal anlamını ve tonunu koru, sadece daha etkili hale getir:
+
+                            [METNİNİZİ BURAYA YAPIŞTIRIN]"
+                        </blockquote>
+                        
+                        <h3>SEO Optimizasyonu</h3>
+                        <blockquote>
+                            "Aşağıdaki blog yazısını SEO açısından optimize et. '[HEDEF ANAHTAR KELİME]' için uygun hale getir. Şunları yap: 1) SEO dostu başlık önerisi, 2) Meta açıklaması (150-160 karakter), 3) Alt başlıklar için H2 ve H3 önerileri, 4) İçeriğe doğal şekilde entegre edilecek ilgili anahtar kelimeler, 5) İç bağlantı fırsatları, 6) Görseller için alt metin önerileri. İçeriğin doğal ve kullanıcı dostu kalmasını sağla.
+
+                            [BLOG METNİNİZİ BURAYA YAPIŞTIRIN]"
+                        </blockquote>
+                        
+                        <h3>4. ChatGPT ile Hedef Kitle ve Pazar Araştırması</h3>
+                        
+                        <h3>Buyer Persona Oluşturma</h3>
+                        <blockquote>
+                            "Dijital ürün pazarında '[NİŞ]' alanında faaliyet gösteren bir iş için 3 detaylı buyer persona oluştur. Her persona için şunları belirt: demografik bilgiler, hedefler ve motivasyonlar, ağrı noktaları ve zorluklar, bilgi arama davranışları, satın alma kriterleri, tercih ettikleri iletişim kanalları ve potansiyel itirazlar. Her persona için bir isim ve kısa hikaye de ekle."
+                        </blockquote>
+                        
+                        <h3>Rakip Analizi Çerçevesi</h3>
+                        <blockquote>
+                            "'[NİŞ]' dijital ürün pazarında rakip analizi yapmam için kapsamlı bir çerçeve oluştur. Rakiplerimi değerlendirmek için hangi faktörlere bakmalıyım? Her faktörü açıkla ve nasıl analiz edeceğime dair ipuçları ver. Ayrıca, bulgularımı organize etmek için bir tablo veya şablon formatı öner."
+                        </blockquote>
+                        
+                        <h3>5. İş ve Ürün Geliştirme İçin ChatGPT</h3>
+                        
+                        <h3>Dijital Ürün Fikri Üretme</h3>
+                        <blockquote>
+                            "'[NİŞ]' alanında 10 potansiyel dijital ürün fikri öner. Her fikir için şunları belirt: 1) Ürün türü ve format,, 2) Çözdüğü temel problem, 3) Hedef kitle, 4) Potansiyel fiyat aralığı, 5) Oluşturma zorluk seviyesi (1-5), 6) Pazarlama stratejisi ipuçları. Fikirler çeşitli zorluk seviyelerinde olsun ve farklı gelir potansiyelleri içersin."
+                        </blockquote>
+                        
+                        <h3>Lansman Stratejisi</h3>
+                        <blockquote>
+                            "'[ÜRÜN ADI]' adlı dijital ürünüm için 30 günlük bir lansman stratejisi oluştur. Ürün '[ÜRÜN AÇIKLAMASI]' ve hedef kitlem '[HEDEF KİTLE]'. Lansman stratejisi şunları içermeli: lansman öncesi hazırlıklar, içerik planı, e-posta pazarlama stratejisi, sosyal medya kampanyası, iş birlikleri ve ortaklıklar, fiyatlandırma ve promosyon stratejisi, ve lansman sonrası izleme. Her aşama için somut eylem adımları ve zaman çizelgesi belirt."
+                        </blockquote>
+                        
+                        <h3>6. ChatGPT Pro İpuçları ve Püf Noktaları</h3>
+                        
+                        <h3>Daha İyi Sonuçlar İçin İpuçları</h3>
+                        <ul>
+                            <li><strong>Rol Belirleme:</strong> Her zaman ChatGPT'ye belirli bir rol verin (örn: "Dijital pazarlama uzmanı olarak...")</li>
+                            <li><strong>Formatlama:</strong> İstediğiniz çıktı formatını detaylı belirtin (örn: "Madde işaretli liste olarak..." veya "5 paragraf şeklinde...")</li>
+                            <li><strong>İterasyon:</strong> İlk yanıtı kabul etmek yerine, daha spesifik talimatlarla detaylandırmasını isteyin</li>
+                            <li><strong>Görüş İsteme:</strong> "Bu metni nasıl geliştirebilirim?" veya "Bu içerikte neyi daha iyi yapabilirim?" gibi sorular sorun</li>
+                            <li><strong>Örnek Verme:</strong> İstediğiniz çıktıya benzer bir örnek vererek beklentinizi netleştirin</li>
+                        </ul>
+                        
+                        <h3>ChatGPT Prompt Kütüphanesi Oluşturma</h3>
+                        <p>Sık kullandığınız prompt'ları kaydedin ve kategorilere ayırın:</p>
+                        <ul>
+                            <li>İçerik Oluşturma Promptları</li>
+                            <li>Düzenleme ve İyileştirme Promptları</li>
+                            <li>Araştırma ve Analiz Promptları</li>
+                            <li>Ürün Geliştirme Promptları</li>
+                            <li>Pazarlama ve Satış Promptları</li>
+                        </ul>
+                        
+                        <p>Yusuf Yaman'ın eğitiminde, ChatGPT'yi kullanarak dijital ürün geliştirme, içerik üretimi ve pazarlama süreçleri için 100+ hazır prompt şablonu bulabilirsiniz. Ayrıca, Midjourney, DALL-E ve diğer AI araçları ile nasıl entegre çalışılacağına dair kapsamlı rehberler de yer almaktadır.</p>
+                    `;
+                }
+                
+                // NİŞ SEÇİMİ VE PAZAR ARAŞTIRMASI
+                else if ((lowerCaseMessage.includes('niş') || lowerCaseMessage.includes('nis')) && 
+                        (lowerCaseMessage.includes('seçim') || lowerCaseMessage.includes('secim') || lowerCaseMessage.includes('nasıl'))) {
+                    response = `
+                        <h3>Dijital Ürün Satışı İçin Kârlı Niş Seçim Rehberi</h3>
+                        <p>Doğru niş seçimi, dijital ürün başarısının temelidir. İşte kapsamlı niş seçim süreci:</p>
+                        
+                        <h3>1. Niş Seçimi: Temel Prensipler</h3>
+                        <p>Kârlı bir niş seçerken şu kriterleri göz önünde bulundurun:</p>
+                        <ul>
+                            <li><strong>Talep:</strong> İnsanların aktif olarak aradığı ve çözüm istediği bir konu olmalı</li>
+                            <li><strong>Ödeme İsteği:</strong> Hedef kitlenin problemi çözmek için para ödemeye istekli olması gerekli</li>
+                            <li><strong>Rekabet-Fırsat Dengesi:</strong> Rekabet olmalı (talep göstergesi) ancak aşırı doymuş olmamalı</li>
+                            <li><strong>Tutku Faktörü:</strong> Uzun vadeli sürdürülebilirlik için ilgi duyduğunuz bir alan seçin</li>
+                            <li><strong>Uzmanlık Potansiyeli:</strong> Zamanla uzmanlaşabileceğiniz bir konu olmalı</li>
+                        </ul>
+                        
+                        <h3>2. En Kârlı Dijital Ürün Nişleri (2023-2024)</h3>
+                        <p>Şu anda yüksek talep ve yüksek ödeme isteği gösteren niş kategorileri:</p>
+                        
+                        <h3>Kişisel Gelişim ve Yaşam Tarzı</h3>
+                        <ul>
+                            <li><strong>Üretkenlik ve Zaman Yönetimi:</strong> 
+                                <ul>
+                                    <li>Alt Nişler: Deep work teknikleri, dijital minimalizm, iş-yaşam dengesi</li>
+                                    <li>Ürün Fikirleri: Üretkenlik planlamacıları, alışkanlık takip şablonları</li>
+                                    <li>Pazar Durumu: Yüksek talep, orta rekabet, yüksek ödeme isteği</li>
+                                </ul>
+                            </li>
+                            <li><strong>Zihinsel Sağlık ve Stres Yönetimi:</strong> 
+                                <ul>
+                                    <li>Alt Nişler: Anksiyete yönetimi, uyku optimizasyonu, meditasyon</li>
+                                    <li>Ürün Fikirleri: 30 günlük kaygı azaltma programı, uyku rutini planlamacısı</li>
+                                    <li>Pazar Durumu: Çok yüksek talep, orta-yüksek rekabet, yüksek ödeme isteği</li>
+                                </ul>
+                            </li>
+                            <li><strong>Kişisel Finans:</strong> 
+                                <ul>
+                                    <li>Alt Nişler: Borç azaltma, pasif gelir, bütçeleme, finansal okuryazarlık</li>
+                                    <li>Ürün Fikirleri: Bütçe şablonları, borç özgürleşme planı</li>
+                                    <li>Pazar Durumu: Çok yüksek talep, yüksek rekabet, çok yüksek ödeme isteği</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <h3>Dijital Beceriler ve Kariyer</h3>
+                        <ul>
+                            <li><strong>Yapay Zeka ve Dijital Araçlar:</strong> 
+                                <ul>
+                                    <li>Alt Nişler: ChatGPT iş uygulamaları, Midjourney ile tasarım, AI içerik stratejileri</li>
+                                    <li>Ürün Fikirleri: Prompt kütüphanesi, AI iş akışı şablonları</li>
+                                    <li>Pazar Durumu: Çok yüksek talep, düşük-orta rekabet, yüksek ödeme isteği</li>
+                                </ul>
+                            </li>
+                            <li><strong>Freelance ve Uzaktan Çalışma:</strong> 
+                                <ul>
+                                    <li>Alt Nişler: Upwork stratejileri, müşteri bulma, fiyatlandırma, hizmet paketleme</li>
+                                    <li>Ürün Fikirleri: Müşteri teklif şablonları, proje yönetim sistemleri</li>
+                                    <li>Pazar Durumu: Yüksek talep, orta rekabet, orta-yüksek ödeme isteği</li>
+                                </ul>
+                            </li>
+                            <li><strong>Dijital Pazarlama Becerileri:</strong> 
+                                <ul>
+                                    <li>Alt Nişler: Sosyal medya yönetimi, e-mail pazarlama, içerik üretimi</li>
+                                    <li>Ürün Fikirleri: Sosyal medya takvimi, e-mail dizisi şablonları</li>
+                                    <li>Pazar Durumu: Yüksek talep, yüksek rekabet, orta-yüksek ödeme isteği</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <h3>İlişkiler ve Sosyal Beceriler</h3>
+                        <ul>
+                            <li><strong>Romantik İlişkiler:</strong> 
+                                <ul>
+                                    <li>Alt Nişler: Dating app stratejileri, ilişki iyileştirme, iletişim becerileri</li>
+                                    <li>Ürün Fikirleri: İlişki konuşma rehberi, çiftler için soru kitabı</li>
+                                    <li>Pazar Durumu: Çok yüksek talep, orta rekabet, orta-yüksek ödeme isteği</li>
+                                </ul>
+                            </li>
+                            <li><strong>Ebeveynlik:</strong> 
+                                <ul>
+                                    <li>Alt Nişler: Çocuk eğitimi, dijital çağda ebeveynlik, okul öncesi aktiviteler</li>
+                                    <li>Ürün Fikirleri: Çocuk aktivite planlamacısı, ebeveyn-çocuk konuşma rehberi</li>
+                                    <li>Pazar Durumu: Yüksek talep, orta rekabet, yüksek ödeme isteği</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <h3>3. Niş Araştırma Süreci: Adım Adım</h3>
+                        <ol>
+                            <li><strong>İlgi Alanları ve Beceriler Listesi:</strong>
+                                <ul>
+                                    <li>İlgi duyduğunuz tüm konuları listeleyin</li>
+                                    <li>Mevcut becerilerinizi ve deneyimlerinizi yazın</li>
+                                    <li>Öğrenmekten keyif alacağınız yeni alanları ekleyin</li>
+                                </ul>
+                            </li>
+                            <li><strong>Başlangıç Niş Listesi Oluşturma:</strong>
+                                <ul>
+                                    <li>İlgi listenizden 5-10 potansiyel niş seçin</li>
+                                    <li>Her niş için olası alt nişleri belirleyin</li>
+                                </ul>
+                            </li>
+                            <li><strong>Talep Araştırması:</strong>
+                                <ul>
+                                    <li>Google Trends: Son 12 aydaki arama trendleri</li>
+                                    <li>Anahtar Kelime Araştırması: Ubersuggest veya Ahrefs ile arama hacmi analizi</li>
+                                    <li>Reddit, Quora ve Facebook grupları: Hedef kitlenin sorduğu sorular</li>
+                                    <li>Amazon: Benzer konulardaki kitapların satış sıralamaları ve yorum sayıları</li>
+                                </ul>
+                            </li>
+                            <li><strong>Rekabet Analizi:</strong>
+                                <ul>
+                                    <li>Gumroad, Teachable, Udemy gibi platformlarda benzer ürünleri inceleyin</li>
+                                    <li>Instagram, TikTok ve YouTube'da niş içerik üreticilerini araştırın</li>
+                                    <li>Büyük rakiplerin güçlü ve zayıf yönlerini belirleyin</li>
+                                </ul>
+                            </li>
+                            <li><strong>Monetizasyon Potansiyeli:</strong>
+                                <ul>
+                                    <li>Rakip ürünlerin fiyatlandırması</li>
+                                    <li>Yan gelir akışları (affiliate, danışmanlık, vs.)</li>
+                                    <li>Hedef kitlenin ödeme gücü ve istekliliği</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        
+                        <h3>4. Niş Validasyon Teknikleri</h3>
+                        <p>Seçtiğiniz nişi test etmek için kullanabileceğiniz yöntemler:</p>
+                        <ol>
+                            <li><strong>Minimum Değerli İçerik Testi:</strong>
+                                <ul>
+                                    <li>Nişinizle ilgili 5-10 değerli içerik paylaşın (sosyal medyada)</li>
+                                    <li>Etkileşim ve geri bildirimleri analiz edin</li>
+                                    <li>En çok ilgi gören alt konuları belirleyin</li>
+                                </ul>
+                            </li>
+                            <li><strong>Ücretsiz Mini Ürün:</strong>
+                                <ul>
+                                    <li>Dijital ürününüzün küçük bir versiyonunu ücretsiz olarak dağıtın</li>
+                                    <li>E-posta listesi oluşturmak için kullanın</li>
+                                    <li>İndirme oranı ve geri bildirimlerle ilgiyi ölçün</li>
+                                </ul>
+                            </li>
+                            <li><strong>Anket ve Görüşmeler:</strong>
+                                <ul>
+                                    <li>Hedef kitlenize çözmek istedikleri problemleri sorun</li>
+                                    <li>Ne tür çözümler için ödeme yapacaklarını araştırın</li>
+                                    <li>Hangi formatta içerik tercih ettiklerini öğrenin</li>
+                                </ul>
+                            </li>
+                            <li><strong>Ön Satış Testi:</strong>
+                                <ul>
+                                    <li>Ürününüzün lansman sayfasını oluşturun</li>
+                                    <li>"Yakında Geliyor" modeliyle bekleme listesi toplayın</li>
+                                    <li>Erken kayıt oranı, niş potansiyelinin göstergesidir</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        
+                        <h3>5. Niş Değerlendirme Matrisi</h3>
+                        <p>Potansiyel nişleri karşılaştırmak için bu kriterleri puanlayın (1-10):</p>
+                        <ul>
+                            <li><strong>Talep Seviyesi:</strong> Ne kadar çok insan bu konuyla ilgileniyor?</li>
+                            <li><strong>Rekabet Seviyesi:</strong> Pazarda ne kadar doygunluk var? (Ters puanlayın)</li>
+                            <li><strong>Ödeme İsteği:</strong> İnsanlar bu problemin çözümü için ne kadar para ödemeye hazır?</li>
+                            <li><strong>Uzmanlık Seviyeniz:</strong> Bu konuda ne kadar bilgi ve deneyime sahipsiniz?</li>
+                            <li><strong>Tutku Seviyeniz:</strong> Bu konu hakkında içerik üretmekten ne kadar keyif alırsınız?</li>
+                            <li><strong>Trend Potansiyeli:</strong> Bu konu büyüyor mu, küçülüyor mu, yoksa sabit mi?</li>
+                            <li><strong>Ölçeklenebilirlik:</strong> Bu niş etrafında ne kadar çeşitli ürün oluşturulabilir?</li>
+                        </ul>
+                        
+                        <h3>6. Niş İçinde Farklılaşma Stratejileri</h3>
+                        <p>Rekabetçi bir nişte kendinizi nasıl ayrıştırabilirsiniz:</p>
+                        <ol>
+                            <li><strong>Alt Niş Stratejisi:</strong> Daha spesifik bir hedef kitleye odaklanın
+                                <ul>
+                                    <li>Örnek: Genel "kişisel finans" yerine "30'lu yaşlardaki freelancerlar için finansal planlama"</li>
+                                </ul>
+                            </li>
+                            <li><strong>Sorun Spesifikliği:</strong> Çok spesifik bir soruna odaklanın
+                                <ul>
+                                    <li>Örnek: Genel "üretkenlik" yerine "Notion ile proje yönetimi sistemi kurma"</li>
+                                </ul>
+                            </li>
+                            <li><strong>Metodoloji Farklılaşması:</strong> Benzersiz bir yaklaşım veya sistem geliştirin
+                                <ul>
+                                    <li>Örnek: "5-3-1 İçerik Üretim Sistemi" gibi kendine özgü bir metodoloji</li>
+                                </ul>
+                            </li>
+                            <li><strong>Hedef Kitle Spesifikliği:</strong> Belirli bir demografik veya psikoğrafik gruba odaklanın
+                                <ul>
+                                    <li>Örnek: "Küçük çocuklu anneler için evden çalışma stratejileri"</li>
+                                </ul>
+                            </li>
+                            <li><strong>Sunum Formatı:</strong> İçeriği sunma biçiminizle farklılaşın
+                                <ul>
+                                    <li>Örnek: "15 dakikalık sesli rehberler" veya "günlük mini görevler"</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        
+                        <h3>7. Niş Geçiş Stratejisi</h3>
+                        <p>Nişinizin başarısız olması durumunda geçiş planı:</p>
+                        <ol>
+                            <li><strong>İlgili Niş Haritalama:</strong> Mevcut nişinizle bağlantılı 3-5 alternatif niş belirleyin</li>
+                            <li><strong>Yatay Genişleme:</strong> Mevcut ürününüzü farklı bir hedef kitleye uyarlama planı</li>
+                            <li><strong>İçerik Dönüştürme:</strong> Mevcut içeriğinizi yeni nişe adapte etme stratejisi</li>
+                            <li><strong>Minimum Test Zamanı:</strong> Bir nişe yatırım yapmadan önce test etme sürenizi belirleyin (genellikle 30-90 gün)</li>
+                        </ol>
+                        
+                        <p>Yusuf Yaman'ın eğitiminde, farklı niş seçeneklerinin detaylı analizleri, gerçek hayattan başarı örnekleri ve niş araştırması için kullanabileceğiniz şablonlar bulunmaktadır. Ayrıca, en güncel ve kârlı nişlerin düzenli olarak güncellenen bir listesi de eğitim içeriğinde mevcuttur.</p>
+                    `;
+                }
+                
+                // MONETİZASYON VE PARA KAZANMA
+                else if (lowerCaseMessage.includes('monetizasyon') || lowerCaseMessage.includes('para kazanma') || lowerCaseMessage.includes('gelir')) {
+                    response = `
+                        <h3>Dijital İçerik ve Ürünlerden Para Kazanma Stratejileri</h3>
+                        <p>Sosyal medya hesaplarınızdan ve dijital içeriklerinizden gelir elde etmek için kapsamlı rehber:</p>
+                        
+                        <h3>1. Dijital Ürün Satışı: Ana Gelir Modeli</h3>
+                        <p>Yüksek kâr marjıyla kendi dijital ürünlerinizi oluşturup satma stratejileri:</p>
+                        
+                        <h3>Farklı Fiyat Noktalarında Dijital Ürün Ekosistemi</h3>
+                        <ol>
+                            <li><strong>Giriş Seviyesi Ürünler ($7-$27):</strong>
+                                <ul>
+                                    <li>E-book ve PDF rehberler</li>
+                                    <li>Şablonlar ve planlayıcılar</li>
+                                    <li>Checklist'ler ve workbook'lar</li>
+                                    <li><em>Amaç:</em> Müşteriyi ekosisteminize dahil etmek</li>
+                                </ul>
+                            </li>
+                            <li><strong>Orta Seviye Ürünler ($37-$97):</strong>
+                                <ul>
+                                    <li>Mini kurslar (3-7 modül)</li>
+                                    <li>Şablon paketleri ve araç setleri</li>
+                                    <li>Teknik rehberler ve uygulama kılavuzları</li>
+                                    <li><em>Amaç:</em> Müşteri değerini artırmak ve güven oluşturmak</li>
+                                </ul>
+                            </li>
+                            <li><strong>Premium Ürünler ($197-$997):</strong>
+                                <ul>
+                                    <li>Kapsamlı kurslar ve eğitim programları</li>
+                                    <li>Mentorluk ve grup koçluğu programları</li>
+                                    <li>Yıllık üyelik ve abonelik modelleri</li>
+                                    <li><em>Amaç:</em> Ana gelir kaynağı oluşturmak</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        
+                        <h3>Satış Hunisi Stratejisi</h3>
+                        <ol>
+                            <li><strong>Farkındalık Aşaması:</strong> Sosyal medyada değerli ücretsiz içerik</li>
+                            <li><strong>İlgi Aşaması:</strong> Ücretsiz lead magnet ile e-posta listesi oluşturma</li>
+                            <li><strong>Karar Aşaması:</strong> Düşük fiyatlı giriş ürünü teklifi</li>
+                            <li><strong>Eylem Aşaması:</strong> Orta seviye ürün satışı</li>
+                            <li><strong>Sadakat Aşaması:</strong> Premium ürün veya hizmet sunumu</li>
+                        </ol>
+                        
+                        <h3>Yüksek Dönüşüm Stratejileri</h3>
+                        <ul>
+                            <li><strong>İstek Bazlı Fiyatlandırma:</strong> Fiyatı değer algısına göre belirleyin, maliyet bazlı değil</li>
+                            <li><strong>Sınırlı Zamanlı Teklifler:</strong> 24-72 saatlik lansman indirimleri</li>
+                            <li><strong>Ödeme Seçenekleri:</strong> Tek ödeme + taksitli ödeme seçeneği sunma</li>
+                            <li><strong>Risk Azaltma:</strong> 30 gün para iade garantisi</li>
+                            <li><strong>Değer Yığını:</strong> Ana ürün + bonuslar + özel avantajlar</li>
+                        </ul>
+                        
+                        <h3>2. Hizmet Sunumu: Yüksek Getirili Gelir Modeli</h3>
+                        <p>Dijital içerikleriniz aracılığıyla hizmet satışı yapma stratejileri:</p>
+                        
+                        <h3>Hizmet Paketleme Modelleri</h3>
+                        <ol>
+                            <li><strong>1:1 Danışmanlık Paketi:</strong>
+                                <ul>
+                                    <li>Kişiselleştirilmiş stratejik danışmanlık seansları</li>
+                                    <li>Potansiyel Fiyat: $100-$300/saat veya $500-$2,000/paket</li>
+                                </ul>
+                            </li>
+                            <li><strong>VIP Gün/Yarım Gün:</strong>
+                                <ul>
+                                    <li>Yoğun, sonuç odaklı bireysel çalışma seansı</li>
+                                    <li>Potansiyel Fiyat: $1,000-$5,000/gün</li>
+                                </ul>
+                            </li>
+                            <li><strong>Uygulama Hizmeti:</strong>
+                                <ul>
+                                    <li>Müşteri adına projeyi bizzat uygulama (Done-For-You)</li>
+                                    <li>Potansiyel Fiyat: $1,000-$10,000/proje</li>
+                                </ul>
+                            </li>
+                            <li><strong>Grup Programları:</strong>
+                                <ul>
+                                    <li>Küçük grup mentorluğu veya mastermind programları</li>
+                                    <li>Potansiyel Fiyat: $200-$1,000/kişi/ay</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        
+                        <h3>Dijital Ürün + Hizmet Entegrasyonu</h3>
+                        <ul>
+                            <li><strong>Ürün Sonrası Upsell:</strong> Dijital ürün müşterilerine özel danışmanlık teklifi</li>
+                            <li><strong>Hybrid Model:</strong> Dijital içerik + canlı eğitim/destek kombinasyonu</li>
+                            <li><strong>Katmanlı Hizmet:</strong> Self-servis → grup desteği → bireysel destek hiyerarşisi</li>
+                        </ul>
+                        
+                        <h3>3. Affiliate Pazarlama: Pasif Gelir Stratejisi</h3>
+                        <p>Başkalarının ürünlerini tanıtarak komisyon kazanma:</p>
+                        
+                        <h3>Etkili Affiliate Ürün Seçim Kriterleri</h3>
+                        <ol>
+                            <li><strong>İlgi ve İlişki:</strong> Nişiniz ve içeriğinizle doğal bağlantısı olan ürünler</li>
+                            <li><strong>Komisyon Oranı:</strong> %30-%50 arası veya daha yüksek komisyon sunan programlar</li>
+                            <li><strong>Satış Funneli:</strong> Email pazarlama, upsell ve backend ürünleri olan sistemler</li>
+                            <li><strong>Ürün Kalitesi:</strong> Kişisel olarak test ettiğiniz ve güvendiğiniz ürünler</li>
+                            <li><strong>Dönüşüm Oranı:</strong> Yüksek dönüşüm oranına sahip satış sayfaları</li>
+                        </ol>
+                        
+                        <h3>Affiliate Pazarlama Entegrasyon Stratejileri</h3>
+                        <ul>
+                            <li><strong>İçerik Bazlı Promosyon:</strong> Blog yazıları, sosyal medya içerikleri, YouTube videoları</li>
+                            <li><strong>Kaynak Sayfaları:</strong> Nişinizle ilgili önerdiğiniz tüm araçların listelendiği sayfa</li>
+                            <li><strong>Ürün İncelemeleri:</strong> Detaylı ürün inceleme ve karşılaştırma içerikleri</li>
+                            <li><strong>Email Pazarlama:</strong> Otomatik email dizileri ile ürün tanıtımı</li>
+                            <li><strong>Bonus Yığını:</strong> Affiliate ürün alanlara özel bonuslar sunma</li>
+                        </ul>
+                        
+                        <h3>4. Sponsorluklar ve Marka İş Birlikleri</h3>
+                        <p>Sosyal medya hesaplarınızla sponsorluk geliri elde etme:</p>
+                        
+                        <h3>Sponsorluk Hazırlık Stratejisi</h3>
+                        <ol>
+                            <li><strong>Medya Kiti Oluşturma:</strong>
+                                <ul>
+                                    <li>Hesap istatistikleri ve demografik bilgiler</li>
+                                    <li>Etkileşim oranları ve erişim metrikler</li>
+                                    <li>Önceki iş birliği örnekleri</li>
+                                    <li>Sponsorluk paketleri ve fiyatlandırma</li>
+                                </ul>
+                            </li>
+                            <li><strong>Niş Markaları Hedefleme:</strong>
+                                <ul>
+                                    <li>Rakip içerik üreticilerini takip ederek iş birliği yaptıkları markaları belirleme</li>
+                                    <li>Markaların pazarlama departmanlarıyla doğrudan iletişime geçme</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        
+                        <h3>Sponsorluk Paket Modelleri</h3>
+                        <ul>
+                            <li><strong>Tek İçerik Sponsorluğu:</strong> Belirli bir içerik için özel tanıtım</li>
+                            <li><strong>Seri İçerik Sponsorluğu:</strong> Belirli bir tema etrafında bir dizi içerik</li>
+                            <li><strong>Marka Elçiliği:</strong> Uzun vadeli iş birliği (3-12 ay)</li>
+                            <li><strong>Takeover Sponsorluğu:</strong> Markanın hesabınızı belirli bir süre "ele geçirmesi"</li>
+                        </ul>
+                        
+                        <h3>5. Abonelik ve Üyelik Modelleri</h3>
+                        <p>Tekrarlayan gelir akışı yaratmak için abonelik stratejileri:</p>
+                        
+                        <h3>Üyelik Modeli Türleri</h3>
+                        <ol>
+                            <li><strong>İçerik Aboneliği:</strong>
+                                <ul>
+                                    <li>Aylık özel içerik, analiz ve raporlar</li>
+                                    <li>Potansiyel Platform: Substack, Patreon, Buy Me a Coffee</li>
+                                    <li>Fiyatlandırma: $5-$20/ay</li>
+                                </ul>
+                            </li>
+                            <li><strong>Topluluk Üyeliği:</strong>
+                                <ul>
+                                    <li>Özel Discord veya Slack topluluğu erişimi</li>
+                                    <li>Haftalık/aylık grup görüşmeleri</li>
+                                    <li>Potansiyel Platform: Circle, Mighty Networks</li>
+                                    <li>Fiyatlandırma: $20-$100/ay</li>
+                                </ul>
+                            </li>
+                            <li><strong>Kaynak Kütüphanesi:</strong>
+                                <ul>
+                                    <li>Şablonlar, araçlar, swipe file'lar koleksiyonu</li>
+                                    <li>Düzenli güncellenen içerik ve kaynaklar</li>
+                                    <li>Potansiyel Platform: Memberstack, Teachable</li>
+                                    <li>Fiyatlandırma: $15-$50/ay</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        
+                        <h3>Abonelik Başarı Faktörleri</h3>
+                        <ul>
+                            <li><strong>Değer Tutarlılığı:</strong> Her ay tutarlı, yüksek kaliteli içerik sunma</li>
+                            <li><strong>Topluluk Etkileşimi:</strong> Aktif moderasyon ve topluluk canlılığı</li>
+                            <li><strong>Müşteri Elde Tutma:</strong> Abonelere özel avantajlar ve sürprizler</li>
+                            <li><strong>Katmanlı Fiyatlandırma:</strong> Farklı erişim seviyelerine göre fiyat seçenekleri</li>
+                        </ul>
+                        
+                        <h3>6. Dijital Varlık Satışı</h3>
+                        <p>Bir kez oluşturup tekrar tekrar satabileceğiniz dijital varlıklar:</p>
+                        
+                        <h3>Dijital Varlık Türleri</h3>
+                        <ul>
+                            <li><strong>Tasarım Şablonları:</strong> Canva şablonları, sunum tasarımları, sosyal medya görselleri</li>
+                            <li><strong>Stock Fotoğraf/Video:</strong> Nişinize özel görsel içerikler</li>
+                            <li><strong>Yazılım ve Script'ler:</strong> Küçük yazılım araçları, makrolar, otomasyonlar</li>
+                            <li><strong>Prompt Paketleri:</strong> ChatGPT, Midjourney vb. araçlar için özel prompt koleksiyonları</li>
+                        </ul>
+                        
+                        <h3>Satış Platformları</h3>
+                        <ul>
+                            <li><strong>Genel Platformlar:</strong> Etsy, Creative Market, Gumroad</li>
+                            <li><strong>Niş Platformlar:</strong> ThemeForest (web tasarım), AudioJungle (ses), Envato Elements</li>
+                            <li><strong>Kendi Web Siteniz:</strong> Tam kontrol ve daha yüksek kâr marjı</li>
+                        </ul>
+                        
+                        <h3>7. Gelir Akışlarını Çeşitlendirme Stratejisi</h3>
+                        <p>Farklı gelir modellerini nasıl birleştireceğiniz:</p>
+                        
+                        <h3>Gelir Piramidi Modeli</h3>
+                        <ol>
+                            <li><strong>Temel Gelir:</strong> Dijital ürün satışları (%50-60 gelir)</li>
+                            <li><strong>Tamamlayıcı Gelir:</strong> Yüksek değerli hizmetler (%20-30 gelir)</li>
+                            <li><strong>Pasif Gelir:</strong> Affiliate pazarlama ve abonelikler (%10-20 gelir)</li>
+                            <li><strong>Fırsat Geliri:</strong> Sponsorluklar ve marka iş birlikleri (%5-10 gelir)</li>
+                        </ol>
+                        
+                        <h3>Zamanlama Stratejisi</h3>
+                        <ul>
+                            <li><strong>Başlangıç Aşaması (0-6 ay):</strong> Tek bir gelir modeliyle başlayın (genellikle düşük fiyatlı dijital ürün)</li>
+                            <li><strong>Gelişim Aşaması (6-12 ay):</strong> İkinci bir gelir modeli ekleyin (daha yüksek fiyatlı ürün veya hizmet)</li>
+                            <li><strong>Büyüme Aşaması (12+ ay):</strong> Pasif gelir akışları ve tekrarlayan gelir modelleri ile çeşitlendirme</li>
+                        </ul>
+                        
+                        <h3>8. Finansal Planlama ve Yönetim</h3>
+                        <p>Dijital içerik işinizi finansal olarak yönetme:</p>
+                        
+                        <h3>Gelir Tahsisi Kuralı</h3>
+                        <ul>
+                            <li><strong>%40 - Kişisel Gelir:</strong> Kendinize maaş ve yaşam giderleri</li>
+                            <li><strong>%30 - İş Reinvestmanı:</strong> İçerik üretimi, eğitim, araçlar, yazılımlar</li>
+                            <li><strong>%20 - Vergiler:</strong> Gelir vergisi, KDV vb. yükümlülükler için ayrılan pay</li>
+                            <li><strong>%10 - Acil Durum Fonu:</strong> İş için beklenmedik giderler ve fırsatlar için</li>
+                        </ul>
+                        
+                        <h3>Karlılık Artırma Stratejileri</h3>
+                        <ul>
+                            <li><strong>Sabit Gider Minimizasyonu:</strong> Düşük maliyetli araçlar ve servisler seçimi</li>
+                            <li><strong>Ölçeklenebilir İçerik Üretimi:</strong> Bir içeriği farklı formatlara uyarlama</li>
+                            <li><strong>Otomatizasyon:</strong> Satış ve müşteri hizmetleri süreçlerini otomatikleştirme</li>
+                            <li><strong>Değer Bazlı Fiyatlandırma:</strong> Müşteri sonuçlarına göre fiyat belirleme</li>
+                        </ul>
+                        
+                        <p>Yusuf Yaman'ın eğitiminde, bu gelir modellerinin her biri için detaylı uygulama adımları, hesap tabloları ve gerçek vaka çalışmaları bulunmaktadır. Ayrıca, Türkiye'deki dijital içerik üreticileri için vergi ve yasal konularda da rehberlik sağlanmaktadır.</p>
+                    `;
+                }
+                
+                // İÇERİK STRATEJİSİ VE PLANLAMA
+                else if ((lowerCaseMessage.includes('içerik') || lowerCaseMessage.includes('content')) && 
+                        (lowerCaseMessage.includes('plan') || lowerCaseMessage.includes('stratej') || lowerCaseMessage.includes('takvim'))) {
+                    response = `
+                        <h3>Dijital Satış için İçerik Stratejisi ve Planlama</h3>
+                        <p>İçerik pazarlamasıyla dijital ürün satışlarınızı artırmak için kapsamlı bir rehber:</p>
+                        
+                        <h3>1. İçerik Stratejisi Temel Prensipleri</h3>
+                        <p>Dijital ürün satışına odaklanan etkili bir içerik stratejisinin bileşenleri:</p>
+                        
+                        <h3>İçerik Pazarlaması Karışımı (70-20-10 Modeli)</h3>
+                        <ul>
+                            <li><strong>%70 Değer İçeriği:</strong> 
+                                <ul>
+                                    <li>Eğitici, bilgilendirici ve problem çözen içerikler</li>
+                                    <li>Beğeni ve kaydetme oranı yüksek içerikler</li>
+                                    <li>Örnek: "Instagram algoritmasını anlamanın 5 yolu"</li>
+                                </ul>
+                            </li>
+                            <li><strong>%20 İlişki İçeriği:</strong> 
+                                <ul>
+                                    <li>Kişisel hikayeler, süreç paylaşımları</li>
+                                    <li>Behind-the-scenes içerikler</li>
+                                    <li>Örnek: "Dijital ürün yolculuğumda öğrendiğim 3 ders"</li>
+                                </ul>
+                            </li>
+                            <li><strong>%10 Promosyon İçeriği:</strong> 
+                                <ul>
+                                    <li>Direkt satış ve tanıtım içerikleri</li>
+                                    <li>Lansman ve özel teklifler</li>
+                                    <li>Örnek: "Yeni e-book'um bugün yayında - ilk 48 saat %30 indirimli"</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <h3>İçerik Dönüşüm Hiyerarşisi</h3>
+                        <p>İçerikler aşağıdaki dönüşüm yolculuğunu desteklemelidir:</p>
+                        <ol>
+                            <li><strong>Farkındalık:</strong> Hedef kitlenin sorunları hakkında içerikler</li>
+                            <li><strong>İlgi:</strong> Soruna dair daha derinlemesine içerikler</li>
+                            <li><strong>Değerlendirme:</strong> Çözüm seçeneklerini karşılaştıran içerikler</li>
+                            <li><strong>Karar:</strong> Ürününüzün diğerlerinden farkını anlatan içerikler</li>
+                            <li><strong>Eylem:</strong> Harekete geçiren ve satışa yönlendiren içerikler</li>
+                            <li><strong>Sadakat:</strong> Satış sonrası destek ve değer sağlayan içerikler</li>
+                        </ol>
+                        
+                        <h3>2. Hedef Kitle Analizi ve İçerik Planı</h3>
+                        <p>İçerik stratejinizi hedef kitlenize göre şekillendirme:</p>
+                        
+                        <h3>Hedef Kitle İçerik İhtiyaç Analizi</h3>
+                        <ol>
+                            <li><strong>Ağrı Noktaları ve Sorunlar:</strong> 
+                                <ul>
+                                    <li>Çözüm aradıkları spesifik problemleri listeleyin</li>
+                                    <li>Her sorun için "nasıl" ve "neden" içerikleri planlayın</li>
+                                </ul>
+                            </li>
+                            <li><strong>Bilgi Seviyeleri:</strong> 
+                                <ul>
+                                    <li>Başlangıç, orta ve ileri düzey içerikler dengeleyim</li>
+                                    <li>Temel kavramlardan ileri tekniklere kadar içerik planlayın</li>
+                                </ul>
+                            </li>
+                            <li><strong>İçerik Tüketim Tercihleri:</strong> 
+                                <ul>
+                                    <li>Hedef kitlenizin tercih ettiği format ve uzunlukları belirleyin</li>
+                                    <li>Görsel ağırlıklı mı, yazı ağırlıklı mı, video tercih mi?</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        
+                        <h3>İçerik Temaları ve Kategorileri</h3>
+                        <p>Dijital satış için ideal içerik kategorileri:</p>
+                        <ol>
+                            <li><strong>Eğitici İçerikler:</strong> Nasıl yapılır rehberleri, adım adım talimatlar</li>
+                            <li><strong>İlham Verici İçerikler:</strong> Başarı hikayeleri, vaka çalışmaları, sonuçlar</li>
+                            <li><strong>Eğlenceli İçerikler:</strong> Nişinizle ilgili eğlenceli ve paylaşılabilir içerikler</li>
+                            <li><strong>Gündem İçerikleri:</strong> Nişinizle ilgili güncel trendler ve haberler</li>
+                            <li><strong>Ürün Merkezli İçerikler:</strong> Ürün özellikleri, faydaları, kullanım örnekleri</li>
+                        </ol>
+                        
+                        <h3>3. Platformlara Özel İçerik Stratejileri</h3>
+                        <p>Her platformun kendine özgü içerik formatları ve stratejileri vardır:</p>
+                        
+                        <h3>Instagram İçerik Stratejisi</h3>
+                        <ul>
+                            <li><strong>Reels İçerik Formatları:</strong> 
+                                <ul>
+                                    <li>Hook + 3 İpucu + CTA formatı (15 saniye)</li>
+                                    <li>Problem-Çözüm formatı (Önce/Sonra)</li>
+                                    <li>Liste formatı (5 ipucu, 3 hata, vb.)</li>
+                                    <li>Adım adım rehber formatı</li>
+                                </ul>
+                            </li>
+                            <li><strong>Carousel İçerik Stratejisi:</strong> 
+                                <ul>
+                                    <li>İlk slayt: Güçlü hook ve merak uyandıran başlık</li>
+                                    <li>2-9 slayt: Değerli bilgi ve görsellerle detaylandırma</li>
+                                    <li>Son slayt: Güçlü CTA ve bio'ya yönlendirme</li>
+                                </ul>
+                            </li>
+                            <li><strong>Stories Stratejisi:</strong> 
+                                <ul>
+                                    <li>Q&A ve anket özelliklerini kullanma</li>
+                                    <li>Behind-the-scenes içerikleri</li>
+                                    <li>Reels ve carousel gönderilerine yönlendirme</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <h3>TikTok İçerik Stratejisi</h3>
+                        <ul>
+                            <li><strong>Viral Formatlar:</strong> 
+                                <ul>
+                                    <li>Problem-Twist-Çözüm formatı</li>
+                                    <li>"Bilmediğiniz şey" formatı</li>
+                                    <li>Trend müzik + nişinize özgü içerik</li>
+                                    <li>POV (Point of View) anlatımları</li>
+                                </ul>
+                            </li>
+                            <li><strong>Hook Stratejileri:</strong> 
+                                <ul>
+                                    <li>Şok edici bir istatistik/bilgi ile açılış</li>
+                                    <li>"Bunu denemeden TikTok'ta büyüyemezsiniz"</li>
+                                    <li>"TikTok'un en büyük sırrını açıklıyorum"</li>
+                                </ul>
+                            </li>
+                            <li><strong>Seri İçerikler:</strong> 
+                                <ul>
+                                    <li>Part 1, Part 2, Part 3 şeklinde bölünmüş içerikler</li>
+                                    <li>Her video için "daha fazlası için profili takip et"</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <h3>4. İçerik Planı Oluşturma ve Takvim Yönetimi</h3>
+                        <p>Sistematik bir içerik üretim sistemi kurma:</p>
+                        
+                        <h3>90 Günlük İçerik Planı Taslağı</h3>
+                        <ol>
+                            <li><strong>Ay 1: Farkındalık ve Güven Oluşturma</strong>
+                                <ul>
+                                    <li>Hafta 1: Niş uzmanlığınızı kanıtlayan temel eğitim içerikleri</li>
+                                    <li>Hafta 2: Hedef kitlenizin en önemli sorunlarını çözen içerikler</li>
+                                    <li>Hafta 3: Kişisel hikayeniz ve yolculuğunuz</li>
+                                    <li>Hafta 4: Başarı hikayeleri ve sosyal kanıtlar</li>
+                                </ul>
+                            </li>
+                            <li><strong>Ay 2: Değer Oluşturma ve İlgi Çekme</strong>
+                                <ul>
+                                    <li>Hafta 1: Derinlemesine "nasıl yapılır" rehberleri</li>
+                                    <li>Hafta 2: En yaygın hataları ve çözümlerini anlatan içerikler</li>
+                                    <li>Hafta 3: Case study ve vaka analizleri</li>
+                                    <li>Hafta 4: Ücretsiz kaynak ve araçlar sunma (lead magnet)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Ay 3: Ürün Lansmanı ve Satış</strong>
+                                <ul>
+                                    <li>Hafta 1: Ürün hazırlık aşamalarını paylaşma (behind-the-scenes)</li>
+                                    <li>Hafta 2: Ürünün çözdüğü problemlere odaklanan içerikler</li>
+                                    <li>Hafta 3: Lansman ve satış içerikleri (sınırlı zaman teklifi)</li>
+                                    <li>Hafta 4: Müşteri başarı hikayeleri ve testimonial'lar</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        
+                        <h3>Haftalık İçerik Üretim Sistemi</h3>
+                        <ul>
+                            <li><strong>Pazartesi:</strong> İçerik araştırması ve fikir üretimi (2 saat)</li>
+                            <li><strong>Salı:</strong> İçerik taslağı hazırlama ve script yazımı (2 saat)</li>
+                            <li><strong>Çarşamba:</strong> Video çekimi ve görsel üretimi (3 saat)</li>
+                            <li><strong>Perşembe:</strong> Düzenleme ve optimize etme (2 saat)</li>
+                            <li><strong>Cuma:</strong> Yayın ve etkileşim izleme (1 saat)</li>
+                        </ul>
+                        
+                        <h3>Uygulama için İçerik Takvimi Şablonu</h3>
+                        <table>
+                            <tr>
+                                <th>Platform</th>
+                                <th>Pazartesi</th>
+                                <th>Salı</th>
+                                <th>Çarşamba</th>
+                                <th>Perşembe</th>
+                                <th>Cuma</th>
+                                <th>C.tesi</th>
+                                <th>Pazar</th>
+                            </tr>
+                            <tr>
+                                <td>Instagram</td>
+                                <td>Reels (Eğitici)</td>
+                                <td>Stories (Q&A)</td>
+                                <td>Carousel (Rehber)</td>
+                                <td>Stories (Günlük)</td>
+                                <td>Reels (İlham verici)</td>
+                                <td>-</td>
+                                <td>Carousel (Liste)</td>
+                            </tr>
+                            <tr>
+                                <td>TikTok</td>
+                                <td>Eğitici Video</td>
+                                <td>Stitch/Duet</td>
+                                <td>Trend Adaptasyonu</td>
+                                <td>Seri Bölüm</td>
+                                <td>BTS/İlişki İçeriği</td>
+                                <td>Trend</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>-</td>
+                                <td>Değer Email</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>Promosyon Email</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                        </table>
+                        
+                        <h3>5. İçerik İyileştirme ve Optimizasyon</h3>
+                        <p>İçeriklerinizin performansını artırmak için stratejiler:</p>
+                        
+                        <h3>İçerik Analitik Çerçevesi</h3>
+                        <p>Hangi metrikleri takip etmelisiniz?</p>
+                        <ul>
+                            <li><strong>Erişim Metrikleri:</strong> Görüntülenme, izlenme sayısı, gösterim sayısı</li>
+                            <li><strong>Etkileşim Metrikleri:</strong> Beğeni, yorum, kaydetme, paylaşım oranları</li>
+                            <li><strong>Dönüşüm Metrikleri:</strong> Profil ziyaretleri, bio tıklamaları, satış dönüşümleri</li>
+                            <li><strong>Bağlılık Metrikleri:</strong> Takipçi artışı, tekrarlanan ziyaretler</li>
+                        </ul>
+                        
+                        <h3>Performans Analizi ve İyileştirme Döngüsü</h3>
+                        <ol>
+                            <li><strong>Veri Toplama:</strong> 2-4 haftalık içerik performansı verileri</li>
+                            <li><strong>Analiz:</strong> En iyi ve en kötü performans gösteren içeriklerin özellikleri</li>
+                            <li><strong>İçgörü Çıkarma:</strong> Başarılı içeriklerdeki ortak noktalar</li>
+                            <li><strong>Uyarlama:</strong> İçerik stratejisini bu içgörülere göre düzenleme</li>
+                            <li><strong>Uygulama:</strong> Yeni içerik formatları ve yaklaşımlar deneme</li>
+                            <li><strong>Tekrar:</strong> Döngüyü her ay tekrarlama</li>
+                        </ol>
+                        
+                        <h3>6. İçerik Repurposing (Yeniden Kullanım) Stratejisi</h3>
+                        <p>Bir içeriği farklı formatlara dönüştürerek etkisini maksimize etme:</p>
+                        
+                        <h3>1:7 İçerik Çarpanı Stratejisi</h3>
+                        <p>Bir ana içerikten 7 farklı format oluşturma:</p>
+                        <ol>
+                            <li><strong>Ana İçerik:</strong> Kapsamlı blog yazısı veya uzun video</li>
+                            <li><strong>→ Instagram Carousel:</strong> Ana noktaları görselleştiren 7-10 slayt</li>
+                            <li><strong>→ TikTok Video:</strong> En çarpıcı noktaya odaklanan 15-60 saniyelik video</li>
+                            <li><strong>→ Instagram Reels:</strong> Farklı hook ve CTA ile TikTok içeriğinin adaptasyonu</li>
+                            <li><strong>→ Email Newsletter:</strong> Detaylı analiz ve kişisel görüşlerle zenginleştirilmiş versiyon</li>
+                            <li><strong>→ Infografik:</strong> Bilgileri görsel olarak özetleyen tasarım</li>
+                            <li><strong>→ Stories Serisi:</strong> Ana içeriği parçalara bölen 5-7 hikaye</li>
+                            <li><strong>→ Lead Magnet:</strong> İndirilebilir PDF veya kontrol listesi</li>
+                        </ol>
+                        
+                        <h3>7. İçerik Üretim Hızını Artırma (Scaling)</h3>
+                        <p>Daha fazla içerik üretmek için otomasyonlar ve sistemler:</p>
+                        
+                        <h3>İçerik Üretim Süreçlerini Hızlandırma</h3>
+                        <ul>
+                            <li><strong>İçerik Bankası Oluşturma:</strong> Aylık tema ve konulara göre içerik fikirlerini önceden hazırlama</li>
+                            <li><strong>Toplu İçerik Üretimi (Batching):</strong> Aynı türdeki içerikleri tek oturumda hazırlama</li>
+                            <li><strong>Şablonlar ve Kalıplar:</strong> Carousel, thumbnail ve video intro/outro şablonları</li>
+                            <li><strong>Yapay Zeka Araçları:</strong> ChatGPT, Midjourney gibi araçlarla içerik oluşturma süreçlerini hızlandırma</li>
+                        </ul>
+                        
+                        <h3>Haftalık 15-20 İçerik Üretim Sistematiği</h3>
+                        <ol>
+                            <li><strong>Pazartesi (3 saat):</strong> Araştırma ve 10 içerik fikri geliştirme</li>
+                            <li><strong>Salı (4 saat):</strong> 5 video script yazma ve 5 carousel taslağı hazırlama</li>
+                            <li><strong>Çarşamba (5 saat):</strong> 10 video çekimi ve ses kayıtları</li>
+                            <li><strong>Perşembe (4 saat):</strong> Video düzenleme ve carousel tasarımları</li>
+                            <li><strong>Cuma (2 saat):</strong> Caption yazımı, hashtag araştırması ve zamanlama</li>
+                        </ol>
+                        
+                        <p>Yusuf Yaman'ın eğitiminde, bu içerik stratejilerinin her biri için video eğitimleri, indirilebilir şablonlar ve özel içerik planlaması araçları bulunmaktadır. Ayrıca, içerik üretim süreçlerini hızlandıracak otomasyon teknikleri ve yapay zeka kullanım rehberleri de eğitim paketinin bir parçasıdır.</p>
+                    `;
+                }
+                
+                // GENEL SORU - EĞER ÖZEL BİR KATEGORİYE UYMUYORSA
+                else {
+                    response = `
+                        <h3>Dijital Satış ve Organik Büyüme Rehberi</h3>
+                        <p>Merhaba! Ben Yusuf Yaman'ın Dijital Satış ve Organik Büyüme Asistanıyım. Size şu konularda yardımcı olabilirim:</p>
+                        
+                        <h3>Sosyal Medya Büyüme Stratejileri</h3>
+                        <ul>
+                            <li><strong>Instagram Algoritması ve Keşfete Çıkma</strong> - Görünürlüğünüzü artıracak içerik stratejileri</li>
+                            <li><strong>TikTok Viral İçerik Formülleri</strong> - Hızlı büyüme ve etkileşim için içerik taktikleri</li>
+                            <li><strong>İçerik Planlaması</strong> - 30, 60 veya 90 günlük sosyal medya içerik takvimi oluşturma</li>
+                        </ul>
+                        
+                        <h3>Dijital Ürün Geliştirme ve Satış</h3>
+                        <ul>
+                            <li><strong>Dijital Ürün Fikirleri</strong> - E-booklar, online kurslar, şablonlar ve daha fazlası</li>
+                            <li><strong>Ürün Oluşturma Adımları</strong> - Fikir aşamasından lansmana kadar süreç rehberi</li>
+                            <li><strong>Satış Stratejileri</strong> - Yüksek dönüşüm sağlayan satış sayfaları ve pazarlama teknikleri</li>
+                        </ul>
+                        
+                        <h3>Yapay Zeka ile İçerik Üretimi</h3>
+                        <ul>
+                            <li><strong>ChatGPT, Midjourney ve ElevenLabs</strong> - İçerik üretimini hızlandıran AI araçları</li>
+                            <li><strong>Prompt Mühendisliği</strong> - En iyi sonuçları almak için prompt yazma teknikleri</li>
+                            <li><strong>İş Akışı Otomasyonu</strong> - Yapay zeka ile içerik üretim süreçlerini optimize etme</li>
+                        </ul>
+                        
+                        <h3>Monetizasyon ve Para Kazanma</h3>
+                        <ul>
+                            <li><strong>Gelir Modelleri</strong> - Dijital içerikten para kazanma yöntemleri</li>
+                            <li><strong>Pasif Gelir Sistemleri</strong> - Otomatize edilmiş gelir akışları oluşturma</li>
+                            <li><strong>Fiyatlandırma Stratejileri</strong> - Ürün ve hizmetlerinizi doğru fiyatlandırma</li>
+                        </ul>
+                        
+                        <p>Lütfen yukarıdaki konulardan birisiyle ilgili spesifik bir soru sorun, böylece size daha detaylı ve faydalı bir cevap verebilirim!</p>
+                        
+                        <p>Örnek sorular:</p>
+                        <ul>
+                            <li>"Instagram'da keşfete nasıl çıkabilirim?"</li>
+                            <li>"İlk dijital ürünüm için hangi fikirler iyi olabilir?"</li>
+                            <li>"TikTok'ta viral olmak için ne tür içerikler üretmeliyim?"</li>
+                            <li>"ChatGPT ile nasıl daha iyi içerik üretebilirim?"</li>
+                            <li>"Dijital içeriklerimden nasıl para kazanabilirim?"</li>
+                        </ul>
                     `;
                 }
                 
                 // Yükleniyor mesajını kaldır ve yanıtı göster (gecikme ile)
                 setTimeout(() => {
                     loadingMessage.remove();
+                    // Oluşturulan yanıtı ekle
                     addMessage('bot', response);
                 }, 1000);
             }
@@ -801,6 +2915,18 @@
                         } else if (topic === 'dijitalurun') {
                             addMessage('user', '<p>Dijital ürün nasıl oluşturulur?</p>');
                             generateBotResponse('Dijital ürün oluşturma');
+                        } else if (topic === 'yapayzekaicin') {
+                            addMessage('user', '<p>Yapay zeka ile içerik üretimi nasıl yapılır?</p>');
+                            generateBotResponse('Yapay zeka içerik üretimi');
+                        } else if (topic === 'niskonulari') {
+                            addMessage('user', '<p>Dijital ürün satışı için hangi nişi seçmeliyim?</p>');
+                            generateBotResponse('Dijital ürün niş seçimi');
+                        } else if (topic === 'monetizasyon') {
+                            addMessage('user', '<p>Dijital içeriklerden nasıl para kazanabilirim?</p>');
+                            generateBotResponse('Dijital içerik monetizasyon');
+                        } else if (topic === 'contentplan') {
+                            addMessage('user', '<p>Etkili bir içerik planı nasıl oluşturabilirim?</p>');
+                            generateBotResponse('İçerik planı oluşturma');
                         }
                     }
                 });
