@@ -5,41 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yusuf Yaman - Dijital Satış Asistanı</title>
     <meta name="description" content="Yusuf Yaman'ın Dijital Satış ve Organik Büyüme Asistanı - Instagram, TikTok ve dijital ürün satışı konularında yardımcı olur.">
-    <link rel="icon" href="https://raw.githubusercontent.com/huzaifi0604/Favicon/main/favicon.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             /* Ana Renkler */
-            --bg-primary: #f7f9fc;
+            --bg-primary: #f8fafc;
             --bg-secondary: #ffffff;
             --bg-sidebar: #0f172a;
             --bg-sidebar-item: #1e293b;
             --bg-sidebar-hover: #334155;
-            --bg-message-user: #1d4ed8;
+            --bg-message-user: #3b82f6;
             --bg-message-bot: #ffffff;
             
             /* Metin Renkleri */
-            --text-primary: #1e293b;
+            --text-primary: #0f172a;
             --text-secondary: #64748b;
             --text-on-primary: #ffffff;
             --text-on-sidebar: #f8fafc;
             --text-accent: #2563eb;
             --text-user-message: #ffffff;
-            --text-bot-message: #1e293b;
+            --text-bot-message: #0f172a;
             
             /* Sınır ve Gölge */
             --border-color: #e2e8f0;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xs: 0 1px 2px rgba(16, 24, 40, 0.05);
+            --shadow-sm: 0 1px 3px rgba(16, 24, 40, 0.1), 0 1px 2px rgba(16, 24, 40, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(16, 24, 40, 0.1), 0 2px 4px -1px rgba(16, 24, 40, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(16, 24, 40, 0.1), 0 4px 6px -2px rgba(16, 24, 40, 0.05);
             
             /* Geçiş ve Animasyon */
-            --transition-normal: all 0.3s ease;
+            --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             
             /* Accent Renkler */
-            --accent-blue: #2563eb;
-            --accent-blue-hover: #1d4ed8;
+            --accent-blue: #3b82f6;
+            --accent-blue-hover: #2563eb;
             --accent-green: #10b981;
             --accent-purple: #8b5cf6;
             --accent-red: #ef4444;
@@ -48,6 +49,7 @@
             --radius-sm: 0.375rem;
             --radius-md: 0.5rem;
             --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
             --radius-full: 9999px;
         }
 
@@ -58,7 +60,7 @@
             --bg-sidebar: #020617;
             --bg-sidebar-item: #1e293b;
             --bg-sidebar-hover: #334155;
-            --bg-message-user: #2563eb;
+            --bg-message-user: #3b82f6;
             --bg-message-bot: #1e293b;
             
             /* Metin Renkleri */
@@ -66,15 +68,16 @@
             --text-secondary: #cbd5e1;
             --text-on-primary: #ffffff;
             --text-on-sidebar: #f8fafc;
-            --text-accent: #3b82f6;
+            --text-accent: #60a5fa;
             --text-user-message: #ffffff;
             --text-bot-message: #f8fafc;
             
             /* Sınır ve Gölge */
             --border-color: #334155;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+            --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
         }
 
         * {
@@ -84,12 +87,14 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-primary);
             color: var(--text-primary);
             height: 100vh;
             margin: 0;
             transition: var(--transition-normal);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* Ana Uygulama Konteyneri */
@@ -99,6 +104,7 @@
             max-width: 100%;
             margin: 0 auto;
             overflow: hidden;
+            position: relative;
         }
 
         /* Sidebar Tasarımı */
@@ -112,14 +118,16 @@
             overflow: hidden;
             position: relative;
             z-index: 10;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .sidebar-header {
             padding: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            border-bottom: 1px solid var(--border-color);
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .logo-container {
@@ -128,11 +136,16 @@
             gap: 0.75rem;
         }
 
-        .logo-container img {
+        .logo-icon {
             width: 32px;
             height: 32px;
-            border-radius: var(--radius-full);
-            object-fit: cover;
+            background-color: var(--accent-blue);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: white;
         }
 
         .logo-container h1 {
@@ -151,14 +164,14 @@
         }
 
         .new-chat-btn {
-            margin: 1rem;
+            margin: 1.25rem;
             background-color: var(--accent-blue);
             color: var(--text-on-primary);
             border: none;
             border-radius: var(--radius-md);
             padding: 0.875rem 1rem;
             font-size: 0.875rem;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -166,10 +179,33 @@
             gap: 0.5rem;
             transition: var(--transition-normal);
             box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .new-chat-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .new-chat-btn:hover::before {
+            left: 100%;
         }
 
         .new-chat-btn:hover {
             background-color: var(--accent-blue-hover);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .new-chat-btn:active {
+            transform: translateY(1px);
         }
 
         .new-chat-btn i {
@@ -186,8 +222,9 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: var(--text-secondary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             padding-left: 0.5rem;
+            opacity: 0.7;
         }
 
         /* Tema Değiştirici */
@@ -196,7 +233,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 0.875rem;
-            margin: 0 0.5rem;
+            margin: 0.5rem 0.5rem 1.25rem;
             background-color: var(--bg-sidebar-item);
             border-radius: var(--radius-md);
             transition: var(--transition-normal);
@@ -266,7 +303,22 @@
             padding: 0 0.5rem;
             display: flex;
             flex-direction: column;
-            gap: 0.25rem;
+            gap: 0.375rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--bg-sidebar-hover) transparent;
+        }
+
+        .history::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .history::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .history::-webkit-scrollbar-thumb {
+            background-color: var(--bg-sidebar-hover);
+            border-radius: 9999px;
         }
 
         .history-item {
@@ -280,7 +332,8 @@
             transition: var(--transition-normal);
             background-color: var(--bg-sidebar-item);
             color: var(--text-on-sidebar);
-            margin-bottom: 0.25rem;
+            position: relative;
+            overflow: hidden;
         }
 
         .history-item:hover {
@@ -288,9 +341,20 @@
         }
 
         .history-item.active {
-            background-color: var(--accent-blue);
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-blue-hover));
             color: var(--text-on-primary);
             font-weight: 500;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .history-item.active::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: white;
+            border-radius: 4px;
         }
 
         .history-item i {
@@ -305,15 +369,21 @@
             align-items: center;
             padding: 1rem;
             margin-top: auto;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             background-color: var(--bg-sidebar);
         }
 
-        .user-info img {
-            width: 28px;
-            height: 28px;
+        .user-icon {
+            width: 32px;
+            height: 32px;
             border-radius: var(--radius-full);
             margin-right: 0.75rem;
+            background-color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
         }
 
         .user-info span {
@@ -340,9 +410,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-xs);
             transition: var(--transition-normal);
             z-index: 5;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .header-left {
@@ -388,6 +460,7 @@
         .action-button:hover {
             background-color: var(--bg-primary);
             color: var(--text-accent);
+            border-color: var(--text-accent);
         }
 
         /* Sohbet Alanı */
@@ -401,6 +474,22 @@
             scroll-behavior: smooth;
             background-color: var(--bg-primary);
             transition: var(--transition-normal);
+            scrollbar-width: thin;
+            scrollbar-color: var(--text-secondary) transparent;
+            position: relative;
+        }
+
+        .chat-container::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .chat-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .chat-container::-webkit-scrollbar-thumb {
+            background-color: var(--text-secondary);
+            border-radius: 9999px;
         }
 
         /* Mesaj Stilleri */
@@ -445,12 +534,7 @@
             align-items: center;
             justify-content: center;
             background-color: var(--bg-secondary);
-        }
-
-        .avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            font-size: 1.25rem;
         }
 
         .user-message .avatar {
@@ -458,31 +542,33 @@
             color: white;
         }
 
-        .avatar i {
-            font-size: 1.25rem;
+        .bot-avatar {
+            background-color: var(--accent-green);
+            color: white;
         }
 
         .message-content {
             padding: 1rem 1.25rem;
             border-radius: var(--radius-lg);
             font-size: 0.9375rem;
-            line-height: 1.5;
+            line-height: 1.6;
             max-width: calc(100% - 60px);
             box-shadow: var(--shadow-sm);
             transition: var(--transition-normal);
+            position: relative;
         }
 
         .bot-message .message-content {
             background-color: var(--bg-message-bot);
             color: var(--text-bot-message);
-            border-top-left-radius: 0;
+            border-top-left-radius: 0.25rem;
             box-shadow: var(--shadow-sm);
         }
 
         .user-message .message-content {
-            background-color: var(--bg-message-user);
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-hover));
             color: var(--text-user-message);
-            border-top-right-radius: 0;
+            border-top-right-radius: 0.25rem;
         }
 
         .message-content p {
@@ -521,7 +607,7 @@
         }
 
         .message-content code {
-            background-color: var(--bg-primary);
+            background-color: rgba(0, 0, 0, 0.05);
             padding: 0.125rem 0.25rem;
             border-radius: var(--radius-sm);
             font-family: monospace;
@@ -529,7 +615,7 @@
         }
 
         .message-content pre {
-            background-color: var(--bg-primary);
+            background-color: rgba(0, 0, 0, 0.05);
             padding: 1rem;
             border-radius: var(--radius-md);
             overflow-x: auto;
@@ -541,6 +627,9 @@
             padding-left: 1rem;
             margin: 1rem 0;
             color: var(--text-secondary);
+            background-color: rgba(0, 0, 0, 0.02);
+            padding: 0.75rem 1rem;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
         }
 
         /* İnput Alanı */
@@ -555,24 +644,23 @@
             align-items: flex-end;
             background-color: var(--bg-secondary);
             border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
+            border-radius: var(--radius-xl);
             transition: var(--transition-normal);
-            padding: 0.75rem;
+            padding: 0.75rem 0.875rem 0.75rem 1.25rem;
             box-shadow: var(--shadow-md);
             position: relative;
         }
 
         .input-container:focus-within {
             border-color: var(--accent-blue);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
         }
 
         #userInput {
             flex-grow: 1;
             border: none;
-            border-radius: var(--radius-md);
-            padding: 0.625rem 1rem;
-            font-family: 'Inter', sans-serif;
+            padding: 0.625rem 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 0.9375rem;
             resize: none;
             outline: none;
@@ -586,10 +674,11 @@
 
         #userInput::placeholder {
             color: var(--text-secondary);
+            opacity: 0.7;
         }
 
         #sendButton {
-            background-color: var(--accent-blue);
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-hover));
             color: white;
             border: none;
             border-radius: var(--radius-full);
@@ -601,43 +690,24 @@
             cursor: pointer;
             transition: var(--transition-normal);
             flex-shrink: 0;
-            margin-left: 0.5rem;
+            margin-left: 0.75rem;
+            box-shadow: var(--shadow-sm);
         }
 
         #sendButton:hover {
-            background-color: var(--accent-blue-hover);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        #sendButton:active {
+            transform: translateY(1px);
         }
 
         #sendButton i {
             font-size: 1rem;
         }
 
-        .info-text {
-            text-align: center;
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            margin-top: 0.75rem;
-        }
-
-        /* Kaydırma Çubuğu */
-        ::-webkit-scrollbar {
-            width: 0.375rem;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--text-secondary);
-            border-radius: var(--radius-full);
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--text-accent);
-        }
-
-        /* Özel Animasyonlar */
+        /* Yazarken animasyonu */
         .typing-indicator {
             display: flex;
             padding: 0.5rem 0;
@@ -669,6 +739,11 @@
 
         /* Mobil Responsive Tasarım */
         @media (max-width: 768px) {
+            .app-container {
+                height: 100%;
+                flex-direction: column;
+            }
+            
             .sidebar {
                 position: fixed;
                 top: 0;
@@ -698,7 +773,7 @@
             }
             
             .chat-header {
-                padding: 1rem;
+                padding: 0.75rem 1rem;
             }
             
             .message {
@@ -722,6 +797,11 @@
             .input-container {
                 padding: 0.625rem;
             }
+            
+            .main-content {
+                height: calc(100% - 60px);
+                flex: 1;
+            }
         }
 
         /* Özel Modal */
@@ -737,6 +817,8 @@
             align-items: center;
             justify-content: center;
             animation: fadeIn 0.3s ease;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
         }
 
         .modal-content {
@@ -747,6 +829,12 @@
             max-width: 500px;
             box-shadow: var(--shadow-lg);
             position: relative;
+            animation: modalSlideUp 0.3s ease;
+        }
+
+        @keyframes modalSlideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .modal-header {
@@ -772,6 +860,7 @@
 
         .modal-body {
             margin-bottom: 1.5rem;
+            color: var(--text-primary);
         }
 
         .modal-footer {
@@ -795,24 +884,217 @@
             color: var(--text-primary);
         }
 
+        .modal-button-secondary:hover {
+            background-color: var(--bg-primary);
+        }
+
         .modal-button-primary {
-            background-color: var(--accent-blue);
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-hover));
             border: none;
             color: white;
         }
 
         .modal-button-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        
+        /* Bot başlangıç mesajı */
+        .welcome-card {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .welcome-header {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .welcome-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .welcome-header p {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+        }
+        
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .topic-card {
+            background-color: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-normal);
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-blue);
+        }
+        
+        .topic-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        .topic-card:nth-child(1) .topic-icon {
+            background: linear-gradient(135deg, #ef4444, #f59e0b);
+        }
+        
+        .topic-card:nth-child(2) .topic-icon {
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+        }
+        
+        .topic-card:nth-child(3) .topic-icon {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+        
+        .topic-card:nth-child(4) .topic-icon {
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+        }
+        
+        .topic-card:nth-child(5) .topic-icon {
+            background: linear-gradient(135deg, #f43f5e, #d946ef);
+        }
+        
+        .topic-card:nth-child(6) .topic-icon {
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+        }
+        
+        .topic-title {
+            font-weight: 600;
+            font-size: 0.9375rem;
+            color: var(--text-primary);
+        }
+        
+        .topic-desc {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Önceden çalıştırılması gereken proxy çözümü */
+        #corsProxyLoader {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            color: white;
+            text-align: center;
+        }
+        
+        #corsProxyLoader h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        #corsProxyLoader p {
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+        
+        #corsProxyButton {
+            background-color: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+        
+        #corsProxyButton:hover {
             background-color: var(--accent-blue-hover);
+        }
+        
+        #corsProxyClose {
+            margin-top: 1rem;
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+        }
+        
+        #corsStatusContainer {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .cors-status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ef4444;
+        }
+        
+        .cors-status-dot.active {
+            background-color: #10b981;
         }
     </style>
 </head>
 <body>
+    <!-- CORS Proxy Yükleme Ekranı -->
+    <div id="corsProxyLoader">
+        <h3>API Erişimi İçin İzin Gerekiyor</h3>
+        <p>Bu bot, Gemini API ile konuşabilmek için bir CORS proxy kullanıyor. Aşağıdaki butona tıklayarak proxy'ye erişim izni verin ve bu sayfaya geri dönün. Bu işlem sadece ilk kullanımda gereklidir.</p>
+        <button id="corsProxyButton">CORS Proxy'ye Erişim İzni Ver</button>
+        <div id="corsStatusContainer">
+            <div class="cors-status-dot" id="corsStatusDot"></div>
+            <span id="corsStatusText">Erişim yok</span>
+        </div>
+        <button id="corsProxyClose">Kapat</button>
+    </div>
+
     <div class="app-container">
         <!-- Sol Sidebar -->
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/huzaifi0604/Favicon/main/favicon.png" alt="Logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
                     <h1>Dijital Satış Asistanı</h1>
                 </div>
                 <button class="mobile-close" id="mobileClose"><i class="fas fa-times"></i></button>
@@ -873,7 +1155,9 @@
             </div>
             
             <div class="user-info">
-                <img src="https://raw.githubusercontent.com/huzaifi0604/Favicon/main/favicon.png" alt="User">
+                <div class="user-icon">
+                    <i class="fas fa-user"></i>
+                </div>
                 <span>Yusuf Yaman</span>
             </div>
         </div>
@@ -907,9 +1191,6 @@
                     <button id="sendButton">
                         <i class="fas fa-paper-plane"></i>
                     </button>
-                </div>
-                <div class="info-text">
-                    Yusuf Yaman'ın Dijital Satış Asistanı, Google Gemini 2.0 tarafından desteklenmektedir.
                 </div>
             </div>
         </div>
@@ -946,6 +1227,13 @@
             const mobileMenuToggle = document.getElementById('mobileMenuToggle');
             const mobileClose = document.getElementById('mobileClose');
             
+            // CORS Proxy Elementleri
+            const corsProxyLoader = document.getElementById('corsProxyLoader');
+            const corsProxyButton = document.getElementById('corsProxyButton');
+            const corsProxyClose = document.getElementById('corsProxyClose');
+            const corsStatusDot = document.getElementById('corsStatusDot');
+            const corsStatusText = document.getElementById('corsStatusText');
+            
             // Modal Elementleri
             const confirmModal = document.getElementById('confirmModal');
             const modalClose = document.getElementById('modalClose');
@@ -958,6 +1246,59 @@
             // Gemini API konfigürasyonu
             const API_KEY = 'AIzaSyAhdRR0uKZvCGGV90NIfgu0TIUdsqFWKt4';
             const MODEL = 'gemini-2.0-flash';
+            
+            // CORS Proxy kullanımı ve durumu
+            // Bu değişken, CORS Proxy'den geçirebileceğimiz bir API URL'si veya
+            // proxy'siz doğrudan iletişim için boş bir string olabilir.
+            let CORS_PROXY = checkCorsProxyAccess() ? 'https://cors-anywhere.herokuapp.com/' : '';
+            
+            if (!checkCorsProxyAccess()) {
+                corsProxyLoader.style.display = 'flex';
+            }
+            
+            corsProxyButton.addEventListener('click', function() {
+                window.open('https://cors-anywhere.herokuapp.com/corsdemo', '_blank');
+                
+                let checkInterval = setInterval(() => {
+                    if (checkCorsProxyAccess()) {
+                        clearInterval(checkInterval);
+                        corsStatusDot.classList.add('active');
+                        corsStatusText.textContent = 'Erişim sağlandı';
+                        CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
+                    }
+                }, 2000);
+            });
+            
+            corsProxyClose.addEventListener('click', function() {
+                corsProxyLoader.style.display = 'none';
+            });
+            
+            function checkCorsProxyAccess() {
+                try {
+                    // CORS erişimi için proxy'nin cookie değerlerini kontrol et
+                    const corsEnabled = localStorage.getItem('cors_proxy_access') === 'true';
+                    
+                    // Eğer daha önce erişim sağlanmışsa
+                    if (corsEnabled) {
+                        return true;
+                    }
+                    
+                    // HTTP erişimde CORS proxy'ye erişim kontrolü yapmayalım
+                    if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost') {
+                        return true;
+                    }
+                    
+                    return false;
+                } catch (e) {
+                    console.error('CORS check error:', e);
+                    return false;
+                }
+            }
+            
+            // CORS erişimi sağlandı bilgisini kaydet
+            function setCorsProxyAccess() {
+                localStorage.setItem('cors_proxy_access', 'true');
+            }
             
             // Sistem talimatları
             const systemInstructions = `
@@ -1089,32 +1430,151 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                 const welcomeMessage = `
                     <div class="message bot-message">
                         <div class="message-container">
-                            <div class="avatar">
-                                <img src="https://raw.githubusercontent.com/huzaifi0604/Favicon/main/favicon.png" alt="Bot Avatar">
+                            <div class="avatar bot-avatar">
+                                <i class="fas fa-robot"></i>
                             </div>
                             <div class="message-content">
-                                <p>Merhaba, ben Yusuf Yaman'ın Dijital Satış Asistanıyım! Size nasıl yardımcı olabilirim?</p>
-                                <p>Aşağıdaki konularda uzmanlaşmış durumdayım:</p>
-                                <ul>
-                                    <li><strong>Instagram ve TikTok Stratejileri:</strong> Algoritma, keşfete çıkma, içerik planlaması</li>
-                                    <li><strong>Dijital Ürün Oluşturma:</strong> E-book, çevrimiçi kurslar, dijital şablonlar</li>
-                                    <li><strong>Yapay Zeka ile İçerik Üretimi:</strong> ChatGPT, Midjourney, ElevenLabs kullanım rehberleri</li>
-                                    <li><strong>Niş Seçimi ve Pazar Araştırması:</strong> Kârlı dijital ürün nişleri bulma</li>
-                                    <li><strong>Monetizasyon Stratejileri:</strong> Dijital ürünlerden para kazanma yöntemleri</li>
-                                    <li><strong>İçerik Planı Oluşturma:</strong> 30-90 günlük içerik takvimi hazırlama</li>
-                                </ul>
-                                <p>Sorularınızı sormaya başlayabilir veya soldaki menüden bir konu seçebilirsiniz!</p>
+                                <div class="welcome-card">
+                                    <div class="welcome-header">
+                                        <h3>Dijital Satış Asistanına Hoş Geldiniz</h3>
+                                        <p>Yusuf Yaman'ın resmi dijital satış ve organik büyüme asistanı olarak size nasıl yardımcı olabilirim?</p>
+                                    </div>
+                                    
+                                    <div class="topics-grid">
+                                        <div class="topic-card" data-topic="instagram">
+                                            <div class="topic-icon">
+                                                <i class="fab fa-instagram"></i>
+                                            </div>
+                                            <div class="topic-title">Instagram</div>
+                                            <div class="topic-desc">Algoritma, keşfete çıkma ve büyüme stratejileri</div>
+                                        </div>
+                                        <div class="topic-card" data-topic="tiktok">
+                                            <div class="topic-icon">
+                                                <i class="fab fa-tiktok"></i>
+                                            </div>
+                                            <div class="topic-title">TikTok</div>
+                                            <div class="topic-desc">Viral içerik, etkileşim ve büyüme taktikleri</div>
+                                        </div>
+                                        <div class="topic-card" data-topic="dijitalurun">
+                                            <div class="topic-icon">
+                                                <i class="fas fa-file-alt"></i>
+                                            </div>
+                                            <div class="topic-title">Dijital Ürünler</div>
+                                            <div class="topic-desc">E-book, kurs ve dijital ürün oluşturma</div>
+                                        </div>
+                                        <div class="topic-card" data-topic="yapayzekaicin">
+                                            <div class="topic-icon">
+                                                <i class="fas fa-robot"></i>
+                                            </div>
+                                            <div class="topic-title">Yapay Zeka</div>
+                                            <div class="topic-desc">AI ile içerik üretimi ve iş otomasyonu</div>
+                                        </div>
+                                        <div class="topic-card" data-topic="niskonulari">
+                                            <div class="topic-icon">
+                                                <i class="fas fa-bullseye"></i>
+                                            </div>
+                                            <div class="topic-title">Niş Seçimi</div>
+                                            <div class="topic-desc">Kârlı pazarlar ve satış potansiyeli</div>
+                                        </div>
+                                        <div class="topic-card" data-topic="monetizasyon">
+                                            <div class="topic-icon">
+                                                <i class="fas fa-money-bill-wave"></i>
+                                            </div>
+                                            <div class="topic-title">Monetizasyon</div>
+                                            <div class="topic-desc">İçerik ve hesaplardan para kazanma</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>Size hangi konuda yardımcı olabilirim? Bir konu kartına tıklayabilir veya doğrudan soru sorabilirsiniz.</p>
                             </div>
                         </div>
                     </div>
                 `;
                 chatContainer.innerHTML = welcomeMessage;
+                
+                // Konu kartlarına tıklama olaylarını ekle
+                document.querySelectorAll('.topic-card').forEach(card => {
+                    card.addEventListener('click', function() {
+                        const topic = this.getAttribute('data-topic');
+                        handleTopicSelection(topic);
+                    });
+                });
+                
                 // Bot'un mesajını chat geçmişine ekleyelim
                 chatHistory.push({
                     role: "model",
-                    parts: [{ text: "Merhaba, ben Yusuf Yaman'ın Dijital Satış Asistanıyım! Size nasıl yardımcı olabilirim? Aşağıdaki konularda uzmanlaşmış durumdayım: Instagram ve TikTok Stratejileri, Dijital Ürün Oluşturma, Yapay Zeka ile İçerik Üretimi, Niş Seçimi ve Pazar Araştırması, Monetizasyon Stratejileri, İçerik Planı Oluşturma. Sorularınızı sormaya başlayabilir veya soldaki menüden bir konu seçebilirsiniz!" }]
+                    parts: [{ text: "Merhaba, ben Yusuf Yaman'ın Dijital Satış Asistanıyım! Size nasıl yardımcı olabilirim?" }]
                 });
                 saveChatHistory();
+            }
+            
+            // Konu seçimi işleme
+            function handleTopicSelection(topic) {
+                if (topic === 'welcome') {
+                    showWelcomeMessage();
+                } else if (topic === 'instagram') {
+                    addMessage('user', '<p>Instagram\'da keşfete nasıl çıkarım?</p>');
+                    chatHistory.push({
+                        role: "user",
+                        parts: [{ text: "Instagram'da keşfete nasıl çıkarım?" }]
+                    });
+                    generateBotResponse("Instagram'da keşfete nasıl çıkarım?");
+                } else if (topic === 'tiktok') {
+                    addMessage('user', '<p>TikTok\'ta viral olmak için ne yapmalıyım?</p>');
+                    chatHistory.push({
+                        role: "user",
+                        parts: [{ text: "TikTok'ta viral olmak için ne yapmalıyım?" }]
+                    });
+                    generateBotResponse("TikTok'ta viral olmak için ne yapmalıyım?");
+                } else if (topic === 'dijitalurun') {
+                    addMessage('user', '<p>Dijital ürün nasıl oluşturulur?</p>');
+                    chatHistory.push({
+                        role: "user",
+                        parts: [{ text: "Dijital ürün nasıl oluşturulur?" }]
+                    });
+                    generateBotResponse("Dijital ürün nasıl oluşturulur?");
+                } else if (topic === 'yapayzekaicin') {
+                    addMessage('user', '<p>Yapay zeka ile içerik üretimi nasıl yapılır?</p>');
+                    chatHistory.push({
+                        role: "user",
+                        parts: [{ text: "Yapay zeka ile içerik üretimi nasıl yapılır?" }]
+                    });
+                    generateBotResponse("Yapay zeka ile içerik üretimi nasıl yapılır?");
+                } else if (topic === 'niskonulari') {
+                    addMessage('user', '<p>Dijital ürün satışı için hangi nişi seçmeliyim?</p>');
+                    chatHistory.push({
+                        role: "user",
+                        parts: [{ text: "Dijital ürün satışı için hangi nişi seçmeliyim?" }]
+                    });
+                    generateBotResponse("Dijital ürün satışı için hangi nişi seçmeliyim?");
+                } else if (topic === 'monetizasyon') {
+                    addMessage('user', '<p>Dijital içeriklerden nasıl para kazanabilirim?</p>');
+                    chatHistory.push({
+                        role: "user",
+                        parts: [{ text: "Dijital içeriklerden nasıl para kazanabilirim?" }]
+                    });
+                    generateBotResponse("Dijital içeriklerden nasıl para kazanabilirim?");
+                } else if (topic === 'contentplan') {
+                    addMessage('user', '<p>Etkili bir içerik planı nasıl oluşturabilirim?</p>');
+                    chatHistory.push({
+                        role: "user",
+                        parts: [{ text: "Etkili bir içerik planı nasıl oluşturabilirim?" }]
+                    });
+                    generateBotResponse("Etkili bir içerik planı nasıl oluşturabilirim?");
+                }
+                
+                // Mobil görünümde, konu seçilince sidebar'ı kapat
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.remove('open');
+                }
+                
+                // İlgili konu menüsünü aktif yap
+                document.querySelectorAll('.history-item').forEach(item => {
+                    if (item.getAttribute('data-topic') === topic) {
+                        document.querySelector('.history-item.active').classList.remove('active');
+                        item.classList.add('active');
+                    }
+                });
             }
 
             // Mesaj Gönderme İşlevi
@@ -1155,8 +1615,8 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                 
                 if (type === 'bot') {
                     html += `
-                        <div class="avatar">
-                            <img src="https://raw.githubusercontent.com/huzaifi0604/Favicon/main/favicon.png" alt="Bot Avatar">
+                        <div class="avatar bot-avatar">
+                            <i class="fas fa-robot"></i>
                         </div>
                     `;
                 } else {
@@ -1187,8 +1647,8 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                 loadingDiv.className = 'message bot-message typing-message';
                 loadingDiv.innerHTML = `
                     <div class="message-container">
-                        <div class="avatar">
-                            <img src="https://raw.githubusercontent.com/huzaifi0604/Favicon/main/favicon.png" alt="Bot Avatar">
+                        <div class="avatar bot-avatar">
+                            <i class="fas fa-robot"></i>
                         </div>
                         <div class="message-content">
                             <div class="typing-indicator">
@@ -1251,42 +1711,75 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                         ]
                     };
                     
-                    // CORS sorunu çözümü için proxy kullanımı
-                    // Not: Bu bir workaround, ideal olarak kendi backend'inizi kullanmalısınız
-                    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-                    const finalUrl = apiUrl;
-                    
                     // Gerçek API çağrısı öncesinde yapay gecikme ekleyelim (daha gerçekçi olması için)
-                    await new Promise(resolve => setTimeout(resolve, 1500));
+                    await new Promise(resolve => setTimeout(resolve, 1000));
                     
-                    // API'ye istek gönder
-                    const response = await fetch(finalUrl, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(requestData)
-                    });
+                    // API'ye istek gönder - CORS proxy ile veya proxy olmadan
+                    const finalUrl = CORS_PROXY + apiUrl;
                     
-                    // API yanıtını al
-                    const data = await response.json();
-                    
-                    // Yazıyor göstergesini kaldır
-                    typingIndicator.remove();
-                    
-                    // API yanıtını kontrol et ve ekle
-                    if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0].text) {
-                        const aiResponse = data.candidates[0].content.parts[0].text;
-                        
-                        // Yanıtı sohbet geçmişine ekle
-                        chatHistory.push({
-                            role: "model",
-                            parts: [{ text: aiResponse }]
+                    // HTTP veya localde çalışıyorsa, fetch işlemi yap
+                    if (window.location.protocol === 'http:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                        // API'ye doğrudan iste gönder
+                        const response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(requestData)
                         });
                         
-                        // Yanıtı ekrana ekle
-                        addMessage('bot', aiResponse);
-                    } else {
+                        processApiResponse(response);
+                    } 
+                    else if (CORS_PROXY) {
+                        // CORS proxy ile istek gönder
+                        const response = await fetch(finalUrl, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(requestData)
+                        });
+                        
+                        // CORS erişimi başarılıysa kaydet
+                        setCorsProxyAccess();
+                        processApiResponse(response);
+                    } 
+                    else {
+                        // CORS proxy erişimi yoksa bildirim göster
+                        corsProxyLoader.style.display = 'flex';
+                        
+                        // Yedek yanıtı göster
+                        showFallbackResponse();
+                    }
+                    
+                    async function processApiResponse(response) {
+                        // API yanıtını al
+                        const data = await response.json();
+                        
+                        // Yazıyor göstergesini kaldır
+                        typingIndicator.remove();
+                        
+                        // API yanıtını kontrol et ve ekle
+                        if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0].text) {
+                            const aiResponse = data.candidates[0].content.parts[0].text;
+                            
+                            // Yanıtı sohbet geçmişine ekle
+                            chatHistory.push({
+                                role: "model",
+                                parts: [{ text: aiResponse }]
+                            });
+                            
+                            // Yanıtı ekrana ekle
+                            addMessage('bot', aiResponse);
+                        } else {
+                            showFallbackResponse();
+                        }
+                    }
+                    
+                    function showFallbackResponse() {
+                        // Yazıyor göstergesini kaldır
+                        typingIndicator.remove();
+                        
                         // Fallback: Eğer API yanıt vermezse yedek yanıt
                         const fallbackResponse = `
                             <p>Özür dilerim, şu anda bir teknik sorun yaşıyorum ve Gemini API'ye bağlanamıyorum. Size şu konularda yardımcı olabilirim:</p>
@@ -1296,7 +1789,7 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                                 <li><strong>Yapay zeka ile içerik üretimi</strong> hakkında ipuçları isteyebilirsiniz</li>
                                 <li><strong>İçerik planlaması ve niş seçimi</strong> ile ilgili danışabilirsiniz</li>
                             </ul>
-                            <p>Lütfen tekrar sorunuzu sorar mısınız? Alternatif olarak, soldaki menüden bir konu seçebilirsiniz.</p>
+                            <p>Lütfen tekrar sorunuzu sorar mısınız? Alternatif olarak, soldaki menüden bir konu seçerek devam edin.</p>
                         `;
                         
                         // Yedek yanıtı ekle
@@ -1339,69 +1832,12 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                     document.querySelector('.history-item.active').classList.remove('active');
                     this.classList.add('active');
                     
-                    // Mobil görünümde, konu seçilince sidebar'ı kapat
-                    if (window.innerWidth <= 768) {
-                        sidebar.classList.remove('open');
-                    }
-                    
                     // Konu bazlı ekstra içerik gösterme
                     const topic = this.getAttribute('data-topic');
                     if (topic) {
                         chatContainer.innerHTML = '';
                         chatHistory = []; // Gemini bağlamını da temizle
-                        
-                        if (topic === 'welcome') {
-                            showWelcomeMessage();
-                        } else if (topic === 'instagram') {
-                            addMessage('user', '<p>Instagram\'da keşfete nasıl çıkarım?</p>');
-                            chatHistory.push({
-                                role: "user",
-                                parts: [{ text: "Instagram'da keşfete nasıl çıkarım?" }]
-                            });
-                            generateBotResponse("Instagram'da keşfete nasıl çıkarım?");
-                        } else if (topic === 'tiktok') {
-                            addMessage('user', '<p>TikTok\'ta viral olmak için ne yapmalıyım?</p>');
-                            chatHistory.push({
-                                role: "user",
-                                parts: [{ text: "TikTok'ta viral olmak için ne yapmalıyım?" }]
-                            });
-                            generateBotResponse("TikTok'ta viral olmak için ne yapmalıyım?");
-                        } else if (topic === 'dijitalurun') {
-                            addMessage('user', '<p>Dijital ürün nasıl oluşturulur?</p>');
-                            chatHistory.push({
-                                role: "user",
-                                parts: [{ text: "Dijital ürün nasıl oluşturulur?" }]
-                            });
-                            generateBotResponse("Dijital ürün nasıl oluşturulur?");
-                        } else if (topic === 'yapayzekaicin') {
-                            addMessage('user', '<p>Yapay zeka ile içerik üretimi nasıl yapılır?</p>');
-                            chatHistory.push({
-                                role: "user",
-                                parts: [{ text: "Yapay zeka ile içerik üretimi nasıl yapılır?" }]
-                            });
-                            generateBotResponse("Yapay zeka ile içerik üretimi nasıl yapılır?");
-                        } else if (topic === 'niskonulari') {
-                            addMessage('user', '<p>Dijital ürün satışı için hangi nişi seçmeliyim?</p>');
-                            chatHistory.push({
-                                role: "user",
-                                parts: [{ text: "Dijital ürün satışı için hangi nişi seçmeliyim?" }]
-                            });
-                            generateBotResponse("Dijital ürün satışı için hangi nişi seçmeliyim?");
-                        } else if (topic === 'monetizasyon') {
-                            addMessage('user', '<p>Dijital içeriklerden nasıl para kazanabilirim?</p>');
-                            chatHistory.push({
-                                role: "user",
-                                parts: [{ text: "Dijital içeriklerden nasıl para kazanabilirim?" }]
-                            });
-                            generateBotResponse("Dijital içeriklerden nasıl para kazanabilirim?");
-                        } else if (topic === 'contentplan') {
-                            addMessage('user', '<p>Etkili bir içerik planı nasıl oluşturabilirim?</p>');
-                            chatHistory.push({
-                                role: "user",
-                                parts: [{ text: "Etkili bir içerik planı nasıl oluşturabilirim?" }]
-                            });
-                            generateBotResponse("Etkili bir içerik planı nasıl oluşturabilirim?");
-                        }
+                        handleTopicSelection(topic);
                     }
                 });
             });
