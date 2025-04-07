@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yusuf Yaman - Dijital Satış Asistanı</title>
+    <meta name="description" content="Yusuf Yaman'ın Dijital Satış ve Organik Büyüme Asistanı - Instagram, TikTok ve dijital ürün satışı konularında yardımcı olur.">
+    <link rel="icon" href="https://raw.githubusercontent.com/huzaifi0604/Favicon/main/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #f7f7f8;
+            --bg-secondary: #ffffff;
+            --bg-sidebar: #202123;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6e6e80;
+            --text-on-primary: #ffffff;
+            --border-color: #e5e5e6;
+            --accent-color: #10a37f;
+            --accent-hover: #0e8e6d;
+            --sidebar-text: #ffffff;
+            --user-message-bg: #10a37f;
+            --user-message-text: #ffffff;
+            --bot-message-bg: #ffffff;
+            --bot-message-text: #1a1a1a;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #1e1e2e;
+            --bg-secondary: #2a2b32;
+            --bg-sidebar: #0f0f17;
+            --text-primary: #f1f1f3;
+            --text-secondary: #acacbe;
+            --text-on-primary: #f1f1f3;
+            --border-color: #4d4d4f;
+            --accent-color: #10a37f;
+            --accent-hover: #0e8e6d;
+            --sidebar-text: #ffffff;
+            --user-message-bg: #10a37f;
+            --user-message-text: #ffffff;
+            --bot-message-bg: #2a2b32;
+            --bot-message-text: #f1f1f3;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .app-container {
+            display: flex;
+            height: 100vh;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .sidebar {
+            width: 260px;
+            background-color: var(--bg-sidebar);
+            color: var(--sidebar-text);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.3s;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .logo h1 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .new-chat-btn {
+            background-color: var(--accent-color);
+            color: var(--text-on-primary);
+            border: none;
+            border-radius: 5px;
+            padding: 12px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .new-chat-btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .theme-switch-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .theme-text {
+            font-size: 14px;
+        }
+
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 22px;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: var(--accent-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(22px);
+        }
+
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        .history {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+
+        .history-item {
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background-color 0.2s;
+        }
+
+        .history-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .history-item.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
+        }
+
+        .user-info img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--bg-primary);
+            transition: background-color 0.3s;
+        }
+
+        .chat-header {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--bg-secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .chat-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        #clearChatBtn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 16px;
+            transition: color 0.2s;
+        }
+
+        #clearChatBtn:hover {
+            color: var(--accent-color);
+        }
+
+        .chat-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            background-color: var(--bg-primary);
+            transition: background-color 0.3s;
+        }
+
+        .message {
+            display: flex;
+            max-width: 85%;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .bot-message {
+            align-self: flex-start;
+        }
+
+        .user-message {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            margin: 0 8px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .user-message .avatar {
+            display: none;
+        }
+
+        .message-content {
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 15px;
+            line-height: 1.5;
+            box-shadow: 0 1px 2px var(--shadow-color);
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        }
+
+        .bot-message .message-content {
+            background-color: var(--bot-message-bg);
+            color: var(--bot-message-text);
+            border-top-left-radius: 0;
+        }
+
+        .user-message .message-content {
+            background-color: var(--user-message-bg);
+            color: var(--user-message-text);
+            border-top-right-radius: 0;
+        }
+
+        .message-content p {
+            margin-bottom: 10px;
+        }
+
+        .message-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .message-content ul, .message-content ol {
+            margin-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .message-content li {
+            margin-bottom: 5px;
+        }
+
+        .input-container {
+            padding: 16px;
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        #userInput {
+            flex-grow: 1;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 15px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            resize: none;
+            outline: none;
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            max-height: 150px;
+            overflow-y: auto;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        #userInput:focus {
+            border-color: var(--accent-color);
+        }
+
+        #userInput::placeholder {
+            color: var(--text-secondary);
+        }
+
+        #sendButton {
+            background-color: var(--accent-color);
+            color: var(--text-on-primary);
+            border: none;
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        #sendButton:hover {
+            background-color: var(--accent-hover);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--text-secondary);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .app-container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                height: auto;
+                max-height: 30vh;
+                overflow-y: auto;
+            }
+            
+            .main-content {
+                height: 70vh;
+            }
+            
+            .message {
+                max-width: 90%;
+            }
+            
+            .chat-container {
+                padding: 10px;
+                gap: 16px;
+            }
+            
+            .message-content {
+                padding: 12px;
+                font-size: 14px;
+            }
+            
+            .message-content ul, .message-content ol {
+                margin-left: 16px;
+            }
+            
+            .input-container {
+                padding: 12px;
+            }
+            
+            #userInput {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sol Menü -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/huzaifi0604/Favicon/main/favicon.png" alt="Logo">
+                <h1>Dijital Satış Asistanı</h1>
+            </div>
+            
+            <button class="new-chat-btn" id="newChatBtn">
+                <span>+ Yeni Sohbet</span>
+            </button>
+            
+            <div class="theme-switch-container">
+                <span class="theme-text">Karanlık Mod</span>
+                <label class="theme-switch">
+                    <input type="checkbox" id="themeSwitch">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            
+            <div class="history" id="historyContainer">
+                <div class="history-item active" data-topic="welcome">
+                    <span>Hoş Geldiniz</span>
+                </div>
+                <div class="history-item" data-topic="instagram">
+                    <span>Instagram Keşfet Rehberi</span>
+                </div>
+                <div class="history-item" data-topic="tiktok">
+                    <span>TikTok İçerik Stratejisi</span>
+                </div>
+                <div class="history-item" data-topic="dijitalurun">
+                    <span>Dijital Ürün Fikirleri</span>
+                </div>
+            </div>
+            
+            <div class="user-info">
+                <img src="https://raw.githubusercontent.com/huzaifi0604/Favicon/main/favicon.png" alt="User">
+                <span>Yusuf Yaman</span>
+            </div>
+        </div>
+
+        <!-- Ana İçerik -->
+        <div class="main-content">
+            <!-- Sohbet Başlığı -->
+            <div class="chat-header">
+                <h2>Dijital Satış Asistanı</h2>
+                <button id="clearChatBtn" title="Sohbeti Temizle">
+                    <span>🗑️</span>
+                </button>
+            </div>
+
+            <!-- Sohbet Alanı -->
+            <div class="chat-container" id="chatContainer">
+                <!-- Bot Karşılama Mesajı otomatik olarak eklenecek -->
+            </div>
+
+            <!-- Mesaj Gönderme Alanı -->
+            <div class="input-container">
+                <textarea id="userInput" placeholder="Mesajınızı buraya yazın..." rows="1"></textarea>
+                <button id="sendButton">
+                    <span>➤</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elementleri
+            const chatContainer = document.getElementById('chatContainer');
+            const userInput = document.getElementById('userInput');
+            const sendButton = document.getElementById('sendButton');
+            const newChatBtn = document.getElementById('newChatBtn');
+            const historyItems = document.querySelectorAll('.history-item');
+            const clearChatBtn = document.getElementById('clearChatBtn');
+            const themeSwitch = document.getElementById('themeSwitch');
+
+            // Tema ve Sohbet Geçmişi Yönetimi
+            initTheme();
+            loadChatHistory();
+
+            // Tema Değiştirme
+            function initTheme() {
+                const savedTheme = localStorage.getItem('yusufYamanTheme');
+                if (savedTheme === 'dark') {
+                    document.body.setAttribute('data-theme', 'dark');
+                    themeSwitch.checked = true;
+                }
+            }
+
+            themeSwitch.addEventListener('change', function() {
+                if (this.checked) {
+                    document.body.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('yusufYamanTheme', 'dark');
+                } else {
+                    document.body.removeAttribute('data-theme');
+                    localStorage.setItem('yusufYamanTheme', 'light');
+                }
+            });
+
+            // Sohbet Geçmişini Kaydetme ve Yükleme
+            function saveChatHistory() {
+                localStorage.setItem('yusufYamanChatHistory', chatContainer.innerHTML);
+            }
+
+            function loadChatHistory() {
+                const savedChat = localStorage.getItem('yusufYamanChatHistory');
+                if (savedChat && savedChat.trim() !== '') {
+                    chatContainer.innerHTML = savedChat;
+                } else {
+                    showWelcomeMessage();
+                }
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+
+            // Sohbeti Temizleme
+            clearChatBtn.addEventListener('click', function() {
+                chatContainer.innerHTML = '';
+                localStorage.removeItem('yusufYamanChatHistory');
+                showWelcomeMessage();
+            });
+
+            // Hoş Geldin Mesajı
+            function showWelcomeMessage() {
+                const welcomeMessage = `
+                    <div class="message bot-message">
+                        <div class="avatar">
+                            <img src="https://raw.githubusercontent.com/huzaifi0604/Favicon/main/favicon.png" alt="Bot Avatar">
+                        </div>
+                        <div class="message-content">
+                            <p>Merhaba, ben Yusuf Yaman'ın Dijital Satış Asistanıyım! Size nasıl yardımcı olabilirim?</p>
+                            <p>Aşağıdaki konularda sorularınızı yanıtlayabilirim:</p>
+                            <ul>
+                                <li>Instagram ve TikTok'ta organik büyüme</li>
+                                <li>Algoritma optimizasyonu ve keşfete çıkma</li>
+                                <li>Dijital ürün oluşturma ve satış teknikleri</li>
+                                <li>İçerik üretimi ve niş seçimi</li>
+                                <li>Yapay zeka araçlarıyla içerik oluşturma</li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+                chatContainer.innerHTML = welcomeMessage;
+                saveChatHistory();
+            }
+
+            // Mesaj Gönderme İşlevi
+            function sendMessage() {
+                const message = userInput.value.trim();
+                if (message === '') return;
+
+                // Kullanıcı mesajını ekle
+                addMessage('user', `<p>${message}</p>`);
+                
+                // Giriş alanını temizle
+                userInput.value = '';
+                userInput.style.height = 'auto';
+                
+                // Botun cevap vermesini sağla
+                generateBotResponse(message);
+            }
+
+            // Kullanıcı veya Bot Mesajı Ekleme
+            function addMessage(type, content) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${type}-message`;
+                
+                let html = '';
+                
+                if (type === 'bot') {
+                    html += `
+                        <div class="avatar">
+                            <img src="https://raw.githubusercontent.com/huzaifi0604/Favicon/main/favicon.png" alt="Bot Avatar">
+                        </div>
+                    `;
+                }
+                
+                html += `<div class="message-content">${content}</div>`;
+                
+                messageDiv.innerHTML = html;
+                chatContainer.appendChild(messageDiv);
+                
+                // Sohbeti en aşağı kaydır
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+                
+                // Sohbet geçmişini kaydet
+                saveChatHistory();
+                
+                return messageDiv;
+            }
+            
+            // Bot Yanıtı Oluşturma (Tamamen yerel, API kullanmadan)
+            function generateBotResponse(userMessage) {
+                // Yükleniyor mesajı ekle
+                const loadingMessage = addMessage('bot', '<p><em>Yanıt yazılıyor...</em></p>');
+                
+                // Kullanıcı mesajını küçük harfe çevir (daha kolay eşleştirme için)
+                const lowerCaseMessage = userMessage.toLowerCase();
+                
+                // Yanıt oluştur
+                let response = '';
+                
+                // Eşleşme kuralları
+                if (lowerCaseMessage.includes('instagram') && (lowerCaseMessage.includes('keşfet') || lowerCaseMessage.includes('kesfet'))) {
+                    response = `
+                        <p>Instagram'da keşfete çıkmak için şu stratejileri uygulamalısınız:</p>
+                        <ol>
+                            <li><strong>İlk 3 saniye kuralı:</strong> Videonuzun ilk 3 saniyesi çok dikkat çekici olmalı. Bu sürede izleyiciyi yakalayamazsanız, algoritma videonuzu daha az kişiye gösterir.</li>
+                            <li><strong>Etkileşim sinyalleri:</strong> Instagram, videoların "Kaydedilme" ve "Paylaşılma" oranlarına çok değer verir. İzleyicileri videonuzu kaydetmeye ve paylaşmaya teşvik eden içerikler oluşturun.</li>
+                            <li><strong>Tutarlı içerik:</strong> Algoritma, düzenli ve tutarlı içerik üreten hesapları ödüllendirir. Her gün belirli saatlerde içerik paylaşmaya çalışın.</li>
+                            <li><strong>Doğru etiketler:</strong> Niş etiketleri kullanın ve en fazla 5-7 etiket ekleyin. Çok genel etiketler rekabeti artırırken, çok spesifik etiketler erişimi sınırlayabilir.</li>
+                            <li><strong>CTA kullanın:</strong> "Profilimdeki linke tıklayın", "Bu videoyu kaydedin" gibi çağrılar ekleyin. Bu, izleyici etkileşimini artırır.</li>
+                        </ol>
+                        <p>Yusuf Yaman'ın eğitimlerinde bu stratejileri daha detaylı öğrenebilirsiniz!</p>
+                    `;
+                } else if (lowerCaseMessage.includes('tiktok')) {
+                    response = `
+                        <p>TikTok'ta başarılı olmak için şu stratejileri deneyebilirsiniz:</p>
+                        <ul>
+                            <li><strong>Trend müzikleri kullanın:</strong> TikTok algoritması trend müzikleri kullanan videoları öne çıkarır. Keşfet sayfasında popüler müzikleri takip edin.</li>
+                            <li><strong>Kısa ve öz videolar:</strong> 15 saniyeden kısa videolar daha fazla izlenir ve algoritma tarafından daha çok kişiye gösterilir.</li>
+                            <li><strong>Hook cümlesi:</strong> İlk saniyede izleyiciyi yakalayan bir "hook" cümlesi söyleyin. Örneğin: "Bu ipucu hayatınızı değiştirecek!" veya "Bunu denemeden TikTok'ta büyüyemezsiniz!"</li>
+                            <li><strong>Işık kalitesi:</strong> Doğal ışık kullanan videolar daha profesyonel görünür ve daha fazla etkileşim alır. Pencere kenarında çekim yapmayı deneyin.</li>
+                            <li><strong>Tutarlı niş:</strong> Belirli bir konuda uzmanlaşın ve hep o konuda içerik üretin. TikTok algoritması tematik içerikleri daha kolay öne çıkarır.</li>
+                        </ul>
+                        <p>Bu stratejileri uyguladığınızda organik büyüme hızlanacaktır!</p>
+                    `;
+                } else if (lowerCaseMessage.includes('dijital ürün') || lowerCaseMessage.includes('ebook') || lowerCaseMessage.includes('e-book')) {
+                    response = `
+                        <p>Dijital ürün oluşturmak için adımlar:</p>
+                        <ol>
+                            <li><strong>Bir niş belirleyin:</strong> Motivasyon, ilişki, finans veya sağlık gibi niş bir alan seçin. Kendi deneyimlerinizden veya öğrendiğiniz bilgilerden yola çıkabilirsiniz.</li>
+                            <li><strong>Hedef kitlenin sorunlarını araştırın:</strong> Seçtiğiniz nişteki insanların en çok zorlandığı konuları belirleyin. Reddit, Quora veya sosyal medya gruplarında araştırma yapabilirsiniz.</li>
+                            <li><strong>5-7 bölümden oluşan bir e-book taslağı hazırlayın:</strong> Her bölüm bir sorunu ele almalı ve çözüm sunmalı.</li>
+                            <li><strong>Her bölümde pratik, uygulanabilir bilgiler sunun:</strong> Teorik bilgilerden ziyade, "bunu yapın, şunu yapın" şeklinde adım adım talimatlar verin.</li>
+                            <li><strong>ChatGPT veya diğer yapay zeka araçlarıyla içeriği zenginleştirin:</strong> "Motivasyon e-book'u için 10 pratik egzersiz öner" gibi promptlar kullanabilirsiniz.</li>
+                            <li><strong>Canva ile profesyonel bir kapak tasarımı yapın:</strong> Dikkat çekici ve profesyonel bir kapak, satışlarınızı artıracaktır.</li>
+                            <li><strong>Gumroad veya Shopier üzerinden satışa sunun:</strong> Bu platformlar komisyon alır ancak ödeme sistemini sizin için halleder.</li>
+                        </ol>
+                        <p>Yusuf Yaman'ın eğitimindeki dijital ürün modülü bu konuda daha detaylı bilgiler içeriyor. İlk e-book'unuzla bile iyi bir gelir elde edebilirsiniz!</p>
+                    `;
+                } else if (lowerCaseMessage.includes('chat') && lowerCaseMessage.includes('gpt')) {
+                    response = `
+                        <p>ChatGPT'yi dijital içerik üretimi için şu şekilde kullanabilirsiniz:</p>
+                        <ol>
+                            <li><strong>E-book içeriği oluşturma:</strong> "Finansal özgürlük konusunda 7 bölümlük bir e-book taslağı oluştur" gibi promptlar kullanabilirsiniz.</li>
+                            <li><strong>Video script yazma:</strong> "Instagram için 60 saniyelik bir motivasyon video senaryosu yaz" diyerek video içeriklerinizi planlayabilirsiniz.</li>
+                            <li><strong>Hedef kitle analizi:</strong> "İlişki tavsiyesi nişindeki potansiyel müşterilerin ağrı noktaları nelerdir?" sorarak hedef kitlenizi daha iyi anlayabilirsiniz.</li>
+                            <li><strong>Caption yazımı:</strong> "Bu video için 3 farklı Instagram caption'ı yaz ve hashtag önerileri ekle" diyerek sosyal medya içeriklerinizi zenginleştirebilirsiniz.</li>
+                            <li><strong>İçerik takvimi oluşturma:</strong> "Fitness nişi için 30 günlük TikTok içerik planı oluştur" diyerek içerik stratejinizi planlayabilirsiniz.</li>
+                        </ol>
+                        <p>Önemli not: ChatGPT'nin çıktılarını doğrudan kullanmak yerine, kendi bakış açınızı ve deneyimlerinizi katarak içerikleri kişiselleştirin!</p>
+                    `;
+                } else if (lowerCaseMessage.includes('algoritma')) {
+                    response = `
+                        <p>Sosyal medya algoritmalarının temel çalışma prensipleri:</p>
+                        <ul>
+                            <li><strong>Etkileşim oranı:</strong> Algoritma, içeriğinizin aldığı beğeni, yorum, kaydetme ve paylaşım sayılarına göre daha fazla kişiye gösterilmesine karar verir.</li>
+                            <li><strong>İzlenme süresi:</strong> İçeriğinizin baştan sona izlenme oranı yüksekse, algoritma bunu kaliteli içerik olarak değerlendirir ve daha fazla kişiye gösterir.</li>
+                            <li><strong>Tutarlılık:</strong> Düzenli içerik paylaşan hesaplar algoritma tarafından ödüllendirilir. İdeal olarak günde en az bir içerik paylaşmaya çalışın.</li>
+                            <li><strong>Trend konulara uyum:</strong> Güncel trend'lere ve hashtag'lere uygun içerikler üreten hesaplar daha hızlı büyür.</li>
+                            <li><strong>Niş tutarlılığı:</strong> Algoritma, belirli bir konuda uzmanlaşmış ve o konuda sürekli içerik üreten hesapları daha hızlı büyütür.</li>
+                        </ul>
+                        <p>Algoritmaların değiştiğini unutmayın! Düzenli olarak analitik verilerinizi inceleyerek stratejinizi güncelleyin.</p>
+                    `;
+                } else if (lowerCaseMessage.includes('midjourney') || lowerCaseMessage.includes('yapay zeka') || lowerCaseMessage.includes('ai')) {
+                    response = `
+                        <p>Dijital satış için kullanabileceğiniz temel yapay zeka araçları:</p>
+                        <ul>
+                            <li><strong>ChatGPT:</strong> İçerik yazımı, fikir üretimi, e-book taslakları oluşturma</li>
+                            <li><strong>Midjourney:</strong> E-book kapakları, sosyal medya görselleri, infografikler oluşturma</li>
+                            <li><strong>ElevenLabs:</strong> E-booklar ve videolar için profesyonel seslendirme</li>
+                            <li><strong>Canva + Magic Write/Design:</strong> Görsel içerikler ve sunumlar için yapay zeka destekli tasarım</li>
+                            <li><strong>Descript:</strong> Video düzenleme ve otomatik alt yazı oluşturma</li>
+                        </ul>
+                        <p>Bu araçları kombinleyerek, geleneksel olarak günler alacak işleri dakikalar içinde tamamlayabilirsiniz. Böylece daha fazla içerik üretip, daha geniş bir kitleye ulaşabilirsiniz.</p>
+                    `;
+                } else if (lowerCaseMessage.includes('niş') || lowerCaseMessage.includes('nis')) {
+                    response = `
+                        <p>Dijital satış için kârlı niş seçimi stratejileri:</p>
+                        <ol>
+                            <li><strong>Evrensel problemlere odaklanın:</strong> İlişkiler, finans, sağlık, kendini geliştirme gibi herkesin ilgilendiği konular seçin.</li>
+                            <li><strong>Rekabet-talep dengesini analiz edin:</strong> Çok rekabetçi nişlerden kaçının, ancak yeterli talep olduğundan emin olun.</li>
+                            <li><strong>Kârlı alt-nişler bulun:</strong> Örneğin, genel "sağlık" yerine "30 yaş üstü kadınlar için evde fitness" gibi daha spesifik bir alan seçin.</li>
+                            <li><strong>Trend nişleri araştırın:</strong> Google Trends, AnswerThePublic gibi araçlarla yükselen nişleri belirleyin.</li>
+                            <li><strong>Tutkulu olduğunuz konuları seçin:</strong> Hakkında sürekli içerik üretebileceğiniz ve öğrenmeye istekli olduğunuz konular, uzun vadede en başarılı olacağınız alanlardır.</li>
+                        </ol>
+                        <p>Kârlı nişler 2023-2024 için: Yapay zeka kullanımı, pasif gelir, dijital minimalizm, sürdürülebilir yaşam, finansal okuryazarlık, uzaktan çalışma becerileri.</p>
+                    `;
+                } else {
+                    response = `
+                        <p>Teşekkürler! Size dijital satış ve organik büyüme konularında yardımcı olabilirim.</p>
+                        <p>Şu konularda sorular sorabilirsiniz:</p>
+                        <ul>
+                            <li>Instagram ve TikTok büyüme stratejileri</li>
+                            <li>Algoritma ve keşfete çıkma taktikleri</li>
+                            <li>Dijital ürün oluşturma ve satış</li>
+                            <li>İçerik üretimi ve niş seçimi</li>
+                            <li>ChatGPT, Midjourney gibi yapay zeka araçları ile içerik oluşturma</li>
+                        </ul>
+                        <p>Lütfen dijital satış ve organik büyüme ile ilgili spesifik sorularınızı sorun!</p>
+                    `;
+                }
+                
+                // Yükleniyor mesajını kaldır ve yanıtı göster (gecikme ile)
+                setTimeout(() => {
+                    loadingMessage.remove();
+                    addMessage('bot', response);
+                }, 1000);
+            }
+
+            // Yeni Sohbet Başlatma
+            newChatBtn.addEventListener('click', function() {
+                if (confirm('Yeni bir sohbet başlatmak istediğinize emin misiniz? Mevcut sohbet geçmişi silinecektir.')) {
+                    chatContainer.innerHTML = '';
+                    localStorage.removeItem('yusufYamanChatHistory');
+                    showWelcomeMessage();
+                }
+            });
+
+            // Sohbet Geçmişi Öğesi Seçme
+            historyItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    document.querySelector('.history-item.active').classList.remove('active');
+                    this.classList.add('active');
+                    
+                    // Konu bazlı ekstra içerik gösterme
+                    const topic = this.getAttribute('data-topic');
+                    if (topic) {
+                        chatContainer.innerHTML = '';
+                        
+                        if (topic === 'welcome') {
+                            showWelcomeMessage();
+                        } else if (topic === 'instagram') {
+                            addMessage('user', '<p>Instagram\'da keşfete nasıl çıkarım?</p>');
+                            generateBotResponse('Instagram keşfete çıkma');
+                        } else if (topic === 'tiktok') {
+                            addMessage('user', '<p>TikTok\'ta viral olmak için ne yapmalıyım?</p>');
+                            generateBotResponse('TikTok viral içerik');
+                        } else if (topic === 'dijitalurun') {
+                            addMessage('user', '<p>Dijital ürün nasıl oluşturulur?</p>');
+                            generateBotResponse('Dijital ürün oluşturma');
+                        }
+                    }
+                });
+            });
+
+            // Enter Tuşu ile Gönderme
+            userInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+
+            // Gönder Butonuna Tıklanınca
+            sendButton.addEventListener('click', sendMessage);
+            
+            // Textarea Yükseklik Ayarlama
+            userInput.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = (this.scrollHeight) + 'px';
+                // Maksimum yükseklik
+                if (this.scrollHeight > 150) {
+                    this.style.height = '150px';
+                    this.style.overflowY = 'auto';
+                }
+            });
+
+            // Sayfa kapanmadan önce sohbeti kaydet
+            window.onbeforeunload = function() {
+                saveChatHistory();
+            };
+        });
+    </script>
+</body>
+</html>
