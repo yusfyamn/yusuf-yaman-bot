@@ -18,7 +18,6 @@
             --bg-sidebar-hover: #334155;
             --bg-message-user: #3b82f6;
             --bg-message-bot: #ffffff;
-            
             /* Metin Renkleri */
             --text-primary: #0f172a;
             --text-secondary: #64748b;
@@ -27,24 +26,20 @@
             --text-accent: #2563eb;
             --text-user-message: #ffffff;
             --text-bot-message: #0f172a;
-            
             /* Sınır ve Gölge */
             --border-color: #e2e8f0;
             --shadow-xs: 0 1px 2px rgba(16, 24, 40, 0.05);
             --shadow-sm: 0 1px 3px rgba(16, 24, 40, 0.1), 0 1px 2px rgba(16, 24, 40, 0.06);
             --shadow-md: 0 4px 6px -1px rgba(16, 24, 40, 0.1), 0 2px 4px -1px rgba(16, 24, 40, 0.06);
             --shadow-lg: 0 10px 15px -3px rgba(16, 24, 40, 0.1), 0 4px 6px -2px rgba(16, 24, 40, 0.05);
-            
             /* Geçiş ve Animasyon */
             --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            
             /* Accent Renkler */
             --accent-blue: #3b82f6;
             --accent-blue-hover: #2563eb;
             --accent-green: #10b981;
             --accent-purple: #8b5cf6;
             --accent-red: #ef4444;
-
             /* Yuvarlatılmış köşeler */
             --radius-sm: 0.375rem;
             --radius-md: 0.5rem;
@@ -52,7 +47,6 @@
             --radius-xl: 1rem;
             --radius-full: 9999px;
         }
-
         [data-theme="dark"] {
             /* Ana Renkler */
             --bg-primary: #0f172a;
@@ -62,7 +56,6 @@
             --bg-sidebar-hover: #334155;
             --bg-message-user: #3b82f6;
             --bg-message-bot: #1e293b;
-            
             /* Metin Renkleri */
             --text-primary: #f8fafc;
             --text-secondary: #cbd5e1;
@@ -71,7 +64,6 @@
             --text-accent: #60a5fa;
             --text-user-message: #ffffff;
             --text-bot-message: #f8fafc;
-            
             /* Sınır ve Gölge */
             --border-color: #334155;
             --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -79,13 +71,11 @@
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-primary);
@@ -96,7 +86,6 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
         /* Ana Uygulama Konteyneri */
         .app-container {
             display: flex;
@@ -106,7 +95,6 @@
             overflow: hidden;
             position: relative;
         }
-
         /* Sidebar Tasarımı */
         .sidebar {
             width: 280px;
@@ -121,7 +109,6 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
-
         .sidebar-header {
             padding: 1.5rem;
             display: flex;
@@ -129,13 +116,11 @@
             justify-content: space-between;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-
         .logo-container {
             display: flex;
             align-items: center;
             gap: 0.75rem;
         }
-
         .logo-icon {
             width: 32px;
             height: 32px;
@@ -147,13 +132,11 @@
             font-size: 1.25rem;
             color: white;
         }
-
         .logo-container h1 {
             font-size: 1.125rem;
             font-weight: 600;
             color: var(--text-on-sidebar);
         }
-
         .mobile-close {
             display: none;
             font-size: 1.25rem;
@@ -162,7 +145,6 @@
             border: none;
             cursor: pointer;
         }
-
         .new-chat-btn {
             margin: 1.25rem;
             background-color: var(--accent-blue);
@@ -182,7 +164,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .new-chat-btn::before {
             content: "";
             position: absolute;
@@ -193,29 +174,23 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: 0.5s;
         }
-
         .new-chat-btn:hover::before {
             left: 100%;
         }
-
         .new-chat-btn:hover {
             background-color: var(--accent-blue-hover);
             transform: translateY(-1px);
             box-shadow: var(--shadow-md);
         }
-
         .new-chat-btn:active {
             transform: translateY(1px);
         }
-
         .new-chat-btn i {
             font-size: 0.875rem;
         }
-
         .sidebar-section {
             padding: 1rem;
         }
-
         .sidebar-section-title {
             font-size: 0.75rem;
             font-weight: 600;
@@ -226,7 +201,6 @@
             padding-left: 0.5rem;
             opacity: 0.7;
         }
-
         /* Tema Değiştirici */
         .theme-switch-container {
             display: flex;
@@ -238,11 +212,9 @@
             border-radius: var(--radius-md);
             transition: var(--transition-normal);
         }
-
         .theme-switch-container:hover {
             background-color: var(--bg-sidebar-hover);
         }
-
         .theme-text {
             font-size: 0.875rem;
             font-weight: 500;
@@ -250,20 +222,17 @@
             align-items: center;
             gap: 0.5rem;
         }
-
         .theme-switch {
             position: relative;
             display: inline-block;
             width: 44px;
             height: 22px;
         }
-
         .theme-switch input {
             opacity: 0;
             width: 0;
             height: 0;
         }
-
         .slider {
             position: absolute;
             cursor: pointer;
@@ -275,7 +244,6 @@
             transition: .4s;
             border-radius: var(--radius-full);
         }
-
         .slider:before {
             position: absolute;
             content: "";
@@ -287,15 +255,12 @@
             transition: .4s;
             border-radius: 50%;
         }
-
         input:checked + .slider {
             background-color: var(--accent-blue);
         }
-
         input:checked + .slider:before {
             transform: translateX(22px);
         }
-
         /* Konuşma Geçmişi */
         .history {
             flex-grow: 1;
@@ -306,21 +271,18 @@
             gap: 0.375rem;
             scrollbar-width: thin;
             scrollbar-color: var(--bg-sidebar-hover) transparent;
+            max-height: calc(100vh - 250px); /* Mobilde görünür yükseklik */
         }
-
         .history::-webkit-scrollbar {
             width: 4px;
         }
-
         .history::-webkit-scrollbar-track {
             background: transparent;
         }
-
         .history::-webkit-scrollbar-thumb {
             background-color: var(--bg-sidebar-hover);
             border-radius: 9999px;
         }
-
         .history-item {
             padding: 0.75rem 1rem;
             border-radius: var(--radius-md);
@@ -335,18 +297,15 @@
             position: relative;
             overflow: hidden;
         }
-
         .history-item:hover {
             background-color: var(--bg-sidebar-hover);
         }
-
         .history-item.active {
             background: linear-gradient(90deg, var(--accent-blue), var(--accent-blue-hover));
             color: var(--text-on-primary);
             font-weight: 500;
             box-shadow: var(--shadow-sm);
         }
-
         .history-item.active::before {
             content: "";
             position: absolute;
@@ -356,13 +315,11 @@
             background-color: white;
             border-radius: 4px;
         }
-
         .history-item i {
             font-size: 0.875rem;
             width: 1rem;
             text-align: center;
         }
-
         /* Kullanıcı Bilgisi Bölümü */
         .user-info {
             display: flex;
@@ -372,25 +329,11 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             background-color: var(--bg-sidebar);
         }
-
-        .user-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: var(--radius-full);
-            margin-right: 0.75rem;
-            background-color: var(--accent-blue);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1rem;
-        }
-
         .user-info span {
             font-size: 0.875rem;
             font-weight: 500;
+            margin-left: 0.5rem;
         }
-
         /* Ana İçerik Alanı */
         .main-content {
             flex-grow: 1;
@@ -401,7 +344,6 @@
             overflow: hidden;
             position: relative;
         }
-
         /* Üst Başlık */
         .chat-header {
             padding: 1rem 1.5rem;
@@ -416,13 +358,11 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
-
         .header-left {
             display: flex;
             align-items: center;
             gap: 0.75rem;
         }
-
         .mobile-menu-toggle {
             display: none;
             background: none;
@@ -431,18 +371,15 @@
             color: var(--text-primary);
             cursor: pointer;
         }
-
         .chat-header h2 {
             font-size: 1.125rem;
             font-weight: 600;
             color: var(--text-primary);
         }
-
         .header-actions {
             display: flex;
             gap: 0.5rem;
         }
-
         .action-button {
             background: none;
             border: 1px solid var(--border-color);
@@ -456,13 +393,11 @@
             cursor: pointer;
             transition: var(--transition-normal);
         }
-
         .action-button:hover {
             background-color: var(--bg-primary);
             color: var(--text-accent);
             border-color: var(--text-accent);
         }
-
         /* Sohbet Alanı */
         .chat-container {
             flex-grow: 1;
@@ -478,20 +413,16 @@
             scrollbar-color: var(--text-secondary) transparent;
             position: relative;
         }
-
         .chat-container::-webkit-scrollbar {
             width: 4px;
         }
-
         .chat-container::-webkit-scrollbar-track {
             background: transparent;
         }
-
         .chat-container::-webkit-scrollbar-thumb {
             background-color: var(--text-secondary);
             border-radius: 9999px;
         }
-
         /* Mesaj Stilleri */
         .message {
             display: flex;
@@ -499,86 +430,51 @@
             animation: fadeIn 0.3s ease;
             position: relative;
         }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         .bot-message {
             align-self: flex-start;
         }
-
         .user-message {
             align-self: flex-end;
         }
-
         .message-container {
             display: flex;
             gap: 1rem;
             width: 100%;
         }
-
         .user-message .message-container {
             flex-direction: row-reverse;
         }
-
-        .avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: var(--radius-full);
-            flex-shrink: 0;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--bg-secondary);
-            font-size: 1.25rem;
-        }
-
-        .user-message .avatar {
-            background-color: var(--bg-message-user);
-            color: white;
-        }
-
-        .bot-avatar {
-            background-color: var(--accent-green);
-            color: white;
-        }
-
         .message-content {
             padding: 1rem 1.25rem;
             border-radius: var(--radius-lg);
             font-size: 0.9375rem;
             line-height: 1.6;
-            max-width: calc(100% - 60px);
+            width: 100%;
             box-shadow: var(--shadow-sm);
             transition: var(--transition-normal);
             position: relative;
         }
-
         .bot-message .message-content {
             background-color: var(--bg-message-bot);
             color: var(--text-bot-message);
             border-top-left-radius: 0.25rem;
             box-shadow: var(--shadow-sm);
         }
-
         .user-message .message-content {
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-hover));
             color: var(--text-user-message);
             border-top-right-radius: 0.25rem;
         }
-
         .message-content p {
             margin-bottom: 1rem;
         }
-
         .message-content p:last-child {
             margin-bottom: 0;
         }
-
         .message-content h3 {
             margin-top: 1.25rem;
             margin-bottom: 0.75rem;
@@ -586,26 +482,21 @@
             font-size: 1.125rem;
             font-weight: 600;
         }
-
         .message-content h3:first-child {
             margin-top: 0;
         }
-
         .message-content strong {
             color: var(--text-accent);
             font-weight: 600;
         }
-
         .message-content ul, .message-content ol {
             margin-left: 1.25rem;
             margin-top: 0.5rem;
             margin-bottom: 1rem;
         }
-
         .message-content li {
             margin-bottom: 0.5rem;
         }
-
         .message-content code {
             background-color: rgba(0, 0, 0, 0.05);
             padding: 0.125rem 0.25rem;
@@ -613,7 +504,6 @@
             font-family: monospace;
             font-size: 0.875rem;
         }
-
         .message-content pre {
             background-color: rgba(0, 0, 0, 0.05);
             padding: 1rem;
@@ -621,7 +511,6 @@
             overflow-x: auto;
             margin: 1rem 0;
         }
-
         .message-content blockquote {
             border-left: 4px solid var(--text-accent);
             padding-left: 1rem;
@@ -631,14 +520,12 @@
             padding: 0.75rem 1rem;
             border-radius: 0 var(--radius-md) var(--radius-md) 0;
         }
-
         /* İnput Alanı */
         .input-container-wrapper {
             padding: 1.5rem;
             background-color: var(--bg-primary);
             transition: var(--transition-normal);
         }
-
         .input-container {
             display: flex;
             align-items: flex-end;
@@ -650,12 +537,10 @@
             box-shadow: var(--shadow-md);
             position: relative;
         }
-
         .input-container:focus-within {
             border-color: var(--accent-blue);
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
         }
-
         #userInput {
             flex-grow: 1;
             border: none;
@@ -671,12 +556,10 @@
             transition: var(--transition-normal);
             line-height: 1.5;
         }
-
         #userInput::placeholder {
             color: var(--text-secondary);
             opacity: 0.7;
         }
-
         #sendButton {
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-hover));
             color: white;
@@ -693,26 +576,21 @@
             margin-left: 0.75rem;
             box-shadow: var(--shadow-sm);
         }
-
         #sendButton:hover {
             transform: translateY(-1px);
             box-shadow: var(--shadow-md);
         }
-
         #sendButton:active {
             transform: translateY(1px);
         }
-
         #sendButton i {
             font-size: 1rem;
         }
-
         /* Yazarken animasyonu */
         .typing-indicator {
             display: flex;
             padding: 0.5rem 0;
         }
-
         .typing-indicator span {
             width: 6px;
             height: 6px;
@@ -722,28 +600,23 @@
             display: inline-block;
             animation: typing 1.5s infinite ease-in-out;
         }
-
         .typing-indicator span:nth-child(2) {
             animation-delay: 0.2s;
         }
-
         .typing-indicator span:nth-child(3) {
             animation-delay: 0.4s;
         }
-
         @keyframes typing {
             0% { transform: translateY(0px); }
             35% { transform: translateY(-5px); }
             70% { transform: translateY(0px); }
         }
-
         /* Mobil Responsive Tasarım */
         @media (max-width: 768px) {
             .app-container {
                 height: 100%;
                 flex-direction: column;
             }
-            
             .sidebar {
                 position: fixed;
                 top: 0;
@@ -756,54 +629,39 @@
                 box-shadow: var(--shadow-lg);
                 transition: transform 0.3s ease-in-out;
             }
-            
             .sidebar.open {
                 transform: translateX(0);
             }
-            
             .mobile-menu-toggle {
                 display: block;
             }
-            
             .mobile-close {
                 display: block;
                 position: absolute;
                 top: 1.25rem;
                 right: 1.25rem;
             }
-            
             .chat-header {
                 padding: 0.75rem 1rem;
             }
-            
             .message {
                 max-width: 100%;
             }
-            
-            .avatar {
-                width: 32px;
-                height: 32px;
-            }
-            
             .message-content {
                 padding: 0.875rem 1rem;
                 font-size: 0.875rem;
             }
-            
             .input-container-wrapper {
                 padding: 1rem;
             }
-            
             .input-container {
                 padding: 0.625rem;
             }
-            
             .main-content {
                 height: calc(100% - 60px);
                 flex: 1;
             }
         }
-
         /* Özel Modal */
         .modal {
             display: none;
@@ -820,7 +678,6 @@
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
         }
-
         .modal-content {
             background-color: var(--bg-secondary);
             border-radius: var(--radius-lg);
@@ -831,25 +688,21 @@
             position: relative;
             animation: modalSlideUp 0.3s ease;
         }
-
         @keyframes modalSlideUp {
             from { transform: translateY(20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
-
         .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 1rem;
         }
-
         .modal-title {
             font-size: 1.25rem;
             font-weight: 600;
             color: var(--text-primary);
         }
-
         .modal-close {
             background: none;
             border: none;
@@ -857,18 +710,15 @@
             color: var(--text-secondary);
             cursor: pointer;
         }
-
         .modal-body {
             margin-bottom: 1.5rem;
             color: var(--text-primary);
         }
-
         .modal-footer {
             display: flex;
             justify-content: flex-end;
             gap: 0.75rem;
         }
-
         .modal-button {
             padding: 0.625rem 1rem;
             border-radius: var(--radius-md);
@@ -877,28 +727,23 @@
             cursor: pointer;
             transition: var(--transition-normal);
         }
-
         .modal-button-secondary {
             background-color: transparent;
             border: 1px solid var(--border-color);
             color: var(--text-primary);
         }
-
         .modal-button-secondary:hover {
             background-color: var(--bg-primary);
         }
-
         .modal-button-primary {
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-hover));
             border: none;
             color: white;
         }
-
         .modal-button-primary:hover {
             opacity: 0.9;
             transform: translateY(-1px);
         }
-        
         /* Bot başlangıç mesajı */
         .welcome-card {
             display: flex;
@@ -906,12 +751,10 @@
             gap: 1.5rem;
             margin-bottom: 2rem;
         }
-        
         .welcome-header {
             text-align: center;
             margin-bottom: 1rem;
         }
-        
         .welcome-header h3 {
             font-size: 1.5rem;
             font-weight: 700;
@@ -921,18 +764,15 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
         .welcome-header p {
             color: var(--text-secondary);
             font-size: 0.9375rem;
         }
-        
         .topics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 1rem;
         }
-        
         .topic-card {
             background-color: var(--bg-secondary);
             border-radius: var(--radius-lg);
@@ -945,13 +785,11 @@
             cursor: pointer;
             border: 1px solid var(--border-color);
         }
-        
         .topic-card:hover {
             transform: translateY(-3px);
             box-shadow: var(--shadow-md);
             border-color: var(--accent-blue);
         }
-        
         .topic-icon {
             width: 40px;
             height: 40px;
@@ -963,130 +801,37 @@
             color: white;
             margin-bottom: 0.5rem;
         }
-        
         .topic-card:nth-child(1) .topic-icon {
             background: linear-gradient(135deg, #ef4444, #f59e0b);
         }
-        
         .topic-card:nth-child(2) .topic-icon {
             background: linear-gradient(135deg, #3b82f6, #06b6d4);
         }
-        
         .topic-card:nth-child(3) .topic-icon {
             background: linear-gradient(135deg, #10b981, #059669);
         }
-        
         .topic-card:nth-child(4) .topic-icon {
             background: linear-gradient(135deg, #8b5cf6, #6366f1);
         }
-        
         .topic-card:nth-child(5) .topic-icon {
             background: linear-gradient(135deg, #f43f5e, #d946ef);
         }
-        
         .topic-card:nth-child(6) .topic-icon {
             background: linear-gradient(135deg, #0ea5e9, #0284c7);
         }
-        
         .topic-title {
             font-weight: 600;
             font-size: 0.9375rem;
             color: var(--text-primary);
         }
-        
         .topic-desc {
             font-size: 0.8125rem;
             color: var(--text-secondary);
             line-height: 1.4;
         }
-
-        /* Önceden çalıştırılması gereken proxy çözümü */
-        #corsProxyLoader {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.85);
-            z-index: 9999;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-            color: white;
-            text-align: center;
-        }
-        
-        #corsProxyLoader h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        #corsProxyLoader p {
-            margin-bottom: 1.5rem;
-            max-width: 600px;
-            line-height: 1.6;
-        }
-        
-        #corsProxyButton {
-            background-color: var(--accent-blue);
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--radius-md);
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition-normal);
-        }
-        
-        #corsProxyButton:hover {
-            background-color: var(--accent-blue-hover);
-        }
-        
-        #corsProxyClose {
-            margin-top: 1rem;
-            background: none;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: var(--radius-md);
-            cursor: pointer;
-        }
-        
-        #corsStatusContainer {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-        
-        .cors-status-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #ef4444;
-        }
-        
-        .cors-status-dot.active {
-            background-color: #10b981;
-        }
     </style>
 </head>
 <body>
-    <!-- CORS Proxy Yükleme Ekranı -->
-    <div id="corsProxyLoader">
-        <h3>API Erişimi İçin İzin Gerekiyor</h3>
-        <p>Bu bot, Gemini API ile konuşabilmek için bir CORS proxy kullanıyor. Aşağıdaki butona tıklayarak proxy'ye erişim izni verin ve bu sayfaya geri dönün. Bu işlem sadece ilk kullanımda gereklidir.</p>
-        <button id="corsProxyButton">CORS Proxy'ye Erişim İzni Ver</button>
-        <div id="corsStatusContainer">
-            <div class="cors-status-dot" id="corsStatusDot"></div>
-            <span id="corsStatusText">Erişim yok</span>
-        </div>
-        <button id="corsProxyClose">Kapat</button>
-    </div>
-
     <div class="app-container">
         <!-- Sol Sidebar -->
         <div class="sidebar" id="sidebar">
@@ -1099,11 +844,9 @@
                 </div>
                 <button class="mobile-close" id="mobileClose"><i class="fas fa-times"></i></button>
             </div>
-            
             <button class="new-chat-btn" id="newChatBtn">
                 <i class="fas fa-plus"></i> <span>Yeni Sohbet</span>
             </button>
-            
             <div class="sidebar-section">
                 <div class="theme-switch-container">
                     <div class="theme-text">
@@ -1115,7 +858,6 @@
                     </label>
                 </div>
             </div>
-            
             <div class="sidebar-section">
                 <div class="sidebar-section-title">Konu Başlıkları</div>
                 <div class="history" id="historyContainer">
@@ -1153,15 +895,11 @@
                     </div>
                 </div>
             </div>
-            
             <div class="user-info">
-                <div class="user-icon">
-                    <i class="fas fa-user"></i>
-                </div>
+                <i class="fas fa-user-circle"></i>
                 <span>Yusuf Yaman</span>
             </div>
         </div>
-
         <!-- Ana İçerik -->
         <div class="main-content">
             <!-- Üst Başlık -->
@@ -1178,12 +916,10 @@
                     </button>
                 </div>
             </div>
-
             <!-- Sohbet Alanı -->
             <div class="chat-container" id="chatContainer">
                 <!-- Bot mesajları ve kullanıcı mesajları buraya gelecek -->
             </div>
-
             <!-- Mesaj Gönderme Alanı -->
             <div class="input-container-wrapper">
                 <div class="input-container">
@@ -1195,7 +931,6 @@
             </div>
         </div>
     </div>
-
     <!-- Onay Modalı -->
     <div class="modal" id="confirmModal">
         <div class="modal-content">
@@ -1212,7 +947,6 @@
             </div>
         </div>
     </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // DOM Elementleri
@@ -1226,146 +960,70 @@
             const sidebar = document.getElementById('sidebar');
             const mobileMenuToggle = document.getElementById('mobileMenuToggle');
             const mobileClose = document.getElementById('mobileClose');
-            
-            // CORS Proxy Elementleri
-            const corsProxyLoader = document.getElementById('corsProxyLoader');
-            const corsProxyButton = document.getElementById('corsProxyButton');
-            const corsProxyClose = document.getElementById('corsProxyClose');
-            const corsStatusDot = document.getElementById('corsStatusDot');
-            const corsStatusText = document.getElementById('corsStatusText');
-            
             // Modal Elementleri
             const confirmModal = document.getElementById('confirmModal');
             const modalClose = document.getElementById('modalClose');
             const modalCancel = document.getElementById('modalCancel');
             const modalConfirm = document.getElementById('modalConfirm');
             const modalMessage = document.getElementById('modalMessage');
-            
             let currentModalAction = null;
-            
             // Gemini API konfigürasyonu
             const API_KEY = 'AIzaSyAhdRR0uKZvCGGV90NIfgu0TIUdsqFWKt4';
             const MODEL = 'gemini-2.0-flash';
-            
-            // CORS Proxy kullanımı ve durumu
-            // Bu değişken, CORS Proxy'den geçirebileceğimiz bir API URL'si veya
-            // proxy'siz doğrudan iletişim için boş bir string olabilir.
-            let CORS_PROXY = checkCorsProxyAccess() ? 'https://cors-anywhere.herokuapp.com/' : '';
-            
-            if (!checkCorsProxyAccess()) {
-                corsProxyLoader.style.display = 'flex';
-            }
-            
-            corsProxyButton.addEventListener('click', function() {
-                window.open('https://cors-anywhere.herokuapp.com/corsdemo', '_blank');
-                
-                let checkInterval = setInterval(() => {
-                    if (checkCorsProxyAccess()) {
-                        clearInterval(checkInterval);
-                        corsStatusDot.classList.add('active');
-                        corsStatusText.textContent = 'Erişim sağlandı';
-                        CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
-                    }
-                }, 2000);
-            });
-            
-            corsProxyClose.addEventListener('click', function() {
-                corsProxyLoader.style.display = 'none';
-            });
-            
-            function checkCorsProxyAccess() {
-                try {
-                    // CORS erişimi için proxy'nin cookie değerlerini kontrol et
-                    const corsEnabled = localStorage.getItem('cors_proxy_access') === 'true';
-                    
-                    // Eğer daha önce erişim sağlanmışsa
-                    if (corsEnabled) {
-                        return true;
-                    }
-                    
-                    // HTTP erişimde CORS proxy'ye erişim kontrolü yapmayalım
-                    if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost') {
-                        return true;
-                    }
-                    
-                    return false;
-                } catch (e) {
-                    console.error('CORS check error:', e);
-                    return false;
-                }
-            }
-            
-            // CORS erişimi sağlandı bilgisini kaydet
-            function setCorsProxyAccess() {
-                localStorage.setItem('cors_proxy_access', 'true');
-            }
+            // CORS problemi olmadan doğrudan API'yi kullanacağız (HTTP'siz)
             
             // Sistem talimatları
             const systemInstructions = `
 Sen Yusuf Yaman'ın resmi Dijital Satış ve Organik Büyüme eğitim asistanısın. Aşağıdaki konularda uzman bir eğitmensin:
-
 - Sosyal Medya Platformları (Instagram ve TikTok)
 - Organik Büyüme Stratejileri (algoritma, keşfet, hashtag, CTA)
 - Dijital Satış Temelleri (dijital ürünler, satış süreçleri)
 - Niş Seçimi ve İçerik Üretimi (motivasyon, ilişki, finans nişleri)
 - Yapay Zeka Kullanımı (ChatGPT, Grok, ElevenLabs, Midjourney, Canva)
 - Türkiye'de Dijital Satış Başlangıç Rehberi
-
 Yanıtların her zaman:
 - Ciddi, rehber ve motive edici tonda olmalı
 - Adım adım, net ve yapılandırılmış olmalı
 - Sabırlı ve teşvik edici olmalı
 - Kullanıcıya "öğrenci" gibi davranmalısın
-
 HTML formatında yanıt ver, kullanabileceğin HTML etiketleri: <p>, <h3>, <ul>, <ol>, <li>, <strong>, <em>, <blockquote>
-
 Yanıtlarında şu gerçekler her zaman doğrudur:
 1. Dijital ürünler yüksek kâr marjına sahiptir
 2. Organik büyüme stratejileri ücretli reklamlardan daha sürdürülebilirdir
 3. Yusuf Yaman dijital satış konusunda uzman bir eğitmendir
 4. Türkiye'de dijital ürün satışı yapmak için özel stratejiler gereklidir
-
 Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yaman'ın Dijital Satış eğitiminin dışında kalıyor. Algoritma, içerik üretimi veya dijital ürün satışı hakkında bir soru sormak ister misin?" diye yanıtla.
 `;
-
             // Chat geçmişi hafızası (Gemini'nin bağlamı tutması için)
             let chatHistory = [];
-
             // Mobil Menü Toggle
             mobileMenuToggle.addEventListener('click', () => {
                 sidebar.classList.add('open');
             });
-            
             mobileClose.addEventListener('click', () => {
                 sidebar.classList.remove('open');
             });
-
             // Modal İşlevleri
             function showModal(message, confirmAction) {
                 modalMessage.textContent = message;
                 currentModalAction = confirmAction;
                 confirmModal.style.display = 'flex';
             }
-            
             function hideModal() {
                 confirmModal.style.display = 'none';
                 currentModalAction = null;
             }
-            
             modalClose.addEventListener('click', hideModal);
             modalCancel.addEventListener('click', hideModal);
-            
             modalConfirm.addEventListener('click', () => {
                 if (currentModalAction) {
                     currentModalAction();
                 }
                 hideModal();
             });
-
             // Tema ve Sohbet Geçmişi Yönetimi
             initTheme();
             loadChatHistory();
-
             // Tema Değiştirme
             function initTheme() {
                 const savedTheme = localStorage.getItem('yusufYamanTheme');
@@ -1374,7 +1032,6 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                     themeSwitch.checked = true;
                 }
             }
-
             themeSwitch.addEventListener('change', function() {
                 if (this.checked) {
                     document.body.setAttribute('data-theme', 'dark');
@@ -1384,24 +1041,20 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                     localStorage.setItem('yusufYamanTheme', 'light');
                 }
             });
-
             // Sohbet Geçmişini Kaydetme ve Yükleme
             function saveChatHistory() {
                 localStorage.setItem('yusufYamanChatHistory', chatContainer.innerHTML);
                 // Ayrıca sohbet bağlamını da kaydedelim (Gemini için)
                 localStorage.setItem('yusufYamanChatContext', JSON.stringify(chatHistory));
             }
-
             function loadChatHistory() {
                 const savedChat = localStorage.getItem('yusufYamanChatHistory');
                 const savedContext = localStorage.getItem('yusufYamanChatContext');
-                
                 if (savedChat && savedChat.trim() !== '') {
                     chatContainer.innerHTML = savedChat;
                 } else {
                     showWelcomeMessage();
                 }
-                
                 if (savedContext) {
                     try {
                         chatHistory = JSON.parse(savedContext);
@@ -1410,10 +1063,8 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                         chatHistory = [];
                     }
                 }
-                
                 chatContainer.scrollTop = chatContainer.scrollHeight;
             }
-
             // Sohbeti Temizleme
             clearChatBtn.addEventListener('click', function() {
                 showModal('Sohbet geçmişini temizlemek istediğinize emin misiniz?', function() {
@@ -1424,22 +1075,17 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                     showWelcomeMessage();
                 });
             });
-
             // Hoş Geldin Mesajı
             function showWelcomeMessage() {
                 const welcomeMessage = `
                     <div class="message bot-message">
                         <div class="message-container">
-                            <div class="avatar bot-avatar">
-                                <i class="fas fa-robot"></i>
-                            </div>
                             <div class="message-content">
                                 <div class="welcome-card">
                                     <div class="welcome-header">
                                         <h3>Dijital Satış Asistanına Hoş Geldiniz</h3>
                                         <p>Yusuf Yaman'ın resmi dijital satış ve organik büyüme asistanı olarak size nasıl yardımcı olabilirim?</p>
                                     </div>
-                                    
                                     <div class="topics-grid">
                                         <div class="topic-card" data-topic="instagram">
                                             <div class="topic-icon">
@@ -1491,7 +1137,6 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                     </div>
                 `;
                 chatContainer.innerHTML = welcomeMessage;
-                
                 // Konu kartlarına tıklama olaylarını ekle
                 document.querySelectorAll('.topic-card').forEach(card => {
                     card.addEventListener('click', function() {
@@ -1499,7 +1144,6 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                         handleTopicSelection(topic);
                     });
                 });
-                
                 // Bot'un mesajını chat geçmişine ekleyelim
                 chatHistory.push({
                     role: "model",
@@ -1507,7 +1151,6 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                 });
                 saveChatHistory();
             }
-            
             // Konu seçimi işleme
             function handleTopicSelection(topic) {
                 if (topic === 'welcome') {
@@ -1562,12 +1205,10 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                     });
                     generateBotResponse("Etkili bir içerik planı nasıl oluşturabilirim?");
                 }
-                
                 // Mobil görünümde, konu seçilince sidebar'ı kapat
                 if (window.innerWidth <= 768) {
                     sidebar.classList.remove('open');
                 }
-                
                 // İlgili konu menüsünü aktif yap
                 document.querySelectorAll('.history-item').forEach(item => {
                     if (item.getAttribute('data-topic') === topic) {
@@ -1576,80 +1217,49 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                     }
                 });
             }
-
             // Mesaj Gönderme İşlevi
             function sendMessage() {
                 const message = userInput.value.trim();
                 if (message === '') return;
-
                 // Mobil görünümde, mesaj gönderilince sidebar'ı kapat
                 if (window.innerWidth <= 768) {
                     sidebar.classList.remove('open');
                 }
-
                 // Kullanıcı mesajını ekle
                 addMessage('user', `<p>${message}</p>`);
-                
                 // Kullanıcı mesajını sohbet geçmişine ekle
                 chatHistory.push({
                     role: "user",
                     parts: [{ text: message }]
                 });
-                
                 // Giriş alanını temizle
                 userInput.value = '';
                 userInput.style.height = 'auto';
-                
                 // Botun cevap vermesini sağla
                 generateBotResponse(message);
             }
-
             // Kullanıcı veya Bot Mesajı Ekleme
             function addMessage(type, content) {
                 const messageDiv = document.createElement('div');
                 messageDiv.className = `message ${type}-message`;
-                
                 let html = `
                     <div class="message-container">
                 `;
-                
-                if (type === 'bot') {
-                    html += `
-                        <div class="avatar bot-avatar">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                    `;
-                } else {
-                    html += `
-                        <div class="avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                    `;
-                }
-                
                 html += `<div class="message-content">${content}</div></div>`;
-                
                 messageDiv.innerHTML = html;
                 chatContainer.appendChild(messageDiv);
-                
                 // Sohbeti en aşağı kaydır
                 chatContainer.scrollTop = chatContainer.scrollHeight;
-                
                 // Sohbet geçmişini kaydet
                 saveChatHistory();
-                
                 return messageDiv;
             }
-
             // Yazıyor animasyonu
             function addTypingIndicator() {
                 const loadingDiv = document.createElement('div');
                 loadingDiv.className = 'message bot-message typing-message';
                 loadingDiv.innerHTML = `
                     <div class="message-container">
-                        <div class="avatar bot-avatar">
-                            <i class="fas fa-robot"></i>
-                        </div>
                         <div class="message-content">
                             <div class="typing-indicator">
                                 <span></span>
@@ -1663,19 +1273,15 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                 chatContainer.scrollTop = chatContainer.scrollHeight;
                 return loadingDiv;
             }
-            
             // Google Gemini API ile Bot Yanıtı Oluşturma
             async function generateBotResponse(userMessage) {
                 // Yazıyor göstergesi ekle
                 const typingIndicator = addTypingIndicator();
-                
                 try {
                     // API isteği için gerekli URL ve veriler
-                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${API_KEY}`;
-                    
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1/models/${MODEL}:generateContent?key=${API_KEY}`;
                     // Sistem talimatlarıyla kullanıcı mesajını birleştir
                     const promptWithSystem = systemInstructions + "\n\nŞimdi, kullanıcının şu sorusuna yanıt ver: " + userMessage;
-                    
                     // API isteğinde kullanılacak veri
                     const requestData = {
                         contents: [
@@ -1710,16 +1316,11 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                             }
                         ]
                     };
-                    
                     // Gerçek API çağrısı öncesinde yapay gecikme ekleyelim (daha gerçekçi olması için)
                     await new Promise(resolve => setTimeout(resolve, 1000));
                     
-                    // API'ye istek gönder - CORS proxy ile veya proxy olmadan
-                    const finalUrl = CORS_PROXY + apiUrl;
-                    
-                    // HTTP veya localde çalışıyorsa, fetch işlemi yap
-                    if (window.location.protocol === 'http:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-                        // API'ye doğrudan iste gönder
+                    try {
+                        // API'ye istek gönder - doğrudan erişim
                         const response = await fetch(apiUrl, {
                             method: 'POST',
                             headers: {
@@ -1728,31 +1329,6 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                             body: JSON.stringify(requestData)
                         });
                         
-                        processApiResponse(response);
-                    } 
-                    else if (CORS_PROXY) {
-                        // CORS proxy ile istek gönder
-                        const response = await fetch(finalUrl, {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(requestData)
-                        });
-                        
-                        // CORS erişimi başarılıysa kaydet
-                        setCorsProxyAccess();
-                        processApiResponse(response);
-                    } 
-                    else {
-                        // CORS proxy erişimi yoksa bildirim göster
-                        corsProxyLoader.style.display = 'flex';
-                        
-                        // Yedek yanıtı göster
-                        showFallbackResponse();
-                    }
-                    
-                    async function processApiResponse(response) {
                         // API yanıtını al
                         const data = await response.json();
                         
@@ -1762,24 +1338,25 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                         // API yanıtını kontrol et ve ekle
                         if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0].text) {
                             const aiResponse = data.candidates[0].content.parts[0].text;
-                            
                             // Yanıtı sohbet geçmişine ekle
                             chatHistory.push({
                                 role: "model",
                                 parts: [{ text: aiResponse }]
                             });
-                            
                             // Yanıtı ekrana ekle
                             addMessage('bot', aiResponse);
                         } else {
                             showFallbackResponse();
                         }
+                    } catch (fetchError) {
+                        console.error('Fetch error:', fetchError);
+                        // Hata durumunda yedek yanıtı gösterelim
+                        showFallbackResponse();
                     }
                     
                     function showFallbackResponse() {
                         // Yazıyor göstergesini kaldır
                         typingIndicator.remove();
-                        
                         // Fallback: Eğer API yanıt vermezse yedek yanıt
                         const fallbackResponse = `
                             <p>Özür dilerim, şu anda bir teknik sorun yaşıyorum ve Gemini API'ye bağlanamıyorum. Size şu konularda yardımcı olabilirim:</p>
@@ -1791,22 +1368,19 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                             </ul>
                             <p>Lütfen tekrar sorunuzu sorar mısınız? Alternatif olarak, soldaki menüden bir konu seçerek devam edin.</p>
                         `;
-                        
                         // Yedek yanıtı ekle
                         addMessage('bot', fallbackResponse);
                     }
                 } catch (error) {
                     console.error('API Hatası:', error);
-                    
                     // Yazıyor göstergesini kaldır
                     typingIndicator.remove();
-                    
                     // Hata mesajını göster
                     addMessage('bot', `
                         <p>Üzgünüm, bir teknik sorun oluştu. Bu genellikle aşağıdaki nedenlerden kaynaklanır:</p>
                         <ul>
-                            <li>CORS politikası sorunları (tarayıcı kaynaklı)</li>
-                            <li>API anahtarı limitleri veya kısıtlamaları</li>
+                            <li>Bağlantı sorunları</li>
+                            <li>API erişim kısıtlamaları</li>
                             <li>Geçici sunucu sorunları</li>
                         </ul>
                         <p>Lütfen tekrar deneyin veya soldaki menüden bir konu seçerek devam edin.</p>
@@ -1814,7 +1388,6 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                     `);
                 }
             }
-
             // Yeni Sohbet Başlatma
             newChatBtn.addEventListener('click', function() {
                 showModal('Yeni bir sohbet başlatmak istediğinize emin misiniz? Mevcut sohbet geçmişi silinecektir.', function() {
@@ -1825,13 +1398,11 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                     showWelcomeMessage();
                 });
             });
-
             // Sohbet Geçmişi Öğesi Seçme
             historyItems.forEach(item => {
                 item.addEventListener('click', function() {
                     document.querySelector('.history-item.active').classList.remove('active');
                     this.classList.add('active');
-                    
                     // Konu bazlı ekstra içerik gösterme
                     const topic = this.getAttribute('data-topic');
                     if (topic) {
@@ -1841,7 +1412,6 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                     }
                 });
             });
-
             // Enter Tuşu ile Gönderme
             userInput.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter' && !e.shiftKey) {
@@ -1849,10 +1419,8 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                     sendMessage();
                 }
             });
-
             // Gönder Butonuna Tıklanınca
             sendButton.addEventListener('click', sendMessage);
-            
             // Textarea Yükseklik Ayarlama
             userInput.addEventListener('input', function() {
                 this.style.height = 'auto';
@@ -1863,7 +1431,6 @@ Eğer sana eğitimin içeriği dışında bir soru sorulursa: "Bu konu Yusuf Yam
                     this.style.overflowY = 'auto';
                 }
             });
-
             // Sayfa kapanmadan önce sohbeti kaydet
             window.onbeforeunload = function() {
                 saveChatHistory();
